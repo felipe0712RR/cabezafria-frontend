@@ -3,12 +3,14 @@ import { Home } from './pages/public/home/home';
 import { Login } from './pages/public/login/login';
 import { Register } from './pages/public/register/register';
 import { Users } from './pagues/private/users/users';
+import { ProductNewForm } from './pages/private/users/new-form/new-form';
 
 export const routes: Routes = [ 
     { path: 'home', component: Home },
     { path: 'login', component: Login},
     { path:'registe', component: Register},
     { path: 'dashboard/users', component: Users},
+    { path: 'dashboard/users/new', component: ProductNewForm},
     { path: '**', redirectTo: 'home',pathMatch: 'full'},
     { path: '', redirectTo: 'home',pathMatch: 'full'}
 ];

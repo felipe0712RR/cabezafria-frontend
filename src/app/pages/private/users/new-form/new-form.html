@@ -1,0 +1,37 @@
+<form 
+    [formGroup]="formData" 
+    (submit)="onSubmit()"
+    class="from from__login">
+
+    <h1>registrar usuarios</h1>
+    <div class="form-content">
+
+        <div class="field">
+            <label for="user-name">Nombre completo</label>
+            <input type="text" formControlName="name" value="" placeholder="Ej: manzana" id="user-name">
+        </div>
+        <div class="field">
+            <label for="email-user">Correo electronico</label>
+            <input type="text" formControlName="email" value="" placeholder="Ej: correo@gmail.com" id="email-user">
+        </div>
+        <div class="field">
+            <label for="password-user">Contraseña</label>
+            <input type="text" formControlName="password" value="" placeholder="Ej: 1234abcd*" id="password-user">
+        </div>
+        <div class="field">
+            <label for="phoneNumber-user">Numero de telefono</label>
+            <input type="text" formControlName="phoneNumber"  value="" placeholder="Ej: 0000000000" id="phoneNumber-user">
+        </div>
+        <div class="field">
+                <label for="role-user">Rol del usuario</label>
+                <select formControlName="role" id="role-user">
+                    <option value="">Administrador</option>
+                    <option value="home">Colaborador</option>
+                    <option value="technology">Registrado</option>
+                </select>
+        </div>
+        <div class="field">
+            <button>Register product</button>
+        </div>
+    </div>
+</form> 
