@@ -1,0 +1,208 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+/* header */
+
+.header__container__section-1{
+    display: flex;
+    justify-content: space-between;
+    background-color: #0f1724;
+    @media (min-width:768px) {
+        padding: 0 2rem;
+    }
+}
+
+.header__container__section-1__left{
+    display: flex;
+}
+
+.header__container__section-1__left__logo{
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.header__container__section-1__left__logo__img{
+    width: 82px;
+    height: 82px;
+    filter: drop-shadow(-12px 8px 3px #000);
+}
+
+.header__container__section-1__left__name{
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.header__container__section-1__left__name__title{
+    text-shadow: -12px 8px 3.5px #000;
+}
+
+.header__container__section-1__left__name__title__h1{
+    color: #ede8dc;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.8rem;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.header__container__section-1__left__name__slogan{
+    padding-bottom: .7rem;
+    text-shadow: -12px 8px 2.5px #000;
+}
+
+.header__container__section-1__left__name__slogan__h2{
+    margin: 0%;
+    font-size: 1rem;
+    color: #ede8dc;
+    font-size: .75rem;
+}
+
+.header__container__section-1__right__burger{
+    padding: 1rem 1rem 0 0;
+}
+
+.header__container__section-1__right__burger__icon{
+    color: #ede8dc;
+    font-size: 2rem;
+    @media (min-width:768px) {
+        display: none ;
+    }
+}
+
+.header__container__section-1__right{
+    display: none;
+    @media (min-width:768px) {
+    display: flex;
+    padding-top: 1rem;
+    gap: 2rem;
+    }
+}
+
+.header__container__section-1__right__items{
+    padding: 0;
+}
+
+.header__container__section-1__right__shopping-bag__user__btns{
+    padding: 0;
+    background-color: #0f1724;
+    border-style: none;
+}
+
+.header__container__section-1__right__shopping-bag__user__btns__imgs{
+    width: 2.5rem;
+    height: 2.5rem;
+    filter: drop-shadow(-12px 8px 1.7px #000);
+}
+
+.header__container__section-1__right__sign-in__register__btns{
+    width: 5rem;
+    height: 1.8rem;
+    border-radius: 1.2rem;
+    border-style: none;
+    margin-top: .3rem;
+    filter: drop-shadow(-12px 8px 1.7px #000);
+}
+
+.header__container__section-1__right__sign-in__btn{
+    background-color: #b5b4aa;
+    color: #ede8dc;
+}
+
+.header__container__section-1__right__register__btn{
+    background-color: #6a7377;
+    width: 6rem;
+    color: #ede8dc;
+}
+
+.header__container__section-1__right__sign-in__register__btns__texts{
+    margin: 0;
+    text-shadow: -1px 1px 1px #000;
+    font-size: .8rem;
+}
+
+.header__container__section-2{
+    background-color: #ede8dc;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.header__container__section-2__marks-bar{
+    max-width: 70%;
+    padding: .5rem 1.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.header__container__section-2__marks-bar__content{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    @media (min-width:768px) {
+        gap: 5rem;
+    }
+}
+
+.header__container__section-2__marks-bar__content__items{
+    padding-right: 5rem;
+}
+
+.header__container__section-2__marks-bar__content__items__names{
+    display: flex;
+    justify-content: center;
+}
+
+.header__container__section-2__marks-bar__content__items__names__titles{
+    font-size: .7rem;
+}
+
+.header__container__section-2__marks-bar__content__items__logos__imgs{
+    width: 70px;
+    height: 70px;
+    @media (min-width:768px) {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.header__container__section-2__marks-bar__content__item-1{
+    padding-left: 5rem;
+}
+
+.header__container__section-2__marks-bar__content__item-6__logo {
+    display: flex;
+    justify-content: center;
+}
+
+.header__container__section-2__marks-bar__content__item-6__logo__img{
+    width: 66.5px;
+    @media (min-width:768px) {
+        width: 95px;
+    }
+}
+
+.header__container__section-2__marks-bar__content__item-7__logo__img{
+    width: 93.33px;
+    @media (min-width:768px) {
+        width: 133.33px;
+    }
+}
+
+.header__container__section-2__marks-bar__content__item-8__logo__img{
+    width: 99px;
+    @media (min-width:768px) {
+        width: 142px;
+    }
+    
+}
