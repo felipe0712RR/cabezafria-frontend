@@ -1,58 +1,78 @@
-form {
-    max-width: 500px;
-    margin: 2rem auto;
+/* Tipografías (asegúrate de cargarlas desde Google Fonts en tu HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter&display=swap');
+
+/* Estilos base del formulario */
+.from__login {
+    background-color: #0f1724;
     padding: 2rem;
-    background-color: #ede8dc;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Inter', sans-serif;
+    color: #ede8dc;
 }
 
-form h1 {
-    text-align: center;
+.from__login h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
+    color: #ede8dc;
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: #163e56;
+    text-align: center;
 }
 
-form div {
-    margin-bottom: 1.2rem;
+/* Estilo del contenedor de campos */
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Campo individual */
+.field {
     display: flex;
     flex-direction: column;
 }
 
-label {
+/* Etiquetas */
+.field label {
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #555;
 }
 
-input[type="text"],
-select {
-    padding: 0.6rem 0.8rem;
-    border: 1px solid #ccc;
+/* Inputs y selects */
+.field input,
+.field select {
+    padding: 0.7rem;
+    border: none;
     border-radius: 8px;
+    background-color: #ede8dc;
+    color: #0f1724;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    transition: box-shadow 0.3s ease;
 }
 
-input[type="text"]:focus,
-select:focus {
-    border-color: #007bff;
+.field input:focus,
+.field select:focus {
     outline: none;
+    box-shadow: 0 0 0 2px #163e56;
 }
 
-select {
-    background-color: #fff;
+/* Botón */
+.field button {
+    margin-top: 1rem;
+    padding: 0.9rem;
+    font-size: 1rem;
+    background-color: #163e56;
+    color: #ede8dc;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Anton', sans-serif;
+    transition: background-color 0.3s ease;
 }
 
-@media (max-width: 600px) {
-    form {
-        padding: 1rem;
-    }
-
-    input,
-    select {
-        font-size: 0.95rem;
-    }
-} 
+.field button:hover {
+    background-color: #21506e;
+}
