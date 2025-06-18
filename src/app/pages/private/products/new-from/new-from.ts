@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-from',
@@ -12,18 +12,47 @@ export class ProductNewFrom {
 
   constructor(){
     this.formData= new FormGroup({
-      name: new FormControl(),
-      description: new FormControl(),
-      price: new FormControl(),
-      stock: new FormControl(),
+      name: new FormControl( '', [Validators.required, Validators.min(5), Validators.max(50)]),
+      description: new FormControl('',[]),
+      price: new FormControl(0, [Validators.required, Validators.min(0)]),
+      stock: new FormControl(1, [Validators.min(1)]),
       urlImage: new FormControl(),
       category: new FormControl(),
-      state: new FormControl(),
+      state: new FormControl(true, [Validators.required]),
     });
   };
 
   onSubmit(){
-    console.log(this.formData.value);
-    
+    if(this.formData.valid){
+      console.log(this.formData.value)
+
+    }this.formData.reset();
   }
+  
+  ngOnInit(){console.log('ngOnInit');
+  }
+
+  ngOnChanges(){console.log('ngOnChanges');
+  }
+
+  ngDoCheck(){console.log('ngDoCheck');
+  }
+
+  ngAfterContentInit(){console.log('ngAfterContentInit');
+  }
+
+  ngAfterContentChecked(){console.log('ngAfterContentChecked');
+  }
+
+  ngAfterViewInit(){console.log('ngAfterViewInit');
+  }
+
+  ngAfterViewChecked(){console.log('ngAfterViewChecked');
+  }
+
+  afterEveryRender(){console.log('afterEveryRender')}
+  
+  ngOnDestroy(){console.log('ngOnDestroy');
+  }
+
 }

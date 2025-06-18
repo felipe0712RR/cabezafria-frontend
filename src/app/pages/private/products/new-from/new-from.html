@@ -33,9 +33,9 @@
         </div>
         <div class="field">
             <label>State</label>
-            <input type="radio" formControlName="state"  placeholder="" id="product-state-available">
+            <input type="radio" formControlName="state"  placeholder="" [value]="true" id="product-state-available">
             <label for="product-state-available">Available</label>
-            <input type="radio" formControlName="state"  placeholder="" id="product-state-notavailable">
+            <input type="radio" formControlName="state"  placeholder="" [value]="false" id="product-state-notavailable">
             <label for="product-state-notavailable">Not Available</label>
         </div>
         <div class="field">
