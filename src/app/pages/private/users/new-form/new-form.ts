@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { usersServices } from '../../../../services/users-service';
 
 @Component({
   selector: 'app-new-form',
@@ -9,17 +10,56 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class ProductNewForm {
     formData!: FormGroup;
+    users = [];
 
-  constructor() {
-    this.formData = new FormGroup({
-      name: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      phoneNumber: new FormControl(),
-      role: new FormControl()
+constructor( private userService: usersServices){
+    this.formData= new FormGroup({
+      password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),
+      email: new FormControl('',[Validators.required, Validators.email]),
+      phoneNumber: new FormControl('',[Validators.required])
+
     });
+  };
+
+  onSubmit(){
+    if(this.formData.valid){
+      console.log(this.formData.value)
+
+    }this.formData.reset();
   }
-  onSubmit() {
-    console.log( this.formData.value );
+  
+  ngOnInit(){console.log('ngOnInit');
   }
+
+  ngOnChanges(){
+    this.userService.getUsers().subscribe({
+      next: ( data ) => {
+        console.log(  );
+
+      }
+    })
+    console.log('ngOnChanges');
+  }
+
+  // ngDoCheck(){console.log('ngDoCheck');
+  // }
+
+  // ngAfterContentInit(){console.log('ngAfterContentInit');
+  // }
+
+  // ngAfterContentChecked(){console.log('ngAfterContentChecked');
+  // }
+
+  // ngAfterViewInit(){console.log('ngAfterViewInit');
+  // }
+
+  // ngAfterViewChecked(){console.log('ngAfterViewChecked');
+  // }
+
+  // afterEveryRender(){console.log('afterEveryRender')}
+  
+  // ngOnDestroy(){console.log('ngOnDestroy');
+  // }
+
 }
+
