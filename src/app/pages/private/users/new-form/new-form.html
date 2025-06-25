@@ -4,6 +4,7 @@
     class="from from__login">
 
     <h1>registrar usuarios</h1>
+    
     <div class="form-content">
 
         <div class="field">
@@ -19,17 +20,27 @@
             <input type="text" formControlName="phoneNumber"  value="" placeholder="Ej: 0000000000" id="phoneNumber-user">
         </div>
         <!-- <div class="field">
-                <label for="role-user">Rol del usuario</label>
-                <select formControlName="role" id="role-user">
-                    <option value="">selected...</option>
+            <label for="product-user">users</label>
+            <select formControlName="user" id="product-user">
+                <option value="">Selected..</option>
 
-                    @for ( role of  ; track $index ){
-                    <option [value]="role">{{ role }}</option>
-                    }
-                    
-                    
-                </select>
-        </div> -->
+                // for( const value of list ) {
+                    console.log( value );
+                } -->
+<!-- 
+                @for ( objuser of users; track $index ) {
+                    <option [value]="objuser._id">{{ objuser.name }}</option>
+                } -->
+                
+            <!-- </select>
+        </div>
+            <!-- <div class="field">
+                <label>State </label>
+                <input type="radio" formControlName="state" [value]="true" placeholder="" id="product-state-available">
+                <label for="product-state-available">Available</label>
+                <input type="radio" formControlName="state" [value]="false" placeholder="" id="product-state-notavailable">
+                <label for="product-state-notavailable">Not Available</label>
+            </div> --> 
         <div class="field">
             <button>Register product</button>
         </div>

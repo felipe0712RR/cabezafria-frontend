@@ -10,7 +10,7 @@ import { usersServices } from '../../../../services/users-service';
 })
 export class ProductNewForm {
     formData!: FormGroup;
-    users = [];
+    users: any =[];
 
 constructor( private userService: usersServices){
     this.formData= new FormGroup({
@@ -22,25 +22,38 @@ constructor( private userService: usersServices){
   };
 
   onSubmit(){
+      console.log(
+        this.formData.valid,
+        this.formData.invalid,
+        this.formData.pristine,
+        this.formData.dirty,
+        this.formData.touched
+    );
+
     if(this.formData.valid){
       console.log(this.formData.value)
 
     }this.formData.reset();
   }
   
-  ngOnInit(){console.log('ngOnInit');
-  }
-
-  ngOnChanges(){
-    this.userService.getUsers().subscribe({
+  ngOnInit(){
+      this.userService.getUsers().subscribe({
       next: ( data ) => {
-        console.log(  );
-
+        console.log( data );
+        this.users = data;
+      },
+      error: ( error ) => {
+        console.error( error );
+      },
+      complete: () => {
+        console.log( 'complete' );
       }
-    })
-    console.log('ngOnChanges');
+    });
   }
-
+  ngOnDestroy() {
+    console.log( 'ngOnDestroy' );
+  }
+}
   // ngDoCheck(){console.log('ngDoCheck');
   // }
 
@@ -61,5 +74,4 @@ constructor( private userService: usersServices){
   // ngOnDestroy(){console.log('ngOnDestroy');
   // }
 
-}
 
