@@ -9,7 +9,7 @@ export class CategoryService {
 
   constructor(private http: HttpClient) {  }
   getCategories() {
-    this.http.get('http://localhost:3000/api/categories'); {
+    return this.http.get('http://localhost:3000/api/categories'); {
 
     }
 }
