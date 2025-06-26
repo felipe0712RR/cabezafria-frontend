@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { usersServices } from '../../../../services/users-service';
+import { UserService } from '../../../../services/users';
 
 @Component({
   selector: 'app-new-form',
@@ -12,8 +12,9 @@ export class ProductNewForm {
     formData!: FormGroup;
     users: any =[];
 
-constructor( private userService: usersServices){
+constructor( private userService: UserService){
     this.formData= new FormGroup({
+      userName: new FormControl( '',[Validators.required] ),
       password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),
       email: new FormControl('',[Validators.required, Validators.email]),
       phoneNumber: new FormControl('',[Validators.required])
@@ -22,35 +23,31 @@ constructor( private userService: usersServices){
   };
 
   onSubmit(){
-      console.log(
-        this.formData.valid,
-        this.formData.invalid,
-        this.formData.pristine,
-        this.formData.dirty,
-        this.formData.touched
-    );
+    //   console.log(
+    //     this.formData.valid,
+    //     this.formData.invalid,
+    //     this.formData.pristine,
+    //     this.formData.dirty,
+    //     this.formData.touched
+    // );
 
     if(this.formData.valid){
-      console.log(this.formData.value)
+      console.log( this.formData.value)
+      this.userService.registerUsers(this.formData.value).subscribe({
+        next: ( data ) => {
+          console.log( data );
+        },
+        error: ( error ) => {
+          console.log( error );
+        },
+        complete: () => {
+          
+        }
+      })
 
     }this.formData.reset();
   }
-  
-  ngOnInit(){
-      this.userService.getUsers().subscribe({
-      next: ( data ) => {
-        console.log( data );
-        this.users = data;
-      },
-      error: ( error ) => {
-        console.error( error );
-      },
-      complete: () => {
-        console.log( 'complete' );
-      }
-    });
-  }
-  ngOnDestroy() {
+    ngOnDestroy() {
     console.log( 'ngOnDestroy' );
   }
 }
