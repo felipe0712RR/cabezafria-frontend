@@ -2,7 +2,7 @@
     <h1>Register Product</h1>
 
     <div class="form-content">
-        <div class="field">
+        <div class="field field-name">
             <label for="product-name">Name</label>
             <input type="text" formControlName="productName" placeholder="Ej: Manzana" id="product-name" />
         </div>
@@ -14,7 +14,7 @@
             <label for="product-price">Price</label>
             <input type="number" formControlName="productPrice" placeholder="Ej: 20" id="product-price" />
         </div>
-        <div class="field">
+        <div class="field field-size">
             <label for="product-size">Size</label>
             <input type="radio" formControlName="productType" value="ajustable-cap" id="product-adjustable"
                 (input)="setValueSize(false)" />
@@ -26,9 +26,9 @@
                 <select formControlName="productSize" id="product-size">
                     <option value="">Escoge la talla de tu gorra</option>
                     @for (measurement of sizeMeasurement; track $index) {
-                    <option [value]="measurement">{{measurement}}</option>
+                        <option [value]="measurement">{{measurement}}</option>
                     }
-                </select>
+                </select>   
             </div>
         </div>
         <div class="field">
@@ -53,14 +53,14 @@
                 }
             </select>
         </div>
-        <div class="field">
+        <div class="field field-state">
             <label>State</label>
             <input type="radio" formControlName="productState" [value]="true" id="product-state-available" />
             <label for="product-state-available">Available</label>
             <input type="radio" formControlName="productState" [value]="false" id="product-state-notavailable" />
             <label for="product-state-notavailable">Not Available</label>
         </div>
-        <div class="field">
+        <div class="field field-submit">
             <button type="submit">Register product</button>
         </div>
 
