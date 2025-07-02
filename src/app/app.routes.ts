@@ -4,13 +4,18 @@ import { Login } from './pages/public/login/login';
 import { Register } from './pages/public/register/register';
 import { Category } from './pages/private/category/category';
 import { ProductNewFrom } from './pages/private/new-form/new-form';
+import { Products } from './pages/private/products/products';
 
-export const routes: Routes = [ 
+
+export const routes: Routes = [
     { path: 'home', component: Home },
-    { path: 'login', component: Login},
-    { path:'register', component: Register},
+    { path: 'login', component: Login },
+    { path: 'register', component: Register },
     { path: 'dashboard/category', component: Category },
     { path: 'dashboard/new-form', component: ProductNewFrom },
-    { path: '**', redirectTo: 'home',pathMatch: 'full'},
-    { path: '', redirectTo: 'home',pathMatch: 'full'}
+    { path: 'register', component: Register },
+    { path: 'dashboard/products', component: Products },
+    { path: 'dashboard/products/new', component: ProductNewFrom },
+    { path: '**', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
