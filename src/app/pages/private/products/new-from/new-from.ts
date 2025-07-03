@@ -42,45 +42,47 @@ export class ProductNewFrom {
   };
 
 
-  onSubmit(){    
-    if(this.formData.valid){
+  onSubmit() {
+    if (this.formData.valid) {
       console.log(this.formData.value);
       this.productService.registerProduct(this.formData.value).subscribe({
-        next: (data)=>{
+        next: (data) => {
           console.log(data);
           this.product = data
           this.router.navigateByUrl('/dashboard/products')
         },
-        error: (error)=>{
+        error: (error) => {
           console.log(error);
-          
+
           console.error();
-          
+
         },
-        complete: ()=>{}
+        complete: () => { }
       });
     }
     this.formData.reset();
   }
-  
-  ngOnInit(){this.categoryService.getCategories().subscribe({
-    next: (data)=>{
-      console.log(data)
-      this.categories = data 
-    },
-    error: (error)=>{
-      console.error(error);
-    },
-    complete: ()=>{
-      console.log('complete');
-    }
-  })
+
+  ngOnInit() {
+    this.categoryService.getCategories().subscribe({
+      next: (data) => {
+        console.log(data)
+        this.categories = data
+      },
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => {
+        console.log('complete');
+      }
+    })
   }
 
-  ngOnDestroy(){console.log('ngOnDestroy');
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
   }
 
-  setValueSize(value: boolean):void {
+  setValueSize(value: boolean): void {
     this.showSize = value;
   }
 }
