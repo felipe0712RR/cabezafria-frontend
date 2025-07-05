@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-fovourite',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './fovourite.html',
   styleUrls: ['./fovourite.css']
 })
-export class fovourite implements OnInit {
+export class Favourite implements OnInit {
   products = [
     { id: 1, name: 'Laptop Pro X', price: 1200, description: 'Potente laptop para profesionales.' },
     { id: 2, name: 'Mouse Ergonómico', price: 25, description: 'Diseño cómodo para largas horas de uso.' },
