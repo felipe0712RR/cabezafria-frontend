@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ValueChangeEvent } from '@angular/forms';
+import { catchError, map, of} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +23,38 @@ export class AuthServices {
     }
     
     verifyAuthenticateUser () {
-      return this.http.get( 'http://localhost:3000/api/auth/re-new-token', { headers: this.getHeaders() } );
+      return this.http.get( 'http://localhost:3000/api/auth/re-new-token', { headers: this.getHeaders() } )
+
+        .pipe(
+          map( ( data: any ) => {
+            console.log( data );
+
+            return data.token;
+          }),
+          catchError( () => {
+            return of( false );
+          })
+        );
+      
+            //   .pipe( 
+            //     tap( ( data ) => {
+            //       console.log( data );
+
+            //       return data;
+            //   } ),
+            //   map( ( newdata: any ) => {
+            //     return newdata.token.length;
+            //   } ),
+            //   catchError( () => {
+            //     return of( false );
+            //   } ),
+            // );
     }
 
 
     getHeaders() {
       const token = localStorage.getItem( 'token' ) ??'';
-      return new HttpHeaders().set( 'x-token', token );
+      return new HttpHeaders().set( 'X-Token', token );
     }
 
 }

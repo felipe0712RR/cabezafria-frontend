@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/public/home/home.component';
+import { home,  } from './pages/public/home/home.component';
 import { Login } from './pages/public/login/login';
 import { Register } from './pages/public/register/register';
 import { Users } from './pages/private/users/users';
@@ -8,12 +8,12 @@ import { Dashboard } from './pages/private/dashboard/dashboard';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [ 
-    { path: 'home', component: HomeComponent},
+    { path: 'home', component: home},
     { path: 'login', component: Login},
-    { path:'registe', component: Register},
+    { path:'register', component: Register},
     { path: 'dashboard', component: Dashboard, canActivate: [ authGuard ] },
-    { path: 'dashboard/users', component: Users},
-    { path: 'dashboard/users/new', component: ProductNewForm},
+    { path: 'dashboard/users', component: Users,},
+    { path: 'dashboard/users/new', component: ProductNewForm,},
     { path: '**', redirectTo: 'home',pathMatch: 'full'},
     { path: '', redirectTo: 'home',pathMatch: 'full'}
 ];
