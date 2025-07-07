@@ -21,17 +21,17 @@
             </div>
         </div>
         <div class="field">
-            <label for="password">Password *</label>
-            <input type="password" placeholder="Ej: 123456789" formControlName="password" id="password">
+            <label for="userPassword">userPassword *</label>
+            <input type="userPassword" placeholder="Ej: 123456789" formControlName="userPassword" id="userPassword">
             <div class="error">
-                @if(formData.get('password')?.invalid && (formData.get('password')?.dirty || formData.get('password')?.touched)){
-                    @if(formData.get('password')?.errors?.['required']){
+                @if(formData.get('userPassword')?.invalid && (formData.get('userPassword')?.dirty || formData.get('userPassword')?.touched)){
+                    @if(formData.get('userPassword')?.errors?.['required']){
                         <span>La contraseña es obligatoria.</span>
                     }
-                    @if(formData.get('password')?.errors?.['minlength']){
+                    @if(formData.get('userPassword')?.errors?.['minlength']){
                         <span>La contraseña debe tener mínimo 8 carácteres.</span>
                     }
-                    @if(formData.get('password')?.errors?.['maxlength']){
+                    @if(formData.get('userPassword')?.errors?.['maxlength']){
                         <span>La contraseña debe tener máximo 20 carácteres.</span>
                     }
                 }
