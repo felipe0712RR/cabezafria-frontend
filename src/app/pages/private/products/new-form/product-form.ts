@@ -6,12 +6,12 @@ import { ProductService } from '../../../../services/product-service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-new-form',
+  selector: 'app-product-form',
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './new-form.html',
-  styleUrl: './new-form.css'
+  templateUrl: './product-form.html',
+  styleUrl: './product-form.css'
 })
-export class ProductNewForm {
+export class ProductForm {
   formData!: FormGroup;
   categories: any = [];
   product: any = [];

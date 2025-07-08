@@ -80,8 +80,8 @@
 }
 
 
-@keyframes fadeIn {
-    form {
+@keyframes fadeIn{
+    form{
         opacity: 0;
         transform: translateY(20px);
     }
