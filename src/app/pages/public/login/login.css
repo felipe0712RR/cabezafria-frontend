@@ -1,4 +1,8 @@
 /** CSS: Forms */
+html, body{
+    color: #000;
+}
+
 .form h1 {
     text-align: center;
 }
