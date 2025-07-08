@@ -1,0 +1,38 @@
+<form [formGroup]="formData" (submit)="onSubmit()" class="form form-login">
+  <h1>Register Category</h1>
+
+  <div class="form-content">
+    <div class="field field-name">
+      <label for="category-name">Name</label>
+      <input type="text" formControlName="categoryName" id="category-name" />
+    </div>
+    <div class="field">
+      <label for="category-description">Description</label>
+      <textarea
+        formControlName="categoryDescription"
+        id="category-description"
+      ></textarea>
+    </div>
+
+    <div class="field field-state">
+      <label>owner</label>
+      <input
+        type="radio"
+        formControlName="categoryState"
+        [value]="true"
+        id="category-state-available"
+      />
+      <label for="category-state-available">Available</label>
+      <input
+        type="radio"
+        formControlName="categoryState"
+        [value]="false"
+        id="category-state-notavailable"
+      />
+      <label for="category-state-notavailable">Not Available</label>
+    </div>
+    <div class="field field-submit">
+      <button type="submit">Register category</button>
+    </div>
+  </div>
+</form>
