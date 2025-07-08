@@ -22,14 +22,17 @@
             <input type="radio" formControlName="productType" value="closed-cap" id="product-no-adjustable"
                 (input)="setValueSize(true)" />
             <label for="product-no-adjustable">De Talla</label>
-            <div *ngIf="showSize">
-                <select formControlName="productSize" id="product-size">
-                    <option value="">Escoge la talla de tu gorra</option>
-                    @for (measurement of sizeMeasurement; track $index) {
-                        <option [value]="measurement">{{measurement}}</option>
-                    }
-                </select>   
-            </div>
+            @if ( showSize ) {
+                <div>
+                    <select formControlName="productSize" id="product-size">
+                        <option value="">Escoge la talla de tu gorra</option>
+                        @for (measurement of sizeMeasurement; track $index) {
+                            <option [value]="measurement">{{measurement}}</option>
+                        }
+                    </select>   
+                </div>
+            }
+
         </div>
         <div class="field">
             <label for="product-color">Color</label>

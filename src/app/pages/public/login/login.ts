@@ -19,6 +19,9 @@ export class Login {
     });
   }
 
+  onLogin(): void {
+    this.authServices.login();
+  }
 onsubmit() {
   if( this.formData.valid){
     console.log( this.formData.value);
@@ -33,7 +36,7 @@ onsubmit() {
 
       error: ( error ) => {
         console.error( error );
-        this.router.navigateByUrl( "register" );
+        this.router.navigateByUrl( "dashboard/users/new" );
       },
       complete:() => {
         this.formData.reset();
