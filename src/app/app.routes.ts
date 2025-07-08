@@ -8,7 +8,9 @@ import { Category } from './pages/private/category/category';
 import { Products } from './pages/private/products/products';
 import { Dashboard } from './pages/private/dashboard/dashboard';
 import { authGuard } from './guards/auth-guard';
-import { ProductNewForm } from './pages/private/products/new-form/new-form';
+import { ProductForm } from './pages/private/products/new-form/product-form';
+import { UserForm } from './pages/private/users/new-form/user-form';
+
 export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'login', component: Login },
@@ -17,9 +19,9 @@ export const routes: Routes = [
     { path: 'dashboard/categories', component: Category },
     { path: 'dashboard/categories/new', component: CategoryForm },
     { path: 'dashboard/products', component: Products },
-    { path: 'dashboard/products/new', component: ProductNewForm },
+    { path: 'dashboard/products/new', component: ProductForm },
     { path: 'dashboard/users', component: Users,},
-    { path: 'dashboard/users/new', component: ProductNewForm,},
+    { path: 'dashboard/users/new', component: UserForm},
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]

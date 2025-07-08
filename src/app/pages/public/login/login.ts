@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { AuthServices } from '../../../services/auth-services';
+import { AuthService } from '../../../services/auth-service';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +12,16 @@ import { AuthServices } from '../../../services/auth-services';
 export class Login {
   formData!: FormGroup;
 
-  constructor( private authServices: AuthServices, private router: Router) {
+  constructor( private authServices: AuthService, private router: Router) {
     this.formData = new FormGroup({
       userEmail: new FormControl( '', [ Validators.required, Validators.email ] ),
       userPassword: new FormControl( '', [ Validators.required, Validators.minLength( 8 ), Validators.maxLength( 20) ] )
     });
   }
 
+  onLogin(): void {
+    this.authServices.login();
+  }
 onsubmit() {
   if( this.formData.valid){
     console.log( this.formData.value);

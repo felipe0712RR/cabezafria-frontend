@@ -1,14 +1,31 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, of} from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of} from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServices {
+export class AuthService {
 
-  constructor( private http: HttpClient ) {}
+  private _isLoggedIn = new BehaviorSubject<boolean>(false); 
+  public isLoggedIn$: Observable<boolean> = this._isLoggedIn.asObservable()
+
+  constructor( private http: HttpClient ) {
+    const token = localStorage.getItem('token');
+      if (token) {
+      this._isLoggedIn.next(true);
+      }
+  }
+
+  login(): void {
+    this._isLoggedIn.next(true);
+  }
+
+  logout(): void {
+    console.log('nos salimos del sistema');
+    this._isLoggedIn.next(false)
+  }
 
   loginUser ( credentials: any ) {
     return this.http.post( 'http://localhost:3000/api/auth/login', credentials );

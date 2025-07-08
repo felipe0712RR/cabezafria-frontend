@@ -1,11 +1,10 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-
-import { AuthServices } from '../services/auth-services';
+import { AuthService } from '../services/auth-service';
 import { catchError, map, of,} from 'rxjs';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  const authService = inject( AuthServices );
+  const authService = inject( AuthService );
   const router = inject( Router );
 
   // TODO: Mejorar el Servicio y eliminar la redireccion en el error del LoginComponent 

@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserService } from '../../../../services/users';
+import { UserService } from '../../../../services/users-service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-new-form',
+  selector: 'app-user-form',
   imports: [ ReactiveFormsModule ],
-  templateUrl: './new-form.html',
-  styleUrl: './new-form.css'
+  templateUrl: './user-form.html',
+  styleUrl: './user-form.css'
 })
-export class ProductNewForm {
+export class UserForm {
     formData!: FormGroup;
     users: any =[];
 
