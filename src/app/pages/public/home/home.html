@@ -1,1 +1,38 @@
-<p>home works!</p>
+<main class="main">
+  <div class="main__container">
+    <div class="main__container__section-1">
+      <div class="main__container__section-1__img-container">
+        <button
+          class="main__container__section-1__img-container__btn__left main__container__section-1__img-container__btns"
+        >
+          Previous
+        </button>
+        <button
+          class="main__container__section-1__img-container__btn__rigth main__container__section-1__img-container__btns"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+    <div class="main__container__section-2">
+      <div class="main__container__section-2__video-container">
+        <video
+          class="main__container__section-2__video-container__video"
+          loop
+          autoplay
+          preload="auto"
+          [muted]="true"
+        >
+          <source
+            src="assets/imgs/video-main/videonewera.mp4"
+            type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+          />
+        </video>
+
+        <button class="main__container__section-2__video-container__btn">
+          VER TODO EL CATÁLOGO
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

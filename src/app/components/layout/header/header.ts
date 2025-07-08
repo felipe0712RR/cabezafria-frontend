@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth-service';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +10,12 @@ import { RouterLink } from '@angular/router';
 })
 export class Header {
 
+  constructor( private authService: AuthService, private router: Router){
+  }
+
+  logOut(){
+    console.log('nos salimos del sistema');
+    this.authService.deleteLocalStorage('token');
+    this.router.navigateByUrl('home');
+  }
 }

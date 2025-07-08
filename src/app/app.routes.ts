@@ -6,13 +6,14 @@ import { CategoryForm } from './pages/private/category/category-form/category-fo
 import { Category } from './pages/private/category/category';
 import { ProductNewFrom } from './pages/private/new-form/new-form';
 import { Products } from './pages/private/products/products';
-
-
+import { Dashboard } from './pages/private/dashboard/dashboard';
+import { authGuard } from './guards/auth-guard';
 export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'login', component: Login },
     { path: 'register', component: Register },
-    { path: 'dashboard/categories', component: CategoryForm },
+    { path: 'dashboard', component: Dashboard, canActivate: [authGuard] },
+    { path: 'dashboard/categories', component: Category },
     { path: 'dashboard/categories/new', component: CategoryForm },
     { path: 'dashboard/new-form', component: ProductNewFrom },
     { path: 'register', component: Register },
@@ -20,4 +21,4 @@ export const routes: Routes = [
     { path: 'dashboard/products/new', component: ProductNewFrom },
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
-];
+]
