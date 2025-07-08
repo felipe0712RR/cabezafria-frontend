@@ -54,6 +54,7 @@ export class AuthServices {
 
     getHeaders() {
       const token = localStorage.getItem( 'token' ) ??'';
+      console.log( token)
       return new HttpHeaders().set( 'X-Token', token );
     }
 

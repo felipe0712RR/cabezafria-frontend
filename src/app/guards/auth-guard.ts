@@ -8,7 +8,9 @@ export const authGuard: CanActivateFn = (route, state) => {
   const authService = inject( AuthServices );
   const router = inject( Router );
 
-  return authService.verifyAuthenticateUser().pipe
+  // TODO: Mejorar el Servicio y eliminar la redireccion en el error del LoginComponent 
+  return authService.verifyAuthenticateUser()
+  .pipe
   (
       map( ( data ) => {
         console.log( 'Guard',data );
@@ -21,6 +23,7 @@ export const authGuard: CanActivateFn = (route, state) => {
         return true;
       } ),
       catchError( () => {
+        router.navigateByUrl( 'register' )
         return of( false );
       })
     )

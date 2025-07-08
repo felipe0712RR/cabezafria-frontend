@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../../../services/users';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-form',
@@ -12,12 +13,13 @@ export class ProductNewForm {
     formData!: FormGroup;
     users: any =[];
 
-constructor( private userService: UserService){
+constructor( private userService: UserService, private router: Router){
+
     this.formData= new FormGroup({
       userName: new FormControl( '',[Validators.required] ),
-      password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),
-      email: new FormControl('',[Validators.required, Validators.email]),
-      phoneNumber: new FormControl('',[Validators.required])
+      userPassword: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),
+      userEmail: new FormControl('',[Validators.required, Validators.email]),
+      userPhoneNumber: new FormControl('',[Validators.required])
 
     });
   };

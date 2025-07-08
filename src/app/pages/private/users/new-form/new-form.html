@@ -1,51 +1,44 @@
-<form 
-    [formGroup]="formData" 
-    (submit)="onSubmit()"
-    class="from from__login">
+<div class="form__container-user">
 
-    <h1>registrar usuarios</h1>
-    
-    <div class="form-content">
-        <div class="field">
-            <label for="userName-user">Nombre completo</label>
-            <input type="text" formControlName="userName" value="" placeholder="Ej: Ingresa tus nombres" id="userName-user">
-        </div>
-        <div class="field">
-            <label for="email-user">Correo electronico</label>
-            <input type="text" formControlName="email" value="" placeholder="Ej: correo@gmail.com" id="email-user">
-        </div>
-        <div class="field">
-            <label for="password-user">Contraseña</label>
-            <input type="text" formControlName="password" value="" placeholder="Ej: 1234abcd*" id="password-user">
-        </div>
-        <div class="field">
-            <label for="phoneNumber-user">Numero de telefono</label>
-            <input type="text" formControlName="phoneNumber"  value="" placeholder="Ej: 0000000000" id="phoneNumber-user">
-        </div>
-        <!-- <div class="field">
-            <label for="product-user">users</label>
-            <select formControlName="user" id="product-user">
-                <option value="">Selected..</option>
+    <form [formGroup]="formData" (submit)="onSubmit()" class="form form__login">
 
-                // for( const value of list ) {
-                    console.log( value );
-                } -->
-<!-- 
-                @for ( objuser of users; track $index ) {
-                    <option [value]="objuser._id">{{ objuser.name }}</option>
-                } -->
-                
-            <!-- </select>
+        <div class="container__user">
+
+            <div class="main__conainer">
+                <h1>registrar usuarios</h1>
+            </div>
+
+            <div class="form-content">
+
+                <div class="field">
+                    <label for="userName-user">Nombre completo</label>
+                    <input type="text" formControlName="userName" value="" placeholder="Ej: Ingresa tus nombres"
+                        id="userName-user">
+                </div>
+                <div class="field">
+                    <label for="userEmail-user">Correo electronico</label>
+                    <input type="text" formControlName="userEmail" value="" placeholder="Ej: correo@gmail.com"
+                        id="userEmail-user">
+                </div>
+                <div class="field">
+                    <label for="userPassword-user">Contraseña</label>
+                    <input type="text" formControlName="userPassword" value="" placeholder="Ej: 1234abcd*"
+                        id="userPassword-user">
+                </div>
+                <div class="field">
+                    <label for="userPhoneNumber-user">Numero de telefono</label>
+                    <input type="text" formControlName="userPhoneNumber" value="" placeholder="Ej: 0000000000"
+                        id="userPhoneNumber-user">
+                </div>
+
+            </div>
+            <div class="my-button">
+
+                <button>Register product</button>
+            </div>
+
         </div>
-            <!-- <div class="field">
-                <label>State </label>
-                <input type="radio" formControlName="state" [value]="true" placeholder="" id="product-state-available">
-                <label for="product-state-available">Available</label>
-                <input type="radio" formControlName="state" [value]="false" placeholder="" id="product-state-notavailable">
-                <label for="product-state-notavailable">Not Available</label>
-            </div> --> 
-        <div class="field">
-            <button>Register product</button>
-        </div>
-    </div>
-</form> 
+
+    </form>
+
+</div>

@@ -26,11 +26,15 @@ onsubmit() {
 
     this.authServices.loginUser( this.formData.value ).subscribe( {
       next: ( data: any ) => { 
-      this.authServices.saveLocalStorage( 'token', data.token )
+        console.log('Login response:', data);
+        this.authServices.saveLocalStorage( 'token', data.token )
         this.router.navigateByUrl( 'dashboard' );
+
       },
+
       error: ( error ) => {
         console.error( error );
+        this.router.navigateByUrl( "register" );
       },
       complete:() => {
         this.formData.reset();
