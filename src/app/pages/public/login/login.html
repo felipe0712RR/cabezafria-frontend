@@ -1,44 +1,49 @@
-<form 
-    class="form form-login" 
-    [formGroup]="formData" 
-    (ngSubmit)="onSubmit()"
->
-    <h1>Login</h1>
-
-    <div class="form-content">
-        <div class="field">
-            <label for="userEmail">UserEmail *</label>
-            <input type="text" placeholder="Ej: manuela@correo.co" formControlName="userEmail" id="username">
-            <div class="error">
-                @if(formData.get('userEmail')?.invalid && (formData.get('userEmail')?.dirty || formData.get('userEmail')?.touched)){
-                    @if(formData.get('userEmail')?.errors?.['required']){
-                        <span>El correo es Obligatorio.</span>
-                    }
-                    @if(formData.get('userEmail')?.errors?.['email'] || formData.get('userEmail')?.errors?.['mustEndWithCom']){
-                        <span>El correo es invalido.</span>
-                    }
-                }
+<div class="form__container">
+    <form 
+        class="form form-login" 
+        [formGroup]="formData"
+        (ngSubmit)="onsubmit()"
+    >
+        <div class="form__container-login">
+            
+                <h1>Login</h1>
+            
+            <div class="form-content">
+                <div class="field">
+                    <label for="userEmail">userEmail</label>
+                    <input type="text" placeholder="Ej: correo@gmail.com" id="userEmail" formControlName="userEmail">
+                    <div class="error">
+                        @if ( formData.get( 'userEmail' )?.invalid && (( formData.get( 'userEmail' )?.dirty || formData.get( 'userEmail' )?.touched)) ) {
+                            @if ( formData.get( 'userEmail' )?.errors?.[ 'required' ] ) {
+                                <span>El correo es obligatorio</span>
+                            }
+                            @if ( formData.get( 'userEmail' )?.errors?.[ 'email' ] ) {
+                                <span>El correo es invalido</span>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="userPassword">userPassword *</label>
+                    <input type="userPassword" placeholder="Ej: 123456789" id="userPassword" formControlName="userPassword">
+                    <div class="error">
+                        @if ( formData.get( 'userPassword' )?.invalid && ( formData.get( 'userPassword' )?.dirty || formData.get( 'userPassword' )?.touched) ) {
+                            @if ( formData.get( 'userPassword' )?.errors?.[ 'required' ] ) {
+                                <span>El userPassword es obligatorio</span>
+                            }
+                            @if ( formData.get( 'userPassword' )?.errors?.[ 'minlength' ] ) {
+                                <span>El userPassword debe tener minimo '8' caracteres</span>
+                            }
+                            @if ( formData.get( 'userPassword' )?.errors?.[ 'maxlength' ] ) {
+                                <span>El userPassword debe tener maximo '20' caracteres</span>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="field">
+                    <button type="submit" [disabled]="formData.invalid">Login</button>
+                </div>
             </div>
         </div>
-        <div class="field">
-            <label for="userPassword">userPassword *</label>
-            <input type="userPassword" placeholder="Ej: 123456789" formControlName="userPassword" id="userPassword">
-            <div class="error">
-                @if(formData.get('userPassword')?.invalid && (formData.get('userPassword')?.dirty || formData.get('userPassword')?.touched)){
-                    @if(formData.get('userPassword')?.errors?.['required']){
-                        <span>La contraseña es obligatoria.</span>
-                    }
-                    @if(formData.get('userPassword')?.errors?.['minlength']){
-                        <span>La contraseña debe tener mínimo 8 carácteres.</span>
-                    }
-                    @if(formData.get('userPassword')?.errors?.['maxlength']){
-                        <span>La contraseña debe tener máximo 20 carácteres.</span>
-                    }
-                }
-            </div>
-        </div>
-        <div class="field">
-            <button type="submit" [disabled]="formData.invalid">Login</button>
-        </div>
-    </div>
-</form>
+    </form>
+</div>
