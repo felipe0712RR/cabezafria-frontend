@@ -4,8 +4,8 @@
             <div class="header__container__section-1__left">
                 <div class="header__container__section-1__left__logo">
                     <a routerLink="home">
-                        <img class="header__container__section-1__left__logo__img" src="assets/imgs/cabezafria/cabezafrialogo.png"
-                            alt="CabezaFria-logo">
+                        <img class="header__container__section-1__left__logo__img"
+                            src="assets/imgs/cabezafria/cabezafrialogo.png" alt="CabezaFria-logo">
                     </a>
                 </div>
                 <div class="header__container__section-1__left__name">
@@ -28,7 +28,7 @@
                         class="header__container__section-1__right__shopping-bag__btn header__container__section-1__right__shopping-bag__user__btns">
                         <img class="header__container__section-1__right__shopping-bag__user__btns__imgs"
                             src="assets/imgs/cabezafria/shopping-bag.png" alt="shopping-bag">
-            </a>
+                    </a>
                 </div>
                 <div class="header__container__section-1__right__user header__container__section-1__right__items">
                     <button
@@ -38,144 +38,55 @@
                     </button>
                 </div>
                 @if (!isLoggedIn) {
-                    <div class="header__container__section-1__right__login header__container__section-1__right__items">
-                        <button
-                            class="header__container__section-1__right__login__btn header__container__section-1__right__sign-in__register__btns">
-                            <a routerLink="login" class="header__container__section-1__right__login__btn__text header__container__section-1__right__sign-in__register__btns__texts">
+                <div class="header__container__section-1__right__login header__container__section-1__right__items">
+                    <button
+                        class="header__container__section-1__right__login__btn header__container__section-1__right__sign-in__register__btns">
+                        <a routerLink="login"
+                            class="header__container__section-1__right__login__btn__text header__container__section-1__right__sign-in__register__btns__texts">
                             LOGIN</a>
-                        </button>
-                    </div>
+                    </button>
+                </div>
                 }
-                
+
                 @if ( isLoggedIn ) {
-                    <div>
-                        <button (click)="onLogout()" 
-                            class="header__container__section-1__right__logout__btn header__container__section-1__right__sign-in__register__btns">
-                            <a  (click)="logOut()"  
-                                class="header__container__section-1__right__logout__btn__text header__container__section-1__right__sign-in__register__btns__texts">
-                                LOGOUT</a>
-                        </button>
-                    </div>
+                <div>
+                    <button (click)="onLogout()"
+                        class="header__container__section-1__right__logout__btn header__container__section-1__right__sign-in__register__btns header__container__section-1__right__logout__btn__text header__container__section-1__right__sign-in__register__btns__texts">
+                        LOGOUT
+                    </button>
+                </div>
                 }
                 @if (!isLoggedIn) {
-                    <div class="header__container__section-1__right__register header__container__section-1__right__items">
-                        <button
-                            class="header__container__section-1__right__register__btn header__container__section-1__right__sign-in__register__btns">
-                            <a routerLink="dashboard/users/new"
+                <div class="header__container__section-1__right__register header__container__section-1__right__items">
+                    <button
+                        class="header__container__section-1__right__register__btn header__container__section-1__right__sign-in__register__btns">
+                        <a routerLink="dashboard/users/new"
                             class="header__container__section-1__right__register__btn__text header__container__section-1__right__sign-in__register__btns__texts">
                             REGISTER</a>
-                        </button>
-                    </div>
-                }   
+                    </button>
+                </div>
+                }
             </div>
         </div>
         <div class="header__container__section-2">
-            <div id="header__container__section-2__marks-bar" class="header__container__section-2__marks-bar">
+            <div #cajita id="header__container__section-2__marks-bar" class="header__container__section-2__marks-bar">
                 <div class="header__container__section-2__marks-bar__content">
+                    @for (brand of brands; track brand.name; let i = $index) {
                     <div
-                        class="header__container__section-2__marks-bar__content__item-1 header__container__section-2__marks-bar__content__items">
-                        <div
-                            class="header__container__section-2__marks-bar__content__item-1__name header__container__section-2__marks-bar__content__items__names">
-                            <h3
-                                class="header__container__section-2__marks-bar__content__item-1__name__title header__container__section-2__marks-bar__content__items__names__titles">
-                                NEW ERA</h3>
+                        class="header__container__section-2__marks-bar__content__item-{{ i + 1 }} header__container__section-2__marks-bar__content__items">
+                        <div class="header__container__section-2__marks-bar__content__items__names">
+                            <h3 class="header__container__section-2__marks-bar__content__items__names__titles">
+                                {{ brand.name }}
+                            </h3>
                         </div>
-                        <div class="header__container__section-2__marks-bar__content__item-1__logo">
-                            <img class="header__container__section-2__marks-bar__content__item-1__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
-                                src="assets/imgs/newera/neweralogo.png" alt="new-era-cap">
+
+                        <div
+                            class="{{ i === 5 ? 'header__container__section-2__marks-bar__content__item-6__logo' : 'header__container__section-2__marks-bar__content__item-' + (i + 1) + '__logo' }}">
+                            <img class="header__container__section-2__marks-bar__content__item-{{ i + 1 }}__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
+                                [src]="brand.logo" [alt]="brand.alt" />
                         </div>
                     </div>
-                    <div
-                        class="header__container__section-2__marks-bar__content__item-2 header__container__section-2__marks-bar__content__items">
-                        <div
-                            class="header__container__section-2__marks-bar__content__item-2__name header__container__section-2__marks-bar__content__items__names">
-                            <h3
-                                class="header__container__section-2__marks-bar__content__item-2__name__title header__container__section-2__marks-bar__content__items__names__titles">
-                                BURBERRY</h3>
-                        </div>
-                        <div class="header__container__section-2__marks-bar__content__item-2__logo">
-                            <img class="header__container__section-2__marks-bar__content__item-2__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
-                                src="assets/imgs/burberry/burberrylogo.png" alt="burberry-cap">
-                        </div>
-                    </div>
-                    <div
-                        class="header__container__section-2__marks-bar__content__item-3 header__container__section-2__marks-bar__content__items">
-                        <div
-                            class="header__container__section-2__marks-bar__content__item-3__name header__container__section-2__marks-bar__content__items__names">
-                            <h3
-                                class="header__container__section-2__marks-bar__content__item-3__name__title header__container__section-2__marks-bar__content__items__names__titles">
-                                LOUIS VUITTON</h3>
-                        </div>
-                        <div class="header__container__section-2__marks-bar__content__item-3__logo">
-                            <img class="header__container__section-2__marks-bar__content__item-3__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
-                                src="assets/imgs/louisvuitton/louisvuittonlogo.png" alt="louis-vuitton-cap">
-                        </div>
-                    </div>
-                    <div
-                        class="header__container__section-2__marks-bar__content__item-4 header__container__section-2__marks-bar__content__items">
-                        <div
-                            class="header__container__section-2__marks-bar__content__item-4__name header__container__section-2__marks-bar__content__items__content__names">
-                            <h3
-                                class="header__container__section-2__marks-bar__content__item-4__name__title header__container__section-2__marks-bar__content__items__names__titles">
-                                GOORING BROS</h3>
-                        </div>
-                        <div class="header__container__section-2__marks-bar__content__item-4__logo">
-                            <img class="header__container__section-2__marks-bar__content__item-4__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
-                                src="assets/imgs/goorinbros/goorinbroslogo.png" alt="gooring-bros-cap">
-                        </div>
-                    </div>
-                    <div
-                        class="header__container__section-2__marks-bar__content__item-5 header__container__section-2__marks-bar__content__items">
-                        <div
-                            class="header__container__section-2__marks-bar__content__item-5__name header__container__section-2__marks-bar__content__items__names">
-                            <h3
-                                class="header__container__section-2__marks-bar__content__item-5__name__title header__container__section-2__marks-bar__content__items__names__titles">
-                                AMIRI</h3>
-                        </div>
-                        <div class="header__container__section-2__marks-bar__content__item-5__logo">
-                            <img class="header__container__section-2__marks-bar__content__item-5__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
-                                src="assets/imgs/amiri/amirilogo.png" alt="amiri-cap">
-                        </div>
-                    </div>
-                    <div
-                        class="header__container__section-2__marks-bar__content__item-6 header__container__section-2__marks-bar__content__items">
-                        <div
-                            class="header__container__section-2__marks-bar__content__item-6__name header__container__section-2__marks-bar__content__items__names">
-                            <h3
-                                class="header__container__section-2__marks-bar__content__item-6__name__title header__container__section-2__marks-bar__content__items__names__titles">
-                                MONASTERY COUTURE</h3>
-                        </div>
-                        <div class="header__container__section-2__marks-bar__content__item-6__logo">
-                            <img class="header__container__section-2__marks-bar__content__item-6__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
-                                src="assets/imgs/monasterycouture/monasterycouturelogo.png" alt="">
-                        </div>
-                    </div>
-                    <div
-                        class="header__container__section-2__marks-bar__content__item-7 header__container__section-2__marks-bar__content__items">
-                        <div
-                            class="header__container__section-2__marks-bar__content__item-7__name header__container__section-2__marks-bar__content__items__names">
-                            <h3
-                                class="header__container__section-2__marks-bar__content__item-7__name__title header__container__section-2__marks-bar__content__items__names__titles">
-                                COACH</h3>
-                        </div>
-                        <div class="header__container__section-2__marks-bar__content__item-7__logo">
-                            <img class="header__container__section-2__marks-bar__content__item-7__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
-                                src="assets/imgs/coach/coachlogo.png" alt="">
-                        </div>
-                    </div>
-                    <div
-                        class="header__container__section-2__marks-bar__content__item-8 header__container__section-2__marks-bar__content__items">
-                        <div
-                            class="header__container__section-2__marks-bar__content__item-8__name header__container__section-2__marks-bar__content__items__names">
-                            <h3
-                                class="header__container__section-2__marks-bar__content__item-8__name__title header__container__section-2__marks-bar__content__items__names__titles">
-                                GUCCI</h3>
-                        </div>
-                        <div class="header__container__section-2__marks-bar__content__item-8__logo">
-                            <img class="header__container__section-2__marks-bar__content__item-8__logo__img header__container__section-2__marks-bar__content__items__logos__imgs"
-                                src="assets/imgs/gucci/guccilogo.png" alt="">
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
