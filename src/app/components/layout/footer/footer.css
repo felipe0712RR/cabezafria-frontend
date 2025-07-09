@@ -1,18 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-body {
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-size: 12px;
-    font-style: normal;
-    color: #000;
-}
-
 .footer-title{
-    font-family: "Anton", sans-serif;
+    font-family: "Anton";
     font-weight: 400;
     font-style: normal;
 
@@ -22,9 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 30px;
     width: 100%;
-    border: 1px solid #000;
     background-color: #b5b4aa;
     @media (min-width:768px) {
         flex-direction: row;
@@ -53,11 +38,7 @@ body {
 }
 .center-section {
     width: 100%;
-    @media (min-width:768px) {
-        border-left: 1px solid #444;
-        border-right: 1px solid #444;
-        padding: 0 5rem 0 5rem;
-    }
+    padding-left: 80px;
 
 }
 .top-section{
@@ -93,7 +74,7 @@ body {
     margin-top: -10px;
     margin-bottom: -10px;
     color: transparent;
-    -webkit-text-stroke: 1px black; 
+    -webkit-text-stroke: 1px black;
 }
 
 .subtitle-center{

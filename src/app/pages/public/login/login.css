@@ -1,0 +1,110 @@
+form.form.form-login {
+    display: flex;
+    justify-content: center;
+
+} 
+
+.form__container-login {
+    background-color: #ede8dc;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    animation: _ngcontent-ng-c3896554144_fadeIn 0.8s ease-in-out;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form__container-login h1{
+    font-family: 'Anton', sans-serif;
+    color: #163e56;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-login .form-content .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+} 
+
+.form-login label {
+    color: #6a7377;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.form-login input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #b5b4aa;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-login input:focus {
+    border-color: #163e56;
+    box-shadow: 0 0 0 3px rgba(22, 62, 86, 0.2);
+    outline: none;
+}
+
+.form-login button {
+    padding: 0.75rem 2rem;
+    background-color: #163e56;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.form-login button:hover:enabled {
+    background-color: #0f1724;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-login button:active {
+    transform: scale(0.98);
+}
+
+.form-login button:disabled {
+    background-color: #b5b4aa;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.form-login .error span {
+    color: #d32f2f;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .form-login {
+        padding: 1.5rem;
+    }
+
+    .form-login button {
+        width: 100%;
+    }
+}
