@@ -1,8 +1,8 @@
 .form__container-user{
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 3rem 0;
+    align-items: center;
+    margin: 2.5rem 0;
 }
 .form__login {
     background-color: #ede8dc;
