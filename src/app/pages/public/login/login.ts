@@ -55,7 +55,3 @@ export class Login {
     }
   }
 }
-<<<<<<< HEAD
-};
-=======
->>>>>>> 19a964668e187b642afbf20b41f39578bad286b7
