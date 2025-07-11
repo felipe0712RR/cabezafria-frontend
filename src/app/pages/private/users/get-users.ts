@@ -3,12 +3,12 @@ import { UserService } from '../../../services/users-service';
 
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-get-users',
   imports: [],
-  templateUrl: './users.html',
-  styleUrl: './users.css'
+  templateUrl: './get-users.html',
+  styleUrl: './get-users.css'
 })
-export class Users {
+export class GetUsers {
   constructor ( private usersServise: UserService) {}
 
 

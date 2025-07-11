@@ -1,27 +1,26 @@
 import { Routes } from '@angular/router';
 import { Home  } from './pages/public/home/home';
-import { Login } from './pages/public/login/login';
-import { Register } from './pages/public/register/register';
-import { Users } from './pages/private/users/users';
-import { CategoryForm } from './pages/private/category/category-form/category-form';
-import { Category } from './pages/private/category/category';
-import { Products } from './pages/private/products/products';
-import { Dashboard } from './pages/private/dashboard/dashboard';
+import { LoginUser } from './pages/public/login/login';
+import { CreateNewUser } from './pages/public/register/register';
+import { AdminDashboard } from './pages/private/dashboard/dashboard';
+import { GetCategories } from './pages/private/category/get-categories';
+import { CreateNewCategory } from './pages/private/category/new-category/new-category';
+import { GetProducts } from './pages/private/products/get-products';
+import { CreateNewProduct } from './pages/private/products/new-product/new-product';
+import { GetUsers } from './pages/private/users/get-users';
 import { authGuard } from './guards/auth-guard';
-import { ProductForm } from './pages/private/products/new-form/product-form';
-import { UserForm } from './pages/private/users/new-form/user-form';
+
 
 export const routes: Routes = [
     { path: 'home', component: Home },
-    { path: 'login', component: Login },
-    { path: 'register', component: Register },
-    { path: 'dashboard', component: Dashboard, canActivate: [authGuard] },
-    { path: 'dashboard/categories', component: Category },
-    { path: 'dashboard/categories/new', component: CategoryForm },
-    { path: 'dashboard/products', component: Products },
-    { path: 'dashboard/products/new', component: ProductForm },
-    { path: 'dashboard/users', component: Users,},
-    { path: 'dashboard/users/new', component: UserForm},
+    { path: 'login', component: LoginUser },
+    { path: 'register', component: CreateNewUser },
+    { path: 'dashboard', component: AdminDashboard, canActivate: [authGuard] },
+    { path: 'dashboard/categories', component: GetCategories },
+    { path: 'dashboard/categories/new', component: CreateNewCategory, canActivate: [authGuard] },
+    { path: 'dashboard/products', component: GetProducts },
+    { path: 'dashboard/products/new', component: CreateNewProduct, canActivate: [authGuard]},
+    { path: 'dashboard/users', component: GetUsers},
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]
