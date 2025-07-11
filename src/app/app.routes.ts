@@ -10,6 +10,8 @@ import { Dashboard } from './pages/private/dashboard/dashboard';
 import { authGuard } from './guards/auth-guard';
 import { ProductForm } from './pages/private/products/new-form/product-form';
 import { UserForm } from './pages/private/users/new-form/user-form';
+import { Favourite } from './pages/private/fovourite/fovourite';
+
 
 export const routes: Routes = [
     { path: 'home', component: Home },
@@ -22,6 +24,7 @@ export const routes: Routes = [
     { path: 'dashboard/products/new', component: ProductForm },
     { path: 'dashboard/users', component: Users,},
     { path: 'dashboard/users/new', component: UserForm},
+    { path:'favourite', component: Favourite},
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]

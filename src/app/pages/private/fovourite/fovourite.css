@@ -1,23 +1,10 @@
-
-/* @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #ede8dc;
-    color: #0f1724;
-}
-
-/* Encabezados */
 h2, h3 {
     font-family: 'Anton', sans-serif;
     color: #163e56;
     margin-bottom: 1rem;
 }
 
-/* Contenedor de productos */
+
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -25,7 +12,7 @@ h2, h3 {
     padding: 2rem;
 }
 
-/* Tarjeta de producto */
+
 .product-card {
   background-color: #ffffff;
   border: 1px solid #6a7377;
@@ -50,10 +37,10 @@ h2, h3 {
   font-size: 0.95rem;
 }
 
-/* Botón de favoritos */
+
 .product-card button {
   background-color: #163e56;
-  color: #fff;
+  color: #ede8dc;
   border: none;
   padding: 0.6rem 1rem;
   margin-top: 1rem;
@@ -61,13 +48,13 @@ h2, h3 {
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
-}
+} 
 
 .product-card button:hover {
   background-color: #0f1724;
-}
+} 
 
-/* Mensaje si no hay productos */
+
 .no-products {
   font-style: italic;
   color: #6a7377;
@@ -75,7 +62,6 @@ h2, h3 {
   padding: 2rem;
 }
 
-/* Lista de favoritos */
 .fav-item {
   background-color: #163e56;
   color: #fff;

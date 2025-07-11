@@ -6,9 +6,15 @@
             <p>Precio: ${{ product.price }}</p>
             <p>{{ product.description }}</p>
 
-            <button (click)="toggleFavorite(product)">
-                {{ favIds.has(product.id) ? '❌ Quitar de Favoritos' : '⭐ Agregar a Favoritos' }}
-            </button>
+        
+
+            <div class="button__product">
+                <button>Comprar</button>
+                <button (click)="toggleFavorite(product)">
+                    {{ favIds.has(product.id) ? '❌' : '✅' }}
+                </button>
+            </div>
+
         </div>
     } @empty {
         <p class="no-products">No hay productos disponibles en este momento.</p>
