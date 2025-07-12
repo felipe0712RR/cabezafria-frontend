@@ -9,13 +9,15 @@ import { UserService } from '../../../services/users-service';
   styleUrl: './get-users.css'
 })
 export class GetUsers {
-  constructor ( private usersServise: UserService) {}
+  constructor ( private userService: UserService) {}
 
+  users: any = [];
 
   ngOnInit() {
-    this.usersServise.getUsers().subscribe({
+    this.userService.getUsers().subscribe({
       next: ( data ) => {
         console.log( data );
+        this.users = data;
       },
       error: ( error) => {
         console.error( error );
@@ -23,6 +25,21 @@ export class GetUsers {
       complete: () => {}
     });
   }
+  
+    onDelete(id: string) {
+      console.log(id)
+      this.userService.deleteUsers(id).subscribe({
+        
+        next: (data) => {
+          console.log(data);
+          this.ngOnInit()
+        },
+        error: (error) => {
+          console.error(error);
+        },
+        complete: () => { }
+      });
+    }
 
 
 

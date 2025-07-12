@@ -15,4 +15,18 @@ export class UserService {
   getUsers() {
     return this.http.get( 'http://localhost:3000/api/users' );
   }
+
+  deleteUsers(id: string) {
+    return this.http.delete('http://localhost:3000/api/users/'.concat( id ))
+  }
+
+  // hideAdmins() {
+  //   return this.http.get('http://localhost:3000/api/users' )
+  // }
+
+  // getRole() {
+  //   const role = this.getUsers.('admin') ?? '';
+  //   console.log(token);
+  //   return new HttpHeaders().set('X-Token', token);
+  // }
 };
