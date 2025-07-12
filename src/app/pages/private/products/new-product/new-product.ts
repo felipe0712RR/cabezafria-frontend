@@ -6,12 +6,12 @@ import { ProductService } from '../../../../services/product-service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-product-form',
+  selector: 'app-new-product',
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './product-form.html',
-  styleUrl: './product-form.css'
+  templateUrl: './new-product.html',
+  styleUrl: './new-product.css'
 })
-export class ProductForm {
+export class CreateNewProduct {
   formData!: FormGroup;
   categories: any = [];
   product: any = [];
@@ -34,7 +34,7 @@ export class ProductForm {
       productType: new FormControl('ajustable', [Validators.required]),
       productSize: new FormControl('N/a', [Validators.required]),
       productColor: new FormControl('', [Validators.required]),
-      productStock: new FormControl(1, [Validators.required, Validators.min(1)]),
+      productStock: new FormControl(0, [Validators.required, Validators.min(1)]),
       productUrlImage: new FormControl('', [Validators.required]),
       productCategory: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(30)]),
       productState: new FormControl(true, [Validators.required])

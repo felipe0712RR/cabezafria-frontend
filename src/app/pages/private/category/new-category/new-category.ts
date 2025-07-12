@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { CategoryService } from '../../../../services/category-service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-category-form',
+  selector: 'app-new-category',
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './category-form.html',
-  styleUrl: './category-form.css'
+  templateUrl: './new-category.html',
+  styleUrl: './new-category.css'
 })
-export class CategoryForm {
+export class CreateNewCategory {
   formData!: FormGroup;
 
   constructor(

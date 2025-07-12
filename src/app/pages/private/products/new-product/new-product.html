@@ -1,0 +1,80 @@
+<div class="form form-product">
+    
+    <form [formGroup]="formData" (submit)="onSubmit()" class="form form-login">
+        <div class="form-content">
+
+            <div class="form__container__product-title">
+                <h1>Register Product</h1>
+            </div>
+            
+            <div class="form__product">
+
+                <div class="field field-name">
+                    <label for="product-name">Name</label>
+                    <input type="text" formControlName="productName" placeholder="Ej: Manzana" id="product-name" />
+                </div>
+                <div class="field">
+                    <label for="product-description">Description</label>
+                    <textarea formControlName="productDescription" id="product-description"></textarea>
+                </div>
+                <div class="field">
+                    <label for="product-price">Price</label>
+                    <input type="number" formControlName="productPrice" placeholder="Ej: 20" id="product-price" />
+                </div>
+                <div class="field field-size">
+                    <label for="product-size">Size</label>
+                    <input type="radio" formControlName="productType" value="ajustable-cap" id="product-adjustable"
+                        (input)="setValueSize(false)" />
+                    <label for="product-adjustable">Ajustable</label>
+                    <input type="radio" formControlName="productType" value="closed-cap" id="product-no-adjustable"
+                        (input)="setValueSize(true)" />
+                    <label for="product-no-adjustable">De Talla</label>
+                    @if ( showSize ) {
+                        <div>
+                            <select formControlName="productSize" id="product-size">
+                                <option value="">Escoge la talla de tu gorra</option>
+                                @for (measurement of sizeMeasurement; track $index) {
+                                    <option [value]="measurement">{{measurement}}</option>
+                                }
+                            </select>   
+                        </div>
+                    }
+
+                </div>
+                <div class="field">
+                    <label for="product-color">Color</label>
+                    <input type="text" formControlName="productColor" placeholder="Ej: Azul, Rojo" id="product-color" />
+                </div>
+                <div class="field">
+                    <label for="product-stock">Stock</label>
+                    <input type="number" formControlName="productStock" placeholder="Ej: 20" id="product-stock" />
+                </div>
+                <div class="field">
+                    <label for="product-urlimage">Image</label>
+                    <input type="text" formControlName="productUrlImage" placeholder="http://... " id="product-urlimage" />
+                </div>
+                <div class="field">
+                    <label for="product-category">Category</label>
+                    <select formControlName="productCategory" id="product-category">
+                        <option value="">Selected..</option>
+
+                        @for (objCategory of categories; track $index) {
+                        <option [value]="objCategory._id">{{objCategory.categoryName}}</option>
+                        }
+                    </select>
+                </div>
+                <div class="field field-state">
+                    <label>State</label>
+                    <input type="radio" formControlName="productState" [value]="true" id="product-state-available" />
+                    <label for="product-state-available">Available</label>
+                    <input type="radio" formControlName="productState" [value]="false" id="product-state-notavailable" />
+                    <label for="product-state-notavailable">Not Available</label>
+                </div>
+                <div class="field field-submit">
+                    <button type="submit">Register product</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

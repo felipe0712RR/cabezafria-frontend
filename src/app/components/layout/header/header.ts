@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -88,5 +89,10 @@ export class Header implements OnInit {
     console.log('nos salimos del sistema');
     this.authService.deleteLocalStorage('token');
     this.router.navigateByUrl('home');
+    Swal.fire({
+      title: "Cerraste Sesión..!",
+      icon: "success",
+      draggable: true
+    });
   }
 }

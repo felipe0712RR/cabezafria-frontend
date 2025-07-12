@@ -9,7 +9,7 @@ import { ProductService } from '../../../services/product-service';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
-export class Dashboard {
+export class AdminDashboard {
   products = [
     { id: 1, name: 'Laptop Pro X', price: 1200, description: 'Potente laptop para profesionales.' },
     { id: 2, name: 'Mouse Ergonómico', price: 25, description: 'Diseño cómodo para largas horas de uso.' },
