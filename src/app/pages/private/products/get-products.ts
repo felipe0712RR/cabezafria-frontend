@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { ProductService } from '../../../services/product-service';
 @Component({
-  selector: 'app-products',
+  selector: 'app-get-products',
   imports: [CurrencyPipe],
-  templateUrl: './products.html',
-  styleUrl: './products.css'
+  templateUrl: './get-products.html',
+  styleUrl: './get-products.css'
 })
-export class Products {
+export class GetProducts {
   products: any = [];
 
   constructor(private productService: ProductService) { }
