@@ -7,8 +7,7 @@ import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
 })
 export class AuthService {
   private _isLoggedIn = new BehaviorSubject<boolean>(false);
-  public isLoggedIn$: Observable<boolean> = this._isLoggedIn.asObservable();
-  
+  public isLoggedIn$: Observable<boolean> = this._isLoggedIn.asObservable();  
 
   constructor(private http: HttpClient) {
     const token = localStorage.getItem('token');

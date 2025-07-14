@@ -26,26 +26,12 @@ export class GetProducts {
     });
   }
 
-  loadData() {
-    // Detecta cuando el componente se a inicializado
-    this.productService.getProducts().subscribe({
-      next: (data) => {
-        console.log(data);
-        this.products = data;
-      },
-      error: (error) => {
-        console.error(error);
-      },
-      complete: () => { }
-    });
-  }
-
   onDelete(id: string) {
     console.log(id)
     this.productService.deleteProducts(id).subscribe({
       next: (data) => {
         console.log(data);
-        this.loadData()
+        this.ngOnInit()
       },
       error: (error) => {
         console.error(error);

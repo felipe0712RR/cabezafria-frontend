@@ -1,32 +1,26 @@
 import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { CanActivateFn, Router, UrlTree } from '@angular/router';
 import { AuthService } from '../services/auth-service';
-import { catchError, map, of,} from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const authService = inject( AuthService );
-  const router = inject( Router );
+export const authGuard: CanActivateFn = (
+  route,
+  state
+): Observable<boolean | UrlTree> => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
 
-  // TODO: Mejorar el Servicio y eliminar la redireccion en el error del LoginComponent 
-  return authService.verifyAuthenticateUser()
-  .pipe
-  (
-      map( ( data ) => {
-        console.log( 'Guard',data );
-
-        if( ! data ) {
-          router.navigateByUrl( 'register' )
-          return false;
-        }
-
+  return authService.isLoggedIn$.pipe(
+    take(1), // Toma el valor actual y completa
+    map(isLoggedIn => {
+      if (isLoggedIn) {
+        console.log('AuthGuard: Usuario autenticado. Acceso permitido.');
         return true;
-      } ),
-      catchError( () => {
-        router.navigateByUrl( 'register' )
-        return of( false );
-      })
-    )
-    
-  
-  
+      } else {
+        console.warn('AuthGuard: Usuario no autenticado. Redirigiendo a login.');
+        return router.createUrlTree(['/login']); // Redirige al login
+      }
+    })
+  );
 };
