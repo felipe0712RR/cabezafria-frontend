@@ -65,7 +65,7 @@ export class Header implements OnInit {
     this.authService.isLoggedIn$.subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
     });
-    this.authService.userData$.subscribe((userData)=>{
+    this.authService.userData$.subscribe((userData)=>{      
       this.userData = userData
     })
   }
