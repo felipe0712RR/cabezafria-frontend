@@ -14,6 +14,7 @@ export class Header implements OnInit {
   @ViewChild('cajita') cajita!:ElementRef;
 
   isLoggedIn: boolean = false;
+  userData!: any 
 
   brands = [
     {
@@ -64,6 +65,9 @@ export class Header implements OnInit {
     this.authService.isLoggedIn$.subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
     });
+    this.authService.userData$.subscribe((userData)=>{
+      this.userData = userData
+    })
   }
 
   ngAfterViewInit(): void {
