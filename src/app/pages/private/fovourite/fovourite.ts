@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Favourite implements OnInit {
   products = [
-    { id: 1, name: 'Laptop Pro X', price: 1200, description: 'Potente laptop para profesionales.' },
+    { id: 1, name: 'New York Yankees', price:249000, description: '' },
     { id: 2, name: 'Mouse Ergonómico', price: 25, description: 'Diseño cómodo para largas horas de uso.' },
     { id: 3, name: 'Monitor UltraWide', price: 450, description: 'Experiencia visual inmersiva.' },
     { id: 4, name: 'Teclado Mecánico', price: 90, description: 'Respuesta táctil y durabilidad.' }
@@ -21,7 +21,7 @@ export class Favourite implements OnInit {
   favIds = new Set<number>();
 
   ngOnInit(): void {
-    this.loadFavorites();
+    this.loadFavorites(); 
   }
 
   loadFavorites(): void {

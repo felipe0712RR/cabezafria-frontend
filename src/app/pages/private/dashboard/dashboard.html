@@ -7,27 +7,31 @@
             </header>
 
             <ul class="product__content-list nav_section" data-product-list="">
-        
+
+                @for (product of products; track $index) {
                 <li class="nav-item">
                     <div class="product-item">
                         <div class="product-item__icons icons">
                             <img src="assets/imgs/newera.jpg" alt="">
                             <header class="header-product">
-                                <h3 class="product-item__name product__name">New York Yankees</h3>
-                                <small class="product-item__category">Gorra Basic 59Fifty CerradaNew Era</small>
+                                <h3 class="product-item__name product__name">{{ product.name }}</h3>
+                                <small class="product-item__category">{{ product.category?.name }}</small>
                             </header>
+                            <div class="product__info">
+                                <p class="product__description">{{ product.description }}</p>
+                            </div>
                             <div class="product__info">
                                 <p class="product__info-item">REF:11591122</p>
                                 <p class="product-item__price product-price">$ 249.990</p>
                             </div>
                             <footer class="footer-product">
-                                <button class="product__button-item">Comprar</button>
+                                <!-- <button class="product__button-item" (click)="addToCard(products)">Comprar</button> -->
                             </footer>
-
                         </div>
                     </div>
                 </li>
-                
+                }
+
             </ul>
         </div>
     </section>

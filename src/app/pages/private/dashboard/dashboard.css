@@ -1,59 +1,3 @@
-css cards product/* Reset y configuración base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ede8dc;
-    color: #0f1724;
-}
-
-/* Contenedor principal */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* Header de la sección */
-.section__header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section__header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #163e56;
-    position: relative;
-    display: inline-block;
-}
-
-.section__header h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(45deg, #163e56, #6a7377);
-    border-radius: 2px;
-}
-
-/* Lista de productos */
-.product__content-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    list-style: none;
-    padding: 0;
-}
-
-/* Item de producto */
 .nav-item {
     position: relative;
 }
@@ -86,7 +30,7 @@ body {
     z-index: 1;
 }
 
-/* Contenedor de iconos/imagen */
+
 .product-item__icons {
     position: relative;
     padding: 1.5rem;
@@ -105,7 +49,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Header del producto */
+
 .header-product {
     margin-bottom: 1.5rem;
 }
@@ -126,7 +70,7 @@ body {
     display: block;
 }
 
-/* Información del producto */
+
 .product__info {
     display: flex;
     justify-content: space-between;
@@ -169,7 +113,6 @@ body {
     opacity: 1;
 }
 
-/* Footer del producto */
 .footer-product {
     padding: 0 1.5rem 1.5rem;
 }
@@ -216,7 +159,7 @@ body {
     transform: translateY(0);
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
@@ -250,7 +193,7 @@ body {
     }
 }
 
-/* Animaciones adicionales */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -267,7 +210,7 @@ body {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Efecto de carga escalonada */
+
 .nav-item:nth-child(1) {
     animation-delay: 0.1s;
 }
@@ -283,5 +226,4 @@ body {
 .nav-item:nth-child(4) {
     animation-delay: 0.4s;
 }
-
 
