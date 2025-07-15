@@ -42,6 +42,7 @@ export class LoginUser {
         next: (data: any) => {
           console.log('Login response:', data);
           this.authServices.saveLocalStorage('token', data.token);
+          this.authServices.saveLocalStorage('user', JSON.stringify(data.user));
           this.authServices.login();
           this.router.navigateByUrl('dashboard');
           Swal.fire({

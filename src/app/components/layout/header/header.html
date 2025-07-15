@@ -26,23 +26,28 @@
                     class=" header__container__section-1__right__shopping-bag header__container__section-1__right__items">
                     <a routerLink="dashboard/products/new"
                         class="header__container__section-1__right__shopping-bag__btn header__container__section-1__right__shopping-bag__user__btns">
-                        <img class="header__container__section-1__right__shopping-bag__user__btns__imgs"
+                        <img class="header__container__section-1__right__shopping-bag__btn__img header__container__section-1__right__shopping-bag__user__btns__imgs"
                             src="assets/imgs/cabezafria/shopping-bag.png" alt="shopping-bag">
                     </a>
                 </div>
-                <div class="header__container__section-1__right__user header__container__section-1__right__items">
-                    <button
+                @if ( isLoggedIn ){<div class="header__container__section-1__right__user header__container__section-1__right__items">
+                    <a routerLink="dashboard/users"
                         class="header__container__section-1__right__user__btn header__container__section-1__right__shopping-bag__user__btns">
-                        <img class="header__container__section-1__right__shopping-bag__user__btns__imgs"
+                        <img  class="header__container__section-1__right__user__btn__img header__container__section-1__right__shopping-bag__user__btns__imgs"
                             src="assets/imgs/cabezafria/user.png" alt="user">
-                    </button>
+                </a>
                 </div>
+                <div class="header__container__section-1__right__user__name-user">
+                    <h3 class="header__container__section-1__right__user__name-user__name">{{userData.userName}}</h3>
+                    <h4 class="header__container__section-1__right__user__name-user__role">{{userData.userRole}}</h4>
+                </div>
+                }
                 @if (!isLoggedIn) {
                 <div class="header__container__section-1__right__login header__container__section-1__right__items">
                     <button
-                        class="header__container__section-1__right__login__btn header__container__section-1__right__sign-in__register__btns">
+                        class="header__container__section-1__right__login__btn header__container__section-1__right__sign-in__logout__register__btns">
                         <a routerLink="login"
-                            class="header__container__section-1__right__login__btn__text header__container__section-1__right__sign-in__register__btns__texts">
+                            class="header__container__section-1__right__login__btn__text header__container__section-1__right__sign-in__logout__register__btns__texts">
                             LOGIN</a>
                     </button>
                 </div>
@@ -51,17 +56,17 @@
                 @if ( isLoggedIn ) {
                 <div>
                     <button (click)="onLogout()"
-                        class="header__container__section-1__right__logout__btn header__container__section-1__right__sign-in__register__btns header__container__section-1__right__logout__btn__text header__container__section-1__right__sign-in__register__btns__texts">
-                        LOGOUT
+                        class="header__container__section-1__right__logout__btn header__container__section-1__right__sign-in__logout__register__btns">
+                        <a routerLink="" class="header__container__section-1__right__logout__btn__text header__container__section-1__right__sign-in__logout__register__btns__texts">LOGOUT</a>
                     </button>
                 </div>
                 }
                 @if (!isLoggedIn) {
                 <div class="header__container__section-1__right__register header__container__section-1__right__items">
                     <button
-                        class="header__container__section-1__right__register__btn header__container__section-1__right__sign-in__register__btns">
+                        class="header__container__section-1__right__register__btn header__container__section-1__right__sign-in__logout__register__btns">
                         <a routerLink="register"
-                            class="header__container__section-1__right__register__btn__text header__container__section-1__right__sign-in__register__btns__texts">
+                            class="header__container__section-1__right__register__btn__text header__container__section-1__right__sign-in__logout__register__btns__texts">
                             REGISTER</a>
                     </button>
                 </div>

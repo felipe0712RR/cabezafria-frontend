@@ -72,6 +72,7 @@
 
 .header__container__section-1__right{
     display: none;
+    margin-top: .5rem;
     @media (min-width:768px) {
     display: flex;
     padding-top: 1rem;
@@ -81,6 +82,8 @@
 
 .header__container__section-1__right__items{
     padding: 0;
+    display:flex;
+    flex-direction: row;
 }
 
 .header__container__section-1__right__shopping-bag__user__btns{
@@ -89,19 +92,50 @@
     border-style: none;
 }
 
+.header__container__section-1__right__user__btn{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header__container__section-1__right__user__btn__img{
+    margin: 0;
+}
+
+.header__container__section-1__right__user__name-user__name{
+    margin: .6rem 0 0 0;
+    color: #b5b4aa;
+}
+
+.header__container__section-1__right__user__name-user__role{
+    margin: 0;
+    color: #b5b4aa;
+} 
+
 .header__container__section-1__right__shopping-bag__user__btns__imgs{
     width: 2.5rem;
     height: 2.5rem;
     filter: drop-shadow(-12px 8px 1.7px #000);
 }
 
-.header__container__section-1__right__sign-in__register__btns{
+.header__container__section-1__right__sign-in__logout__register__btns{
     width: 5rem;
     height: 1.8rem;
     border-radius: 1.2rem;
     border-style: none;
-    margin-top: .3rem;
+    margin-top: .4rem;
     filter: drop-shadow(-12px 8px 1.7px #000);
+}
+
+
+.header__container__section-1__right__sign-in__logout__register__btns__texts{
+    margin: 0;
+    font-weight: bold;
+    font-size: .8rem;
+    text-decoration: none;
+}
+
+.header__container__section-1__right__sign-in__logout__register__btns__texts:visited{
+    color: transparent;
 }
 
 .header__container__section-1__right__sign-in__btn{
@@ -115,15 +149,8 @@
     color: #ede8dc;
 }
 
-.header__container__section-1__right__sign-in__register__btns__texts{
-    margin: 0;
-    font-weight: bold;
-    font-size: .8rem;
-    text-decoration: none;
-}
-
-.header__container__section-1__right__sign-in__register__btns__texts:visited{
-    color: transparent;
+.header__container__section-1__right__logout__btn{
+    padding: 0;
 }
 
 .header__container__section-2{
