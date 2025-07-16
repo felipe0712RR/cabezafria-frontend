@@ -2,9 +2,9 @@
 
 <section id="section" class="section">
     <section class="section__category section-products products">
-            <div class="container__cart ">
+            <div class="container__card ">
                     @for (product of products; track product._id) {
-                    <div class="product-cart">
+                    <div class="product-card">
                         <img [src]="product?.productUrlImage" [alt]="product?.productName">
                         <h3>{{ product?.productName }}</h3>
                         <p>Precio: ${{ product.productPrice }}</p>
