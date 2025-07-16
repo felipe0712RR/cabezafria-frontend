@@ -13,7 +13,7 @@ export class ProductService {
   }
 
   getProducts(){
-    return this.http.get('http://localhost:3000/api/products')
+    return this.http.get<any>('http://localhost:3000/api/products')
   }
 
   deleteProducts(id: string){

@@ -11,6 +11,7 @@ import { GetUsers } from './pages/private/users/get-users';
 import { Footer } from './components/layout/footer/footer';
 import { authGuard } from './guards/auth-guard';
 import { roleGuard } from './guards/role-guard';
+import { Favourite } from './pages/private/favourite/favourite';
 
 
 
@@ -18,13 +19,13 @@ export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'login', component: LoginUser },
     { path: 'register', component: CreateNewUser },
-    { path: 'dashboard', component: AdminDashboard, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
+    { path: 'dashboard', component: AdminDashboard, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador']}},
     { path: 'dashboard/categories', component: GetCategories },
-    { path: 'dashboard/categories/new', component: CreateNewCategory, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
+    { path: 'dashboard/categories/new', component: CreateNewCategory, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador']}},
+    { path: 'favourite', component: Favourite},
     { path: 'dashboard/products', component: GetProducts },
-    { path: 'dashboard/products/new', component: CreateNewProduct, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
-    { path: 'dashboard/users', component: GetUsers },
-    // { path: 'home', component: Footer },
+    { path: 'dashboard/products/new', component: CreateNewProduct, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador']}},
+    { path: 'dashboard/users', component: GetUsers},
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]
