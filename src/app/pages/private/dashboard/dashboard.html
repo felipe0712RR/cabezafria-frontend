@@ -1,9 +1,9 @@
 <div class="dashboard-container">
-  <h1>Panel de Administrador</h1>
+  <h1 class="dashboard-title">Panel de Administrador</h1>
   <div class="button-grid">
-    <button routerLink="/dashboard/categories/new">Create New Category</button>
-    <button routerLink="/dashboard/products/new">Create New Product</button>
-    <button routerLink="/dashboard/users">View All Users</button>
+    <button (click)="navigateToCreateCategory()">Create New Category</button>
+    <button (click)="navigateToCreateProduct()">Create New Product</button>
+    <button (click)="navigateToViewUsers()">View All Users</button>
     <!-- <button routerLink="/page4">Página 4</button>
     <button routerLink="/page5">Página 5</button>
     <button routerLink="/page6">Página 6</button> -->

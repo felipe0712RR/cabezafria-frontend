@@ -2,10 +2,9 @@
     font-family: "Anton";
     font-weight: 400;
     font-style: normal;
-
 }
 
-.footer__container {
+.footer-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,9 +14,10 @@
     background-color: #b5b4aa;
     @media (min-width:768px) {
         flex-direction: row;
+        justify-content: space-between;
     }
 }
-.footer__container__left{
+.footer-section-left{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -55,16 +55,17 @@
     /* margin-top: -20px; */
     margin-left: 20px;
 }
-.footer__container__left__title{
+/* .footer-section-left-title{
     font-size: 50px;
 
-}
-.footer__container__left__title h2{
+} */
+.footer-section-left-title h2{
     padding: 0;
     margin: 0;
 }
-.footer-title-right{
-    margin-top: -10px;
+.footer-title-right h2 {
+    padding: 0;
+    margin: 0;
 }
 .subtitle {
     font-size: 32px;
