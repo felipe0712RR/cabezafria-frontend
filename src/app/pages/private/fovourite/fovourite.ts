@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProductService } from '../../../services/product-service';
 
 @Component({
   selector: 'app-fovourite',
@@ -10,37 +11,53 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./fovourite.css']
 })
 export class Favourite implements OnInit {
-  products = [
-    { id: 1, name: 'New York Yankees', price:249000, description: '' },
-    { id: 2, name: 'Mouse Ergonómico', price: 25, description: 'Diseño cómodo para largas horas de uso.' },
-    { id: 3, name: 'Monitor UltraWide', price: 450, description: 'Experiencia visual inmersiva.' },
-    { id: 4, name: 'Teclado Mecánico', price: 90, description: 'Respuesta táctil y durabilidad.' }
-  ];
+  products: any[] = []
+    
 
   listFavs: any[] = [];
   favIds = new Set<number>();
 
+  constructor( private productService: ProductService ) {}
+
   ngOnInit(): void {
     this.loadFavorites(); 
+    
+    this.productService.getProducts().subscribe({
+      next: ( data: any[] ) => {
+        console.log(data) 
+        const seen = new Set();
+        this.products = data.filter((product) => {
+          if(!product._id) return false;
+          if( seen.has(product._id)) return false;
+          seen.add(product._id);
+          return true;
+        });
+      },
+      error: ( error) => {
+        console.error( error );
+      },
+      complete: () => {}
+    });
   }
 
   loadFavorites(): void {
     const stored = localStorage.getItem('@favs');
     this.listFavs = stored ? JSON.parse(stored) : [];
-    this.favIds = new Set(this.listFavs.map(p => p.id));
+    this.favIds = new Set(this.listFavs.map(p => p._id));
   }
 
   toggleFavorite(product: any): void {
     const stored = localStorage.getItem('@favs');
     let favs = stored ? JSON.parse(stored) : [];
 
-    const index = favs.findIndex((item: any) => item.id === product.id);
+  const exists = favs.some((item: any) => item._id === product._id);
 
-    if (index > -1) {
-      favs.splice(index, 1); 
-    } else {
-      favs.push(product); 
-    }
+
+  if (exists) {
+  favs = favs.filter((item: any) => item._id !== product._id);
+} else {
+  favs.push(product);
+}
 
     localStorage.setItem('@favs', JSON.stringify(favs));
     this.loadFavorites(); 
