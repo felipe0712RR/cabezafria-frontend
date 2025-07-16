@@ -27,15 +27,13 @@
             />
           </td>
           <td>{{ product.productName }}</td>
-          <td>{{ product.productCategory.categoryName}}</td>
+          <td>{{ product.productCategory.categoryName }}</td>
           <td>{{ product.productDescription }}</td>
           <td>{{ product.productType}}</td>
           <td>{{ product.productSize}}</td>
           <td>{{ product.productPrice | currency }}</td>
           <td>{{ product.productStock }}</td>
           <td>
-            <a class="btn btn-primary" href="#">Edit 1</a>
-            <a class="btn btn-primary" href="#">Edit 2</a>
             <a class="btn btn-secondy" (click)="onDelete(product._id)"
               >Delete</a
             >

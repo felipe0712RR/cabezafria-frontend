@@ -13,7 +13,11 @@ export class ProductService {
   }
 
   getProducts(){
-    return this.http.get('http://localhost:3000/api/products')
+    return this.http.get<any>('http://localhost:3000/api/products')
+  }
+
+  getProductsId(id: string){
+    return this.http.get('http://localhost:3000/api/products/'.concat( id ))
   }
 
   deleteProducts(id: string){

@@ -1,0 +1,63 @@
+<form [formGroup]="formData" (submit)="onSubmit()">
+    <div class="form-content">
+        <div class="product-info product-sections">
+            <table class="user-info__table" border="1">
+                <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if ( userData ) {
+                        <tr>
+                            <td>{{ userData.userName }}</td>
+                            <td>{{ userData.userEmail }}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <table class="product-info__table" border="1">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name Product</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="product-info__table__body">
+                    @for ( products of productsData; track $index ) {
+                    <tr>
+                        <td>
+                            <img class="product-image" [src]="products.productUrlImage" [alt]="products.productName" />
+                        </td>
+                        <td>{{ products.productName }}</td>
+                        <td>{{ products.productDescription }}</td>
+                        <td>{{ products.productPrice | currency }}</td>
+                        <td>
+                            <input formControlName="reviewProductId" type="button" (click)="selectProduct(products._id)" value="Choose" /></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="product-review product-sections">
+            <label for="reviewQualification">Calificación:</label>
+            <select id="reviewQualification" name="reviewQualification" formControlName="reviewQualification" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <label for="reviewContent">Contenido de la Reseña:</label>
+            <textarea id="reviewContent" name="reviewContent" formControlName="reviewContent" rows="4"
+                required></textarea>
+
+            <button type="submit">Enviar Reseña</button>
+        </div>
+    </div>
+</form>
