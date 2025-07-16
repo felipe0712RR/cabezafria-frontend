@@ -7,8 +7,8 @@ import { ProductService } from '../../../services/product-service';
   selector: 'app-fovourite',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './fovourite.html',
-  styleUrls: ['./fovourite.css']
+  templateUrl: './favourite.html',
+  styleUrls: ['./favourite.css']
 })
 export class Favourite implements OnInit {
   products: any[] = []

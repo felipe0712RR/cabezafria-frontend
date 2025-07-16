@@ -10,7 +10,7 @@ import { CreateNewProduct } from './pages/private/products/new-product/new-produ
 import { GetUsers } from './pages/private/users/get-users';
 import { authGuard } from './guards/auth-guard';
 import { roleGuard } from './guards/role-guard';
-import { Favourite } from './pages/private/fovourite/fovourite';
+import { Favourite } from './pages/private/favourite/favourite';
 
 
 export const routes: Routes = [
