@@ -9,10 +9,10 @@ export class CommentsService {
   constructor(private http: HttpClient) { }
 
   addComment(newComment: any) {
-    return this.http.post('http://localhost:3000/api/comments', newComment);
+    return this.http.post('http://localhost:3000/home', newComment);
   }
   getComments() {
-    return this.http.get('http://localhost:3000/api/comments');
+    return this.http.get('http://localhost:3000//home');
   }
 
 };
