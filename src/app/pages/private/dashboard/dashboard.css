@@ -1,59 +1,60 @@
 .dashboard-container {
   justify-content: space-between;
-    text-align: center;
-    background-color: #ede8dc;
-    margin: 2rem;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 30%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    animation: _ngcontent-ng-c3896554144_fadeIn 0.8s ease-in-out;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  text-align: center;
+  background-color: #ede8dc;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  animation: _ngcontent-ng-c3896554144_fadeIn 0.8s ease-in-out;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .dashboard-title {
-    font-family: 'Anton', sans-serif;
-    color: #163e56;
-    text-align: center;
-    margin-bottom: 2rem;
+  font-family: "Anton", sans-serif;
+  color: #163e56;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .button-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    max-width: 100%;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 button {
-    padding: 0.75rem 2rem;
-    background-color: #163e56;
-    color: #fff;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  padding: 0.75rem 2rem;
+  background-color: #163e56;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #0f1724;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  background-color: #0f1724;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
-    .dashboard-container{
-        padding: 1.5rem;
-    }
-    .dashboard-container .button-grid {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .dashboard-container {
+    padding: 1.5rem;
+  }
+  .dashboard-container .button-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

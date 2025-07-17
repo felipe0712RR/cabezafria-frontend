@@ -10,7 +10,8 @@ import { CreateNewProduct } from './pages/private/products/new-product/new-produ
 import { GetUsers } from './pages/private/users/get-users';
 import { authGuard } from './guards/auth-guard';
 import { roleGuard } from './guards/role-guard';
-
+import { Cartshopping } from './pages/public/cartshopping/cartshopping';
+import { Checkout } from './pages/public/checkout/checkout';
 
 
 export const routes: Routes = [
@@ -23,6 +24,9 @@ export const routes: Routes = [
     { path: 'dashboard/products', component: GetProducts },
     { path: 'dashboard/products/new', component: CreateNewProduct, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
     { path: 'dashboard/users', component: GetUsers, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
+    { path: 'cart', component: Cartshopping },
+    { path: 'checkout', component: Checkout },
+
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]
