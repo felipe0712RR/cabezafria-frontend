@@ -1,5 +1,10 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dashboard-container {
-  justify-content: space-between;
   text-align: center;
   background-color: #ede8dc;
   margin: 2rem;
@@ -12,6 +17,7 @@
   justify-content: center;
   flex-direction: column;
 }
+
 .dashboard-title {
   font-family: "Anton", sans-serif;
   color: #163e56;
@@ -51,6 +57,7 @@ button:hover {
   .dashboard-container {
     padding: 1.5rem;
   }
+
   .dashboard-container .button-grid {
     width: 100%;
     display: flex;

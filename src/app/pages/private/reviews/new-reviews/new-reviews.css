@@ -1,0 +1,26 @@
+.form-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.product-info{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.product-info__table__body{
+    height: 6rem;
+}
+
+.product-review{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 60%;
+}

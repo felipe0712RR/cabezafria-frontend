@@ -16,6 +16,10 @@ export class ProductService {
     return this.http.get<any>('http://localhost:3000/api/products')
   }
 
+  getProductsId(id: string) {
+    return this.http.get('http://localhost:3000/api/products/'.concat(id))
+  }
+
   deleteProducts(id: string) {
     return this.http.delete('http://localhost:3000/api/products/'.concat(id))
   }
