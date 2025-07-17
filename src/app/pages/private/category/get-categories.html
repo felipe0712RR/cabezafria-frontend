@@ -1,29 +1,29 @@
 <div class="page-categories-list">
-  <h1>Categories List</h1>
+    <h1>Categories List</h1>
 
-  <!-- <pre>{{ products | json }}</pre> -->
+    <!-- <pre>{{ products | json }}</pre> -->
 
-  <div class="categories-list">
-    <table border="1">
-      <thead>
-        <th>Name Category</th>
-        <th>Description</th>
-        <th>State</th>
-      </thead>
-      <tbody>
-        @for ( category of categories; track $index ) {
-        <tr>
-          <td>{{ category.categoryName }}</td>
-          <td>{{ category.categoryDescription }}</td>
-          <td>{{ category.categoryState }}</td>
-          <td>
-            <a class="btn btn-secondy" (click)="onDelete(category._id)"
-              >Delete</a
-            >
-          </td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+    <div class="categories-list">
+        <table class="table" border="1">
+            <thead>
+                <th>Name Category</th>
+                <th>Description</th>
+                <th>State</th>
+                <th>Actions</th>
+            </thead>
+        
+            <tbody>
+                @for ( category of categories; track $index ) {
+                <tr>
+                    <td>{{ category.categoryName }}</td>
+                    <td>{{ category.categoryDescription }}</td>
+                    <td>{{ category.categoryState }}</td>
+                    <td>
+                        <a class="btn btn-secondy" (click)="onDelete(category._id)">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

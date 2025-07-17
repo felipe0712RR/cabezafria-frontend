@@ -29,9 +29,8 @@ export const routes: Routes = [
     { path: 'dashboard/products', component: GetProductsAdmin, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
     { path: 'dashboard/products/new', component: CreateNewProduct, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
     { path: 'dashboard/users', component: GetUsers, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
-    { path: 'cart', component: Cartshopping },
-    { path: 'checkout', component: Checkout },
-
+    { path: 'products', component: Cartshopping },
+    { path: 'shoppingcart', component: Checkout },
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]

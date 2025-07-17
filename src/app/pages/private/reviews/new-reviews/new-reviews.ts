@@ -54,14 +54,11 @@ export class NewReviews {
   }
 
   ngOnInit(){
-    this.authService.userData$.subscribe((userData)=>{      
-      this.userData = userData
-    })
-    this.productService.getProducts().subscribe({
+    this.authService.userData$.subscribe({
       next: (data) => {
         console.log(data);
-        this.productsData = data;
-        this.productsData = (data as Array<any>).filter((products) => products._id !== this.productsData._id);
+        this.review = data;
+        // this.productsData = (data as Array<any>).filter((products) => products._id !== this.productsData._id);
       },
       error: (error) => {
         console.error(error);
@@ -70,18 +67,18 @@ export class NewReviews {
     });
   }
 
-  selectProduct(id: any){
-    this.productService.getProductsId(id).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.productData = data;
-      },
-      error: (error) => {
-        console.error(error);
-      },
-      complete: () => { }
-    });
-  }
+  // selectProduct(id: any){
+  //   this.productService.getProductsId(id).subscribe({
+  //     next: (data) => {
+  //       console.log(data);
+  //       this.productData = data;
+  //     },
+  //     error: (error) => {
+  //       console.error(error);
+  //     },
+  //     complete: () => { }
+  //   });
+  // }
 
 }
 

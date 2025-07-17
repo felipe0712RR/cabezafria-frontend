@@ -1,19 +1,31 @@
 <form [formGroup]="formData" (submit)="onSubmit()">
-    <div class="form-content">
-        <div class="product-review product-sections">
-            <label for="reviewQualification">Calificación:</label>
-            <select id="reviewQualification" name="reviewQualification" formControlName="reviewQualification" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <label for="reviewContent">Contenido de la Reseña:</label>
-            <textarea id="reviewContent" name="reviewContent" formControlName="reviewContent" rows="4"
-                required></textarea>
-
-            <button type="submit">Enviar Reseña</button>
+    <div class="review-section">
+        <h2 class="review-section__title">Reseña del Producto</h2>
+        <div class="review-section__content">
+            <label class="review-section__content__qualification-title" for="reviewQualification">Calificación</label>
+            <div class="review-section__content__qualification-inputs">
+                <div class="review-section__content__qualification-inputs__options"><label for="reviewQualification1">1</label>
+                    <input type="radio" id="reviewQualification1" formControlName="reviewQualification" value="1">
+                </div>
+                <div class="review-section__content__qualification-inputs__options"><label for="reviewQualification2">2</label>
+                    <input type="radio" id="reviewQualification2" formControlName="reviewQualification" value="2">
+                </div>
+                <div class="review-section__content__qualification-inputs__options"><label for="reviewQualification3">3</label>
+                    <input type="radio" id="reviewQualification3" formControlName="reviewQualification" value="3">
+                </div>
+                <div class="review-section__content__qualification-inputs__options"><label for="reviewQualification4">4</label>
+                    <input type="radio" id="reviewQualification4" formControlName="reviewQualification" value="4">
+                </div>
+                <div class="review-section__content__qualification-inputs__options"><label for="reviewQualification5">5</label>
+                    <input type="radio" id="reviewQualification5" formControlName="reviewQualification" value="5">
+                </div>
+            </div>
+            <label class="review-section__content__question">Que te pareció este Producto?</label>
+            <div class="review-section__content__text-container">
+                <textarea class="review-section__content__text-container__text" formControlName="reviewContent"
+                    id="comment" rows="7" cols="50" placeholder="Escribe aquí tu mensaje..." wrap="hard"></textarea>
+            </div>
+            <button type="submit" class="review-section__content__send-btn">Enviar</button>
         </div>
     </div>
 </form>

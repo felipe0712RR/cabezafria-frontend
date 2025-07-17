@@ -1,0 +1,36 @@
+.page-categories-list {
+    padding: 1rem;
+}
+
+.categories-list {
+    display: flex;
+    color: #0f1724;
+    justify-content: center;
+}
+.page-categories-list h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f1724;
+}
+
+.categories-list th {
+    border: 1px solid #163e56;
+    padding: 1rem;
+    text-align: left;
+    color: #ede8dc;
+    background-color: #163e56;
+}
+
+.categories-list td {
+    padding: 1rem;
+}
+
+.btn {
+    background-color: #163e56;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 2rem;
+    border-radius: 5px;
+    display: inline-block;
+    color: #ede8dc;
+}
