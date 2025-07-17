@@ -6,14 +6,11 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
-    font-weight: 400px;
     font-style: normal;
-    color: #000;
-}
 app-new-form {
     display: flex;
     justify-content: center;
 }
-
+}
 
 
