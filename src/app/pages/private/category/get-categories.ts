@@ -8,8 +8,7 @@ import { CategoryService } from '../../../services/category-service';
   styleUrl: './get-categories.css'
 })
 export class GetCategories {
-
-
+  
   categories: any = [];
 
   constructor(private categoryService: CategoryService) { }

@@ -36,7 +36,7 @@
   font-size: 1.4rem;
 }
 
-.products-main-container_cardproduct_texts {
+.products-main-container_cardproductprice, .products-main-container_cardproductdescription {
   color: #b5b4aa;
   font-size: 0.95rem;
 }
