@@ -3,20 +3,21 @@
 }
 
 .form-product {
-    font-family: 'Inter', sans-serif;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    border: 1px solid #163e5614;
+    border-radius: 0.5rem;
+    color: #163e56;
 }
 
 .form__container__product-title h1 {
-    font-family: 'Anton', sans-serif;
     text-align: center;
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #163e56;
 }
 
 .form-login {
@@ -36,12 +37,63 @@
 }
 
 .field label {
-    margin-bottom: 5px;
+    margin-bottom: 2rem;
+    font-size: 16px;
+}
+
+.field input,
+.field textarea, 
+.field select {
+    padding: 8px;
     font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.field.field-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
 
+.field-state-radio {
+    display: flex;
+    margin-bottom: 1rem;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    label{
+        width: 30%;
+    }
+    input {
+        width: 10%;
+    }
+}
 
+
+.field-submit button {
+    width: 30%;
+    padding: 0.7rem;
+    margin: 1rem;
+    background-color: #163e56;
+    color: #ede8dc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/*
+.field input,
+.field textarea,
+.field select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 100%;
+} */
 
 
     /* 

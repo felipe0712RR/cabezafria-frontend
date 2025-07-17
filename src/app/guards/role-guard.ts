@@ -10,7 +10,7 @@ export const roleGuard: CanActivateFn = (route, state) => {
     const isAuthorized = authService.hasRole( expectedRoles );
 
     if( ! isAuthorized ) {
-        router.navigateByUrl( 'home' );
+        router.navigateByUrl( 'dashboard/products' );
     }
 
     return isAuthorized;
