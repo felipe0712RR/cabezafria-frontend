@@ -8,8 +8,8 @@ import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
 export class AuthService {
   private _isLoggedIn = new BehaviorSubject<boolean>(false);
   private _userData = new BehaviorSubject<object>({});
-  public isLoggedIn$: Observable<boolean> = this._isLoggedIn.asObservable(); 
-  public userData$: Observable<object> = this._userData.asObservable(); 
+  public isLoggedIn$: Observable<boolean> = this._isLoggedIn.asObservable();
+  public userData$: Observable<object> = this._userData.asObservable();
   user!: any;
 
   constructor(private http: HttpClient) {
@@ -32,12 +32,13 @@ export class AuthService {
     localStorage.removeItem('user');
     this.user = null;
     this._isLoggedIn.next(false);
+    this._userData.next({});
   }
 
   loginUser(credentials: any) {
     return this.http.post('http://localhost:3000/api/auth/login', credentials);
   }
-  
+
   saveLocalStorage(key: string, value: any) {
     localStorage.setItem(key, value);
   }
@@ -78,8 +79,8 @@ export class AuthService {
     // );
   }
 
-  hasRole( expectedRoles: string[] ) : boolean  {
-    return expectedRoles.includes( this.user.userRole );
+  hasRole(expectedRoles: string[]): boolean {
+    return expectedRoles.includes(this.user.userRole);
   }
 
   getHeaders() {

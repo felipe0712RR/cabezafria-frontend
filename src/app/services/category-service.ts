@@ -15,7 +15,7 @@ export class CategoryService {
   getCategories() {
     return this.http.get('http://localhost:3000/api/categories')
   }
-  deleteProducts(id: string) {
+  deleteCategories(id: string) {
     return this.http.delete('http://localhost:3000/api/categories/'.concat(id))
   }
 };
