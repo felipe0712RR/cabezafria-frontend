@@ -1,11 +1,4 @@
-h2,
-h3 {
-    color: #163e56;
-    margin-bottom: 1rem;
-}
-
-
-.container__card {
+.products-main-container__card {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 20px;
@@ -13,16 +6,23 @@ h3 {
 }
 
 
-.product-card {
+.products-main-container__card__product {
     background-color: #0f1724;
     border: 1px solid #6a7377;
     border-radius: 16px;
     padding: 1.5rem;
     box-shadow: 0 4px 8px rgba(15, 23, 36, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.product-card img {
+.products-main-container__card__product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 12px rgba(15, 23, 36, 0.15);
+}
+
+.products-main-container__card__product__img {
     width: 100%;
     height: 220px;
     object-fit: cover;
@@ -31,23 +31,18 @@ h3 {
     transition: transform 0.3s ease;
 }
 
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(15, 23, 36, 0.15);
-}
-
-.product-card h3 {
-    margin-top: 0;
-    font-size: 1.4rem;
-}
-
-.product-card p {
+.products-main-container__card__product__name{
     color: #ede8dc;
+    margin-bottom: 0 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.products-main-container__card__product__texts{
+    color: #b5b4aa;
     font-size: 0.95rem;
 }
 
-
-.product-card button {
+.products-main-container__card__product__delete-btn{
     background-color: #163e56;
     color: #ede8dc;
     border: none;
@@ -57,24 +52,10 @@ h3 {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
-}
-
-.button__product {
     display: flex;
     justify-content: space-around;
 }
 
-.product-card button:hover {
-    background-color: #0f1724;
-}
-
-
-.fav-item {
-    background-color: #163e56;
-    color: #fff;
-    padding: 1rem;
-    margin: 0.5rem 0;
-    border-radius: 12px;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
+.products-main-container__card__product__delete-btn:hover {
+    background-color: #8684cb62;
 }
