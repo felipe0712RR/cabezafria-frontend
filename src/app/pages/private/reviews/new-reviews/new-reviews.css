@@ -1,26 +1,60 @@
-.form-content{
+.review-section{
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
     align-items: center;
-}
-
-.product-info{
-    display: flex;
     justify-content: center;
-    width: 80%;
     flex-direction: column;
-    gap: 2rem;
+    margin: 3rem 0;
+    gap: 1.5rem;
 }
 
-.product-info__table__body{
-    height: 6rem;
+.review-section__title{
+    font-size: 2rem;
 }
 
-.product-review{
+.review-section__content{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     align-items: center;
-    width: 60%;
+    gap: 1.5rem;
+    background-color: #ede8dc;
+    padding: 2rem;
+    border-radius: 15%;
+}
+
+.review-section__content__qualification-title{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.review-section__content__qualification-inputs{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.review-section__content__question{
+    font-size: 1.1rem;
+    font-weight: 550;
+}
+
+.review-section__content__text-container__text{
+    border: none;
+    border-radius: .3rem;
+}
+
+.review-section__content__send-btn{
+    background-color: #163e56;
+    color: #ede8dc;
+    border: none;
+    padding: 0.6rem 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-around;
+}
+
+.review-section__content__send-btn:hover {
+    background-color: #8684cb62;
 }
