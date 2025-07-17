@@ -3,7 +3,7 @@
 <div class="checkout-container">
   <!-- Cart Section -->
   <div class="cart-section">
-    <h2 class="cart-title">Shopping Cart</h2>
+    <h2 class="cart-common-title cart-title">Shopping Cart</h2>
 
     <!-- Free Shipping Message -->
     <div class="free-shipping-message">
@@ -39,9 +39,6 @@
           </div>
 
           <div class="action-buttons">
-            <a href="#" class="move-to-favorites btn btn-outline-primary"
-              >Move to Favorites</a
-            >
             <button
               class="btn btn-primary"
               (click)="onRemove( cartItem.product )"
@@ -91,7 +88,7 @@
   <!-- Summary Section -->
   <aside class="aside">
     <div class="summary-section">
-      <h2 class="summary-title">Summary</h2>
+      <h2 class="cart-common-title summary-title">Summary</h2>
 
       <!-- Summary Details -->
       <div class="summary-details">
@@ -118,7 +115,7 @@
     <div class="contact-section">
       <form class="contact-form">
         <!-- Sección de información de contacto -->
-        <h2 class="contact-title">Contact information</h2>
+        <h2 class="cart-common-title contact-title">Contact information</h2>
 
         <hr />
 
@@ -150,7 +147,7 @@
 
         <!-- Dirección de envío -->
         <section class="form-section">
-          <h3 class="section-title">Shipping address</h3>
+          <h3 class="cart-common-title section-title">Shipping address</h3>
 
           <!-- País/Región -->
           <div class="name-fields">

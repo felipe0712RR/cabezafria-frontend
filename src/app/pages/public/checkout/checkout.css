@@ -16,6 +16,11 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.cart-common-title {
+  font-family: "Anton";
+  font-weight: 400;
+  font-style: normal;
+}
 .cart-title {
   color: var(--bleu-de-france);
   font-size: 2.8rem;
@@ -224,14 +229,23 @@
 }
 
 .checkout-button {
-  background-color: #ff6347;
+  padding: 0.75rem 2rem;
+  background-color: #163e56;
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-size: 1.4rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  font-weight: bolder;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.checkout-button:hover {
+  background-color: #0f1724;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .paypal-button {

@@ -19,6 +19,10 @@ export class AdminDashboard {
     this.router.navigate(['/dashboard/products/new']);
   }
 
+  navigateToViewProducts() {
+    this.router.navigate(['/dashboard/products'])
+  }
+
   navigateToViewUsers() {
     this.router.navigate(['/dashboard/users']);
   }
