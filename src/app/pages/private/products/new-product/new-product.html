@@ -22,14 +22,14 @@
                         <input type="number" formControlName="productPrice" placeholder="Ej: 20" id="product-price" />
                     </div>
                     <div class="field field-size-type">
-                        <label for="product-size">Size</label>
+                        <label class="field-size-type__title" for="product-size">Size</label>
                         
-                        <div class="field-size-type__options">
+                        <div class="field-size-type__options field-state-radio">
                             <input type="radio" formControlName="productType" value="ajustable-cap"
                                 id="product-adjustable" (input)="setValueSize(false)" />
                             <label for="product-adjustable">Ajustable</label>
                         </div>
-                        <div class="field-size-type__options">
+                        <div class="field-size-type__options field-state-radio">
                             <input type="radio" formControlName="productType" value="closed-cap"
                                 id="product-no-adjustable" (input)="setValueSize(true)" />
                             <label for="product-no-adjustable">De Talla</label>
