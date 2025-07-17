@@ -21,29 +21,34 @@
                         <label for="product-price">Price</label>
                         <input type="number" formControlName="productPrice" placeholder="Ej: 20" id="product-price" />
                     </div>
-                    <div class="field field-size">
+                    <div class="field field-size-type">
                         <label for="product-size">Size</label>
-                        <input type="radio" formControlName="productType" value="ajustable-cap" id="product-adjustable"
-                            (input)="setValueSize(false)" />
-                        <label for="product-adjustable">Ajustable</label>
-                        <input type="radio" formControlName="productType" value="closed-cap" id="product-no-adjustable"
-                            (input)="setValueSize(true)" />
-                        <label for="product-no-adjustable">De Talla</label>
+                        
+                        <div class="field-size-type__options">
+                            <input type="radio" formControlName="productType" value="ajustable-cap"
+                                id="product-adjustable" (input)="setValueSize(false)" />
+                            <label for="product-adjustable">Ajustable</label>
+                        </div>
+                        <div class="field-size-type__options">
+                            <input type="radio" formControlName="productType" value="closed-cap"
+                                id="product-no-adjustable" (input)="setValueSize(true)" />
+                            <label for="product-no-adjustable">De Talla</label>
+                        </div>
                         @if ( showSize ) {
-                            <div>
-                                <select formControlName="productSize" id="product-size">
-                                    <option value="">Escoge la talla de tu gorra</option>
-                                    @for (measurement of sizeMeasurement; track $index) {
-                                        <option [value]="measurement">{{measurement}}</option>
-                                    }
-                                </select>   
-                            </div>
+                        <div>
+                            <select formControlName="productSize" id="product-size">
+                                <option value="">Escoge la talla de tu gorra</option>
+                                @for (measurement of sizeMeasurement; track $index) {
+                                <option [value]="measurement">{{measurement}}</option>
+                                }
+                            </select>
+                        </div>
                         }
-
                     </div>
                     <div class="field">
                         <label for="product-color">Color</label>
-                        <input type="text" formControlName="productColor" placeholder="Ej: Azul, Rojo" id="product-color" />
+                        <input type="text" formControlName="productColor" placeholder="Ej: Azul, Rojo"
+                            id="product-color" />
                     </div>
                     <div class="field">
                         <label for="product-stock">Stock</label>
@@ -51,7 +56,8 @@
                     </div>
                     <div class="field">
                         <label for="product-urlimage">Image</label>
-                        <input type="text" formControlName="productUrlImage" placeholder="http://... " id="product-urlimage" />
+                        <input type="text" formControlName="productUrlImage" placeholder="http://... "
+                            id="product-urlimage" />
                     </div>
                     <div class="field">
                         <label for="product-category">Category</label>
@@ -64,11 +70,21 @@
                         </select>
                     </div>
                     <div class="field field-state">
-                        <label>State</label>
-                        <input type="radio" formControlName="productState" [value]="true" id="product-state-available" />
-                        <label for="product-state-available">Available</label>
-                        <input type="radio" formControlName="productState" [value]="false" id="product-state-notavailable" />
-                        <label for="product-state-notavailable">Not Available</label>
+
+                        <label class="field field-state__label__title">State</label>
+
+                        <div class="field-state-radio">
+                            <input type="radio" formControlName="productState" [value]="true"
+                                id="product-state-available" />
+                            <label for="product-state-available">Available</label>
+                        </div>
+
+                        <div class="field-state-radio">
+                            <input type="radio" formControlName="productState" [value]="false"
+                                id="product-state-notavailable" />
+                            <label for="product-state-notavailable">Not Available</label>
+                        </div>
+
                     </div>
                     <div class="field field-submit">
                         <button type="submit">Register product</button>
