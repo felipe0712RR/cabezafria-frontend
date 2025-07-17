@@ -1,76 +1,84 @@
-.main__container__section-1{
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0;
+.main__container__section-1 {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
 }
 
-.main__container__section-1__img-container{
-    background-image: url('./../../../../../public/assets/imgs/newera.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 90%;
-    height: 16rem;
-    display: flex;
-    filter: drop-shadow(-7px 6px 5px black);
-    justify-content: space-between;
-    @media (min-width:768px) {
-        width: 85%;
-        height: 20rem;
-    }
+.main__container__section-1__img-container {
+  background-image: url("./../../../../../public/assets/imgs/newera.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90%;
+  height: 16rem;
+  display: flex;
+  filter: drop-shadow(-7px 6px 5px black);
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    width: 85%;
+    height: 20rem;
+  }
 }
 
-.main__container__section-1__img-container__btns{
-    height: 2rem;
-    width: 2rem;
-    margin: 7rem 1.5rem;
-    background-color: #6a7377;
-    border: solid 1px #ede8dc ;
-    @media (min-width:768px) {
-        margin: 9rem 1.5rem;
-    }
+.main__container__section-1__img-container__btns {
+  height: 2rem;
+  width: 2rem;
+  margin: 7rem 1.5rem;
+  background-color: #6a7377;
+  border: solid 1px #ede8dc;
+  @media (min-width: 768px) {
+    margin: 9rem 1.5rem;
+  }
 }
 
-.main__container__section-1__img-container__btn__left{
-    width: 5rem;
+.main__container__section-1__img-container__btn__left {
+  width: 5rem;
 }
 
-.main__container__section-1__img-container__btn__rigth{
-    width: 3rem;
+.main__container__section-1__img-container__btn__rigth {
+  width: 3rem;
 }
 
-.main__container__section-2{
-    background-color: #0f1724;
+.main__container__section-2 {
+  background-color: #0f1724;
 }
 
-.main__container__section-2__video-container{
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0;
-    align-items: end;
-    justify-content: end;
+.main__container__section-2__video-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  align-items: end;
+  justify-content: end;
 }
 
-.main__container__section-2__video-container__video{
-    max-width: 80%;
-    position: relative;
-    margin: 0 10% 0 0;
+.main__container__section-2__video-container__video {
+  max-width: 80%;
+  position: relative;
+  margin: 0 10% 0 0;
 }
 
-.main__container__section-2__video-container__btn{
-    position: absolute;
-    height: 2rem;
-    background-color: #163e56;
-    color: #ede8dc;
-    margin: 0 2rem 1rem 0;
-    @media (min-width:1000px) {
-        margin: 0 5rem 5rem 0;
-    }
+.main__container__section-2__video-container__btn {
+  position: absolute;
+  height: 2rem;
+  background-color: #163e56;
+  color: #ede8dc;
+  margin: 0 2rem 1rem 0;
+
+  @media (min-width: 1000px) {
+    margin: 0 5rem 5rem 0;
+  }
+}
+
+.main__container__section-2__video-container__btn__text {
+  text-decoration: none;
+}
+.main__container__section-2__video-container__btn__text:visited {
+  color: transparent;
 }
 
 .container {
-    max-width: 96vw;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 0 .8rem;
+  max-width: 96vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 0.8rem;
 }

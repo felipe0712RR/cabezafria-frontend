@@ -1,0 +1,76 @@
+/* Fondo general */
+.page-users-list {
+    background-color: #f5f4f2;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    font-family: sans-serif;
+    color: #0f1724;
+}
+
+/* Título */
+.page-users-list h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #163e56;
+    text-align: left;
+}
+
+/* Contenedor de la tabla */
+.users-list {
+    overflow-x: auto;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Tabla general */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+/* Encabezados */
+thead th {
+    background-color: #163e56;
+    color: #ede8dc;
+    text-align: left;
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* Celdas */
+tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: #0f1724;
+}
+
+/* Última columna para el botón */
+tbody td:last-child {
+    text-align: left;
+}
+
+/* Botón */
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Botón secundario: Delete */
+.btn-secondy {
+    background-color: #163e56;
+    color: #ede8dc;
+    border: none;
+}
+
+.btn-secondy:hover {
+    background-color: #0f1724;
+}

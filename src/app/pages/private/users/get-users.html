@@ -1,31 +1,29 @@
 <div class="page-users-list">
-<h1>Users List</h1>
+    <h1>Users List</h1>
 
-<!-- <pre>{{ products | json }}</pre> -->
+    <!-- <pre>{{ products | json }}</pre> -->
 
-<div class="users-list">
-    <table border="1">
-    <thead>
-        <th>Name User</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Phone Number</th>
-    </thead>
-    <tbody>
-        @for ( user of users; track $index ) {
-        <tr>
-        <td>{{ user.userName }}</td>
-        <td>{{ user.userEmail}}</td>
-        <td>{{ user.userRole }}</td>
-        <td>{{ user.userPhoneNumber}}</td>
-        <td>
-            <a class="btn btn-secondy" (click)="onDelete(user._id)"
-            >Delete</a
-            >
-        </td>
-        </tr>
-        }
-    </tbody>
-    </table>
-</div>
+    <div class="users-list">
+        <table border="1">
+            <thead>
+                <th>Name User</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Phone Number</th>
+            </thead>
+            <tbody>
+                @for ( user of users; track $index ) {
+                <tr>
+                    <td>{{ user.userName }}</td>
+                    <td>{{ user.userEmail}}</td>
+                    <td>{{ user.userRole }}</td>
+                    <td>{{ user.userPhoneNumber}}</td>
+                    <td>
+                        <a class="btn btn-secondy" (click)="onDelete(user._id)">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
