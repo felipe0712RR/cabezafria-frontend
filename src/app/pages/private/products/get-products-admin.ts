@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { CurrencyPipe } from '@angular/common';
 import { ProductService } from '../../../services/product-service';
+import { CurrencyPipe } from '@angular/common';
 @Component({
-  selector: 'app-get-products',
+  selector: 'app-get-products-admin',
   imports: [CurrencyPipe],
-  templateUrl: './get-products.html',
-  styleUrl: './get-products.css'
+  templateUrl: './get-products-admin.html',
+  styleUrl: './get-products-admin.css'
 })
-export class GetProducts {
+export class GetProductsAdmin {
   products: any = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit() {
     // Detecta cuando el componente se a inicializado
@@ -39,4 +41,7 @@ export class GetProducts {
       complete: () => { }
     });
   }
+
+  
 }
+
