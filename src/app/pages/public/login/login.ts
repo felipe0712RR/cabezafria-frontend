@@ -59,7 +59,7 @@ export class LoginUser {
             icon: "error",
             title: "Oops...",
             text: "El usuario no existe!",
-            footer: '<a href="dashboard/users/new">No tienes cuenta aún?</a>'
+            footer: '<a href="register">No tienes cuenta aún?</a>'
           });
         },
         complete: () => {

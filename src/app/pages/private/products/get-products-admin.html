@@ -1,0 +1,25 @@
+<section class="products-main-container">
+    <div class="products-main-container__card">
+        @for (product of products; track product._id) {
+        <div class="products-main-container__card__product">
+            <img [src]="product?.productUrlImage" class="products-main-container__card__product__img"
+                [alt]="product?.productName">
+            <h3 class="products-main-container__card__product__name">{{ product?.productName }}</h3>
+            <p class="products-main-container__card__product__price products-main-container__card__product__texts">
+                Precio: {{ product.productPrice | currency}}</p>
+            <p class="products-main-container__card__product__category products-main-container__card__product__texts">
+                Categoria: {{product.productCategory.categoryName}}</p>
+            <p class="products-main-container__card__product__stock products-main-container__card__product__texts">
+                En stock: {{ product.productStock }}</p>
+            <p class="products-main-container__card__product__type products-main-container__card__product__texts">
+                Tipo: {{ product.productType}}</p>
+            <p class="products-main-container__card__product__size products-main-container__card__product__texts">
+                Talla: {{ product.productSize}}</p>
+            <button class="products-main-container__card__product__delete-btn"
+                (click)="onDelete(product._id)">Eliminar</button>
+        </div>
+        } @empty {
+        <p class="products-main-container__card__empty">No hay productos disponibles en este momento.</p>
+        }
+    </div>
+</section>
