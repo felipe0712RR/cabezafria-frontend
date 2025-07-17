@@ -1,0 +1,9 @@
+.page-categories-list {
+    padding: 1rem;
+}
+
+.page-categories-list h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
