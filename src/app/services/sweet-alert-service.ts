@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SweetAlertService {
+  BASE_URL : string= environment.apiUrl;
 
   constructor() { }
 
