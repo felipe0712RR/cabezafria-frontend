@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router, UrlTree } from '@angular/router';
 import { AuthService } from '../services/auth-service';
-import { map, take } from 'rxjs/operators';
+import { catchError, map, take } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 export const authGuard: CanActivateFn = (
@@ -21,6 +21,9 @@ export const authGuard: CanActivateFn = (
         console.warn('AuthGuard: Usuario no autenticado. Redirigiendo a login.');
         return router.createUrlTree(['/login']); // Redirige al login
       }
+    }),
+    catchError(error=>{
+      return of (false)
     })
   );
 };

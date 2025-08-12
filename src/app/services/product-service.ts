@@ -1,26 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
+  BASE_URL: string = environment.apiURL;
+
   constructor(private http: HttpClient) { }
 
   registerProduct(newProduct: any) {
-    return this.http.post('http://localhost:3000/api/products', newProduct);
+    return this.http.post( this.BASE_URL + '/products', newProduct);
   }
 
   getProducts() {
-    return this.http.get<any>('http://localhost:3000/api/products')
+    return this.http.get<any>( this.BASE_URL + '/products')
   }
 
   getProductsId(id: string) {
-    return this.http.get('http://localhost:3000/api/products/'.concat(id))
+    return this.http.get( this.BASE_URL + '/products/'.concat(id))
   }
 
   deleteProducts(id: string) {
-    return this.http.delete('http://localhost:3000/api/products/'.concat(id))
+    return this.http.delete( this.BASE_URL + '/products/'.concat(id))
   }
 };

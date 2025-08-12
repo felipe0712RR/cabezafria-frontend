@@ -1,15 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewService {
 
+  BASE_URL: string = environment.apiURL;
+
   constructor( private http:HttpClient) {  }
 
   createReview(newReview: object){
-    return this.http.post('http://localhost:3000/api/reviews', newReview)
+    return this.http.post( this.BASE_URL + '/reviews', newReview)
   }
 
 }

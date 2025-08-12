@@ -4,11 +4,15 @@ import { CartItem } from '../models/cart-items.model';
 
 import { SweetAlertService } from '../services/sweet-alert-service';
 import Swal from 'sweetalert2';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CartService {
+
+    BASE_URL: string = environment.apiURL;
+
     cartItems: CartItem[] = [];
 
     constructor(private sweetAlertService: SweetAlertService) { }

@@ -19,6 +19,96 @@
                 </div>
             </div>
             <div class="header__container__section-1__right__burger">
+                <nav>
+                    <ul class="pushNav js-topPushNav">
+                        <li class="closeLevel js-closeLevelTop hdg">
+                            <i class="fa fa-close"></i>
+                            Close
+                        </li>
+                        <li>
+                            <a routerLink="home">
+                                <i class="fa fa-home"></i>
+                                Home
+                            </a>
+                        </li>
+
+                        <li><!-- Begin section 1 -->
+                            <div class="openLevel js-openLevel">
+                                Nuestras gorras
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <ul class="pushNav pushNav_level js-pushNavLevel">
+                                <li class="closeLevel js-closeLevel hdg">
+                                    <i class="fa fa-chevron-left"></i>
+                                    Atrás
+                                </li>
+                                <li>
+                                    <div class="openLevel js-openLevel">
+                                        Gorras Deportivas
+                                        <i class="fa fa-chevron-right"></i>
+                                    </div>
+                                    <ul class="pushNav pushNav_level js-pushNavLevel">
+                                        <li class="closeLevel js-closeLevel hdg">
+                                            <i class="fa fa-chevron-left"></i>
+                                            Atrás
+                                        </li>
+                                        <li><a routerLink="products">59FIFTY (Fitted)</a></li>
+                                        <li><a routerLink="products">9FIFTY (Snapback)</a></li>
+                                        <li><a routerLink="products">39THIRTY (Stretch Fit)</a></li>
+                                        <li><a routerLink="products">9FORTY (Adjustable)</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="openLevel js-openLevel">
+                                        Gorras de Lujo
+                                        <i class="fa fa-chevron-right"></i>
+                                    </div>
+                                    <ul class="pushNav pushNav_level js-pushNavLevel">
+                                        <li class="closeLevel js-closeLevel hdg">
+                                            <i class="fa fa-chevron-left"></i>
+                                            Go Back
+                                        </li>
+                                        <li><a href="#">Gorras Amiri</a></li>
+                                        <li><a href="#">Gorras Burberry</a></li>
+                                        <li><a href="#">Gorras Monastery</a></li>
+                                        <li><a href="#">Gorras Coach</a></li>
+                                        <li><a href="#">Gorras Louis Vuitton</a></li>
+                                        <li><a href="#">Gorras Gucci</a></li>
+                                        <li><a href="#">Gorras Gooring Bros</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Link to page three</a></li>
+                                <li><a href="#">Link to page four</a></li>
+                            </ul>
+                        </li><!-- End section 1 -->
+
+                        <li>
+                            <div class="openLevel js-openLevel">
+                                Section 2
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <ul class="pushNav pushNav_level js-pushNavLevel">
+                                <li class="closeLevel js-closeLevel hdg">
+                                    <i class="fa fa-chevron-left"></i>
+                                    Go Back
+                                </li>
+                                <li><a href="#">Link to page fourteen</a></li>
+                                <li><a href="#">Link to page fifteen</a></li>
+                                <li><a href="#">Link to page sixteen</a></li>
+                                <li><a href="#">Link to page seventeen</a></li>
+                                <li><a href="#">Link to page eighteen</a></li>
+                                <li><a href="#">Link to page nineteen</a></li>
+                            </ul>
+                        </li>
+                        <hr />
+                        <li>
+                            <a href="#">Link to page one</a>
+                        </li>
+                        <li>
+                            <a href="#">Link to page two</a>
+                        </li>
+                    </ul>
+                </nav>
                 <i class="fa-solid fa-bars header__container__section-1__right__burger__icon"></i>
             </div>
             <div class="header__container__section-1__right">
@@ -30,12 +120,13 @@
                             src="assets/imgs/cabezafria/shopping-bag.png" alt="shopping-bag">
                     </a>
                 </div>
-                @if ( isLoggedIn ){<div class="header__container__section-1__right__user header__container__section-1__right__items">
+                @if ( isLoggedIn ){<div
+                    class="header__container__section-1__right__user header__container__section-1__right__items">
                     <a routerLink="dashboard/users"
                         class="header__container__section-1__right__user__btn header__container__section-1__right__shopping-bag__user__btns">
-                        <img  class="header__container__section-1__right__user__btn__img header__container__section-1__right__shopping-bag__user__btns__imgs"
+                        <img class="header__container__section-1__right__user__btn__img header__container__section-1__right__shopping-bag__user__btns__imgs"
                             src="assets/imgs/cabezafria/user.png" alt="user">
-                </a>
+                    </a>
                 </div>
                 <div class="header__container__section-1__right__user__name-user">
                     <h3 class="header__container__section-1__right__user__name-user__name">{{userData.userName}}</h3>
@@ -57,7 +148,8 @@
                 <div>
                     <button (click)="onLogout()"
                         class="header__container__section-1__right__logout__btn header__container__section-1__right__sign-in__logout__register__btns">
-                        <a routerLink="" class="header__container__section-1__right__logout__btn__text header__container__section-1__right__sign-in__logout__register__btns__texts">LOGOUT</a>
+                        <a routerLink=""
+                            class="header__container__section-1__right__logout__btn__text header__container__section-1__right__sign-in__logout__register__btns__texts">LOGOUT</a>
                     </button>
                 </div>
                 }
