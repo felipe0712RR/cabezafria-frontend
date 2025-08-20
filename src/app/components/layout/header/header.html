@@ -18,39 +18,36 @@
                     </div>
                 </div>
             </div>
+            <!-- Burger menu -->
             <div class="header__container__section-1__right__burger">
                 <nav>
-                    <ul class="pushNav js-topPushNav">
-                        <li class="closeLevel js-closeLevelTop hdg">
-                            <i class="fa fa-close"></i>
-                            Close
+                    <ul class="pushNav js-topPushNav" #topNav>
+                        <li class="closeLevel js-closeLevelTop hdg" #closeLevelTop>
+                            <i class="fa fa-close"></i> Close
                         </li>
                         <li>
                             <a routerLink="home">
-                                <i class="fa fa-home"></i>
-                                Home
+                                <i class="fa fa-home"></i> Home
                             </a>
                         </li>
 
-                        <li><!-- Begin section 1 -->
-                            <div class="openLevel js-openLevel">
+                        <li>
+                            <div class="openLevel js-openLevel" #openLevel>
                                 Nuestras gorras
                                 <i class="fa fa-chevron-right"></i>
                             </div>
-                            <ul class="pushNav pushNav_level js-pushNavLevel">
-                                <li class="closeLevel js-closeLevel hdg">
-                                    <i class="fa fa-chevron-left"></i>
-                                    Atrás
+                            <ul class="pushNav pushNav_level js-pushNavLevel" #navLevel>
+                                <li class="closeLevel js-closeLevel hdg" #closeLevel>
+                                    <i class="fa fa-chevron-left"></i> Atrás
                                 </li>
                                 <li>
-                                    <div class="openLevel js-openLevel">
+                                    <div class="openLevel js-openLevel" #openLevel>
                                         Gorras Deportivas
                                         <i class="fa fa-chevron-right"></i>
                                     </div>
-                                    <ul class="pushNav pushNav_level js-pushNavLevel">
-                                        <li class="closeLevel js-closeLevel hdg">
-                                            <i class="fa fa-chevron-left"></i>
-                                            Atrás
+                                    <ul class="pushNav pushNav_level js-pushNavLevel" #navLevel>
+                                        <li class="closeLevel js-closeLevel hdg" #closeLevel>
+                                            <i class="fa fa-chevron-left"></i> Atrás
                                         </li>
                                         <li><a routerLink="products">59FIFTY (Fitted)</a></li>
                                         <li><a routerLink="products">9FIFTY (Snapback)</a></li>
@@ -59,14 +56,13 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <div class="openLevel js-openLevel">
+                                    <div class="openLevel js-openLevel" #openLevel>
                                         Gorras de Lujo
                                         <i class="fa fa-chevron-right"></i>
                                     </div>
-                                    <ul class="pushNav pushNav_level js-pushNavLevel">
-                                        <li class="closeLevel js-closeLevel hdg">
-                                            <i class="fa fa-chevron-left"></i>
-                                            Go Back
+                                    <ul class="pushNav pushNav_level js-pushNavLevel" #navLevel>
+                                        <li class="closeLevel js-closeLevel hdg" #closeLevel>
+                                            <i class="fa fa-chevron-left"></i> Go Back
                                         </li>
                                         <li><a href="#">Gorras Amiri</a></li>
                                         <li><a href="#">Gorras Burberry</a></li>
@@ -77,39 +73,32 @@
                                         <li><a href="#">Gorras Gooring Bros</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Link to page three</a></li>
-                                <li><a href="#">Link to page four</a></li>
                             </ul>
-                        </li><!-- End section 1 -->
+                        </li>
 
                         <li>
-                            <div class="openLevel js-openLevel">
-                                Section 2
+                            <div class="openLevel js-openLevel" #openLevel>
+                                Tus pedidos
                                 <i class="fa fa-chevron-right"></i>
                             </div>
-                            <ul class="pushNav pushNav_level js-pushNavLevel">
-                                <li class="closeLevel js-closeLevel hdg">
-                                    <i class="fa fa-chevron-left"></i>
-                                    Go Back
+                            <ul class="pushNav pushNav_level js-pushNavLevel" #navLevel>
+                                <li class="closeLevel js-closeLevel hdg" #closeLevel>
+                                    <i class="fa fa-chevron-left"></i> Atrás
                                 </li>
-                                <li><a href="#">Link to page fourteen</a></li>
-                                <li><a href="#">Link to page fifteen</a></li>
-                                <li><a href="#">Link to page sixteen</a></li>
-                                <li><a href="#">Link to page seventeen</a></li>
-                                <li><a href="#">Link to page eighteen</a></li>
-                                <li><a href="#">Link to page nineteen</a></li>
+                                <li><a href="#">Pedidos en curso</a></li>
+                                <li><a href="#">Pedidos Finalizados</a></li>
                             </ul>
                         </li>
+
                         <hr />
-                        <li>
-                            <a href="#">Link to page one</a>
-                        </li>
-                        <li>
-                            <a href="#">Link to page two</a>
-                        </li>
+                        <li><a href="#">Productos nuevos</a></li>
+                        <li><a routerLink="shoppingcart">Ir al carrito de compras</a></li>
                     </ul>
                 </nav>
-                <i class="fa-solid fa-bars header__container__section-1__right__burger__icon"></i>
+
+                <!-- El icono para abrir el menú -->
+                <i class="fa-solid fa-bars header__container__section-1__right__burger__icon"
+                    (click)="openPushNav()"></i>
             </div>
             <div class="header__container__section-1__right">
                 <div
