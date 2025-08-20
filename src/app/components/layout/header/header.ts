@@ -113,13 +113,7 @@ export class Header implements OnInit, AfterViewInit {
   }
 
   onLogout(): void {
-<<<<<<< HEAD
-=======
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
-    this.authService.deleteLocalStorage('token');
-    this.router.navigateByUrl('home');
->>>>>>> 17b536f4cadd325350e6591bc1b995a46a1c9a4c
+
     Swal.fire({
       title: '¿Estás seguro?',
       text: "Tu sesión actual se cerrará.",
