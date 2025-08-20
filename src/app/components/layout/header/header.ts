@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth-service';
 import Swal from 'sweetalert2';
+import { NgxAwesomePopupModule, ConfirmBoxConfigModule } from '@costlydeveloper/ngx-awesome-popup';
 
 @Component({
   selector: 'app-header',
@@ -88,15 +89,22 @@ export class Header implements OnInit {
   }
 
   onLogout(): void {
-    this.authService.logout();
-    this.router.navigateByUrl('/login'); // Redirige a la página de login después de cerrar sesión
-    console.log('nos salimos del sistema');
-    this.authService.deleteLocalStorage('token');
-    this.router.navigateByUrl('home');
     Swal.fire({
-      title: "Cerraste Sesión..!",
-      icon: "success",
-      draggable: true
-    });
+      title: '¿Estás seguro?',
+      text: "Tu sesión actual se cerrará.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, ¡cerrar sesión!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      // Si el usuario confirma, el resultado tendrá `isConfirmed: true`
+      if (result.isConfirmed) {
+        this.authService.logout();
+        this.router.navigateByUrl('home');
+      }
+    }); 
+    
   }
 }

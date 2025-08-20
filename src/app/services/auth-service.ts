@@ -35,6 +35,7 @@ export class AuthService {
     this.user = null;
     this._isLoggedIn.next(false);
     this._userData.next({});
+    this.deleteLocalStorage('token');
   }
 
   loginUser(credentials: any) {
