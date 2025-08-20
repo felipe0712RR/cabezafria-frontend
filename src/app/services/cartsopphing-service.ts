@@ -10,7 +10,9 @@ import { environment } from '../../environments/environment';
     providedIn: 'root'
 })
 export class CartService {
-    BASE_URL : string= environment.apiUrl;
+  
+    BASE_URL: string = environment.apiURL;
+
     cartItems: CartItem[] = [];
 
     constructor(private sweetAlertService: SweetAlertService) { }

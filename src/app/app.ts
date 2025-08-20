@@ -4,7 +4,7 @@ import { Header } from "./components/layout/header/header";
 import { Footer } from "./components/layout/footer/footer";
 import { environment } from '../environments/environment';
 
-console.log('Environments:', environment)
+console.log('Enviroment', environment);
 
 @Component({
   selector: 'app-root',

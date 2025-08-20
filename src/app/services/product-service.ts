@@ -6,23 +6,25 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ProductService {
-  BASE_URL : string= environment.apiUrl;
+
+
+  BASE_URL: string = environment.apiURL;
 
   constructor(private http: HttpClient) { }
 
   registerProduct(newProduct: any) {
-    return this.http.post(`${this.BASE_URL}/products`, newProduct);
+    return this.http.post( this.BASE_URL + '/products', newProduct);
   }
 
   getProducts() {
-    return this.http.get<any>(`${this.BASE_URL}/products`)
+    return this.http.get<any>( this.BASE_URL + '/products')
   }
 
   getProductsId(id: string) {
-    return this.http.get(`${this.BASE_URL}/products/`.concat(id))
+    return this.http.get( this.BASE_URL + '/products/'.concat(id))
   }
 
   deleteProducts(id: string) {
-    return this.http.delete(`${this.BASE_URL}/products/`.concat(id))
+    return this.http.delete( this.BASE_URL + '/products/'.concat(id))
   }
 };

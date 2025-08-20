@@ -6,12 +6,13 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ReviewService {
-  BASE_URL : string= environment.apiUrl;
+
+  BASE_URL: string = environment.apiURL;
 
   constructor( private http:HttpClient) {  }
 
   createReview(newReview: object){
-    return this.http.post(`${this.BASE_URL}/reviews`, newReview)
+    return this.http.post( this.BASE_URL + '/reviews', newReview)
   }
 
 }

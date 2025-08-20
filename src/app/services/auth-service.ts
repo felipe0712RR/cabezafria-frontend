@@ -7,7 +7,9 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  BASE_URL : string= environment.apiUrl;
+
+  BASE_URL: string = environment.apiURL;
+
   private _isLoggedIn = new BehaviorSubject<boolean>(false);
   private _userData = new BehaviorSubject<object>({});
   public isLoggedIn$: Observable<boolean> = this._isLoggedIn.asObservable();
@@ -39,7 +41,7 @@ export class AuthService {
   }
 
   loginUser(credentials: any) {
-    return this.http.post(`${this.BASE_URL}/auth/login`, credentials);
+    return this.http.post( this.BASE_URL + '/auth/login', credentials);
   }
 
   saveLocalStorage(key: string, value: any) {
@@ -52,7 +54,7 @@ export class AuthService {
 
   verifyAuthenticateUser() {
     return this.http
-      .get(`${this.BASE_URL}/auth/re-new-token`, {
+      .get( this.BASE_URL + '/auth/re-new-token', {
         headers: this.getHeaders(),
       })
 

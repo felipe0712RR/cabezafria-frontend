@@ -6,23 +6,25 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-BASE_URL : string= environment.apiUrl;
+
+  BASE_URL: string = environment.apiURL;
+
   constructor(private http:HttpClient) { }
 
   registerUsers( newUsers: any ) {
-    return this.http.post(`${this.BASE_URL}/users`, newUsers)
+    return this.http.post( this.BASE_URL + '/users', newUsers)
   }
 
   getUsers() {
-    return this.http.get( `${this.BASE_URL}/users` );
+    return this.http.get(  this.BASE_URL + '/users' );
   }
 
   deleteUsers(id: string) {
-    return this.http.delete(`${this.BASE_URL}/users/`.concat( id ))
+    return this.http.delete( this.BASE_URL + '/users/'.concat( id ))
   }
 
   // hideAdmins() {
-  //   return this.http.get(`${this.BASE_URL}/users` )
+  //   return this.http.get( this.BASE_URL + '/users' )
   // }
 
   // getRole() {
