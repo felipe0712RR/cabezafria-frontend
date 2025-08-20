@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit, Renderer2 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth-service';
 import Swal from 'sweetalert2';
@@ -9,68 +9,49 @@ import Swal from 'sweetalert2';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header implements OnInit {
+export class Header implements OnInit, AfterViewInit {
 
-  @ViewChild('cajita') cajita!:ElementRef;
+  // Carrusel
+  @ViewChild('cajita') cajita!: ElementRef;
+
+  // Push nav
+  @ViewChild('topNav', { static: false, read: ElementRef }) topNav?: ElementRef;
+  @ViewChildren('openLevel', { read: ElementRef }) openLevels!: QueryList<ElementRef>;
+  @ViewChildren('closeLevel', { read: ElementRef }) closeLevels!: QueryList<ElementRef>;
+  @ViewChildren('navLevel', { read: ElementRef }) navLevels!: QueryList<ElementRef>;
+  @ViewChild('closeLevelTop', { read: ElementRef }) closeLevelTop?: ElementRef;
 
   isLoggedIn: boolean = false;
-  userData!: any 
+  userData!: any;
 
   brands = [
-    {
-      name: 'NEW ERA',
-      logo: 'assets/imgs/newera/neweralogo.png',
-      alt: 'new-era-cap',
-    },
-    {
-      name: 'BURBERRY',
-      logo: 'assets/imgs/burberry/burberrylogo.png',
-      alt: 'burberry-cap',
-    },
-    {
-      name: 'LOUIS VUITTON',
-      logo: 'assets/imgs/louisvuitton/louisvuittonlogo.png',
-      alt: 'louis-vuitton-cap',
-    },
-    {
-      name: 'GOORING BROS',
-      logo: 'assets/imgs/goorinbros/goorinbroslogo.png',
-      alt: 'gooring-bros-cap',
-    },
-    {
-      name: 'AMIRI',
-      logo: 'assets/imgs/amiri/amirilogo.png',
-      alt: 'amiri-cap',
-    },
-    {
-      name: 'MONASTERY COUTURE',
-      logo: 'assets/imgs/monasterycouture/monasterycouturelogo.png',
-      alt: 'monastery-couture-cap',
-    },
-    {
-      name: 'COACH',
-      logo: 'assets/imgs/coach/coachlogo.png',
-      alt: 'coach-cap',
-    },
-    {
-      name: 'GUCCI',
-      logo: 'assets/imgs/gucci/guccilogo.png',
-      alt: 'gucci-cap',
-    },
+    { name: 'NEW ERA', logo: 'assets/imgs/newera/neweralogo.png', alt: 'new-era-cap' },
+    { name: 'BURBERRY', logo: 'assets/imgs/burberry/burberrylogo.png', alt: 'burberry-cap' },
+    { name: 'LOUIS VUITTON', logo: 'assets/imgs/louisvuitton/louisvuittonlogo.png', alt: 'louis-vuitton-cap' },
+    { name: 'GOORING BROS', logo: 'assets/imgs/goorinbros/goorinbroslogo.png', alt: 'gooring-bros-cap' },
+    { name: 'AMIRI', logo: 'assets/imgs/amiri/amirilogo.png', alt: 'amiri-cap' },
+    { name: 'MONASTERY COUTURE', logo: 'assets/imgs/monasterycouture/monasterycouturelogo.png', alt: 'monastery-couture-cap' },
+    { name: 'COACH', logo: 'assets/imgs/coach/coachlogo.png', alt: 'coach-cap' },
+    { name: 'GUCCI', logo: 'assets/imgs/gucci/guccilogo.png', alt: 'gucci-cap' }
   ];
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit(): void {
     this.authService.isLoggedIn$.subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
     });
-    this.authService.userData$.subscribe((userData)=>{      
-      this.userData = userData
-    })
+    this.authService.userData$.subscribe((userData) => {
+      this.userData = userData;
+    });
   }
 
   ngAfterViewInit(): void {
+    // Carrusel automático
     let velocidadDesplazamiento = 5;
     let desplazamiento = 0;
     setInterval(() => {
@@ -85,12 +66,54 @@ export class Header implements OnInit {
         }
       }
     }, 50);
+
+    // Menú lateral
+    // Abrir niveles
+    this.openLevels.forEach((btn) => {
+      this.renderer.listen(btn.nativeElement, 'click', () => {
+        const nextUl = btn.nativeElement.nextElementSibling;
+        if (nextUl) {
+          nextUl.classList.add('isOpen');
+        }
+      });
+    });
+
+    // Cerrar niveles
+    this.closeLevels.forEach((btn) => {
+      this.renderer.listen(btn.nativeElement, 'click', () => {
+        const parentUl = btn.nativeElement.closest('.js-pushNavLevel');
+        if (parentUl) {
+          parentUl.classList.remove('isOpen');
+        }
+      });
+    });
+
+    // Cerrar menú completo
+    if (this.closeLevelTop) {
+      this.renderer.listen(this.closeLevelTop.nativeElement, 'click', () => {
+        this.closePushNav();
+      });
+    }
+  }
+
+  openPushNav() {
+    if (this.topNav) {
+      this.topNav.nativeElement.classList.add('isOpen');
+      document.body.classList.add('pushNavIsOpen');
+    }
+  }
+
+  closePushNav() {
+    if (this.topNav) {
+      this.topNav.nativeElement.classList.remove('isOpen');
+      this.navLevels.forEach((nav) => nav.nativeElement.classList.remove('isOpen'));
+      document.body.classList.remove('pushNavIsOpen');
+    }
   }
 
   onLogout(): void {
     this.authService.logout();
-    this.router.navigateByUrl('/login'); // Redirige a la página de login después de cerrar sesión
-    console.log('nos salimos del sistema');
+    this.router.navigateByUrl('/login');
     this.authService.deleteLocalStorage('token');
     this.router.navigateByUrl('home');
     Swal.fire({
