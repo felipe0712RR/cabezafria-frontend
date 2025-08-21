@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../../../services/category-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-categories',
@@ -27,7 +28,19 @@ export class GetCategories {
     });
   }
   onDelete(id: string) {
-    console.log(id)
+
+Swal.fire({
+      title: '¿Estás seguro?',
+      text: "La categoria será eliminada.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, ¡eliminala!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+       console.log(id)
     this.categoryService.deleteCategories(id).subscribe({
       next: (data) => {
         console.log(data);
@@ -38,6 +51,11 @@ export class GetCategories {
       },
       complete: () => { }
     });
+
+      }
+    }); 
+
+    
   }
 }
 

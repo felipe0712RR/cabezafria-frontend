@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../../services/product-service';
 import { CurrencyPipe } from '@angular/common';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-get-products-admin',
   imports: [CurrencyPipe],
@@ -29,7 +30,19 @@ export class GetProductsAdmin {
   }
 
   onDelete(id: string) {
-    console.log(id)
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "El producto será eliminado.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, ¡eliminalo!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+       console.log(id)
     this.productService.deleteProducts(id).subscribe({
       next: (data) => {
         console.log(data);
@@ -40,6 +53,10 @@ export class GetProductsAdmin {
       },
       complete: () => { }
     });
+      }
+    }); 
+
+    
   }
 
   

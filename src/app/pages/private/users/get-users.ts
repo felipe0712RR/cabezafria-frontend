@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../services/users-service';
 import { AuthService } from '../../../services/auth-service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -31,6 +32,18 @@ export class GetUsers {
   }
   
     onDelete(id: string) {
+       Swal.fire({
+        title: '¿Estás seguro?',
+      text: "El usuario será eliminado.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, ¡eliminalo!',
+      cancelButtonText: 'Cancelar'
+      }).then((result)=>{
+        if(result.isConfirmed){
+          
       console.log(id)
       this.userService.deleteUsers(id).subscribe({
         
@@ -43,6 +56,10 @@ export class GetUsers {
         },
         complete: () => { }
       });
+        }
+      })
+
+
     }
 
 
