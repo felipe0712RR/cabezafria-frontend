@@ -1,12 +1,14 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit, Renderer2 } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth-service';
 import Swal from 'sweetalert2';
-import { NgxAwesomePopupModule, ConfirmBoxConfigModule } from '@costlydeveloper/ngx-awesome-popup';
+import { filter } from 'rxjs';
+import { ProductService } from '../../../services/product-service';
+
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, ],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -39,7 +41,8 @@ export class Header implements OnInit, AfterViewInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private productService: ProductService
   ) {}
 
   ngOnInit(): void {
@@ -49,10 +52,15 @@ export class Header implements OnInit, AfterViewInit {
     this.authService.userData$.subscribe((userData) => {
       this.userData = userData;
     });
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+    this.closePushNav();
+  });
   }
 
   ngAfterViewInit(): void {
-    // Carrusel automático
+
     let velocidadDesplazamiento = 5;
     let desplazamiento = 0;
     setInterval(() => {
@@ -124,12 +132,24 @@ export class Header implements OnInit, AfterViewInit {
       confirmButtonText: 'Sí, ¡cerrar sesión!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
-      // Si el usuario confirma, el resultado tendrá `isConfirmed: true`
       if (result.isConfirmed) {
         this.authService.logout();
+        this.closePushNav();
         this.router.navigateByUrl('home');
       }
     }); 
     
+  }
+
+  filtrarPorMarca(productName: any){
+    this.productService.filterProductsByName({productName}).subscribe({
+      next:(data)=>{
+        console.log(data);
+        
+      },error:(error)=>{
+        console.error(error);
+        
+      }
+    })
   }
 }

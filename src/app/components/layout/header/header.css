@@ -264,8 +264,15 @@ ul.pushNav {
     top: 0;
     z-index: 100;
     overflow: hidden;
-    background: #2e2f35;
+    background: #0f1724;
     transition: ease-in-out 0.5s;
+    border-left: 2px solid #b5b4aa;
+}
+
+.pushNav__mod{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .pushNav hr {
@@ -289,6 +296,7 @@ ul.pushNav {
 .js-topPushNav.isOpen,
 .pushNav_level.isOpen {
     right: 0;
+    height: 100%;
 }
 
 .closeLevel,
@@ -353,13 +361,6 @@ closelevel>i {
     padding: 5px;
 }
 
-body {
-    background: url(https://static.pexels.com/photos/379600/pexels-photo-379600.jpeg);
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-color: black;
-}
-
 .wrapper {
     max-width: 625px;
     margin: 120px auto;
@@ -391,4 +392,55 @@ body {
 .wrapper button a {
     color: #fff;
     font-size: 2em;
+}
+
+.logout-level{
+    display: flex;
+    height: 70vh;
+    align-items: end;
+    margin: .8rem .8rem;
+    justify-content: space-between;
+}
+
+.logout-level__user-container{
+    background-color: #1e1e24;
+    border-radius: 1rem;
+    border: 2px solid #b5b4aa ;
+    display: flex;
+    flex-direction: row;
+    padding: 0 1rem 0 0;
+    height: 5rem;
+    align-items: center;
+    margin-left: .5rem;
+    filter: drop-shadow(-12px 8px 3px #000);
+}
+
+.logout-level__user-container__img{
+    height: 3.8rem;
+    width: 4rem;
+}
+
+.logout-level__user-container__info-user{
+    margin: 0;
+}
+
+.logout-level__user-container__info-user__user-name{
+    margin: 0 0 .5rem 0;
+    font-size: 1rem;
+}
+
+.logout-level__user-container__info-user__user-role{
+    margin: 0   ;
+    font-size: 1rem;
+}
+
+.logout-level__btn{
+    display: flex;
+    align-items: center;
+}
+
+.logout-level__btn__img{
+    height: 5rem;
+    width: 5rem;
+    filter: drop-shadow(-12px 8px 3px #000);
 }

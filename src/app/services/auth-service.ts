@@ -38,6 +38,7 @@ export class AuthService {
     this._isLoggedIn.next(false);
     this._userData.next({});
     this.deleteLocalStorage('token');
+    this.deleteLocalStorage('role');
   }
 
   loginUser(credentials: any) {

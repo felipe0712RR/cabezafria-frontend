@@ -7,10 +7,14 @@ body {
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     font-style: normal;
+    background: url(https://static.pexels.com/photos/379600/pexels-photo-379600.jpeg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
 app-new-form {
     display: flex;
     justify-content: center;
 }
+
 }
 
 
