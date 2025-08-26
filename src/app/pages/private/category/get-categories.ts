@@ -30,7 +30,11 @@ export class GetCategories {
 
   onDelete(id: string) {
 
+<<<<<<< HEAD
     Swal.fire({
+=======
+Swal.fire({
+>>>>>>> 50739836b519a2e6975b23d96c45c02e34216c3d
       title: '¿Estás seguro?',
       text: "La categoria será eliminada.",
       icon: 'warning',
@@ -41,6 +45,7 @@ export class GetCategories {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
+<<<<<<< HEAD
         console.log(id)
         this.categoryService.deleteCategories(id).subscribe({
           next: (data) => {
@@ -57,6 +62,24 @@ export class GetCategories {
     });
 
 
+=======
+       console.log(id)
+    this.categoryService.deleteCategories(id).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.ngOnInit()
+      },
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => { }
+    });
+
+      }
+    }); 
+
+    
+>>>>>>> 50739836b519a2e6975b23d96c45c02e34216c3d
   }
 }
 

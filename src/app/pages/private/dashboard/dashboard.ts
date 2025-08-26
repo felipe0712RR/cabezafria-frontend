@@ -26,9 +26,15 @@ export class AdminDashboard {
   navigateToViewUsers() {
     this.router.navigate(['/dashboard/users']);
   }
+<<<<<<< HEAD
 
   navigateToViewCategory(){
     this.router.navigate(['/dashboard/categories']);
   }
+=======
+  navigateToViewCategory(){
+    this.router.navigate(['/dashboard/categories']);
+  }
+>>>>>>> 50739836b519a2e6975b23d96c45c02e34216c3d
 }
 
