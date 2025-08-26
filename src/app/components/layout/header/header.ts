@@ -152,4 +152,6 @@ export class Header implements OnInit, AfterViewInit {
       }
     })
   }
+
+  
 }
