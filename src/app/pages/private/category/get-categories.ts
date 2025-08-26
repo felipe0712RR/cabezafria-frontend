@@ -29,7 +29,6 @@ export class GetCategories {
   }
 
   onDelete(id: string) {
-
     Swal.fire({
       title: '¿Estás seguro?',
       text: "La categoria será eliminada.",
@@ -52,11 +51,8 @@ export class GetCategories {
           },
           complete: () => { }
         });
-
       }
     });
-
-
   }
 }
 
