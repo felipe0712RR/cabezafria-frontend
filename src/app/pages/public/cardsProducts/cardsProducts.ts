@@ -6,10 +6,10 @@ import { CartService } from '../../../services/cartsopphing-service';
 @Component({
   selector: 'app-cartshopping',
   imports: [CurrencyPipe],
-  templateUrl: './cartshopping.html',
-  styleUrl: './cartshopping.css'
+  templateUrl: './cardsProducts.html',
+  styleUrl: './cardsProducts.css'
 })
-export class Cartshopping {
+export class CardsProducts {
 
   products: dataProduct[] | undefined;
   constructor(
@@ -32,7 +32,7 @@ export class Cartshopping {
     });
   }
 
-  addToCard(product: dataProduct) {
+  addToCart(product: dataProduct) {
     this.cartService.updateToCart(product, +1);
   }
 }
