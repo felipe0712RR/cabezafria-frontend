@@ -9,9 +9,10 @@
                         <h3>{{ product?.productName }}</h3>
                         <p>Precio: ${{ product.productPrice }}</p>
                         <p>{{ product.productDescription }}</p>
-                        
                         <div class="button__product">
-                            <button>Comprar</button>
+                            <button class="products-main-container_cardproductbuycontainer_btn" (click)="addToCart( product )">
+            Agregar al carrito
+          </button>
                             <button (click)="toggleFavorite(product)">
                                 {{ favIds.has(product._id) ? '❌' : '✅' }}
                             </button>

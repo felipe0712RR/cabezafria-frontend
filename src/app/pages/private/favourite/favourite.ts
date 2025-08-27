@@ -2,6 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../../services/product-service';
+import { CardsProducts } from '../../public/cardsProducts/cardsProducts';
+import { CartService } from '../../../services/cartsopphing-service';
+import { dataProduct } from '../../../models/product.model';
 
 @Component({
   selector: 'app-fovourite',
@@ -17,7 +20,10 @@ export class Favourite implements OnInit {
   listFavs: any[] = [];
   favIds = new Set<number>();
 
-  constructor( private productService: ProductService ) {}
+  constructor(
+     private productService: ProductService,
+     private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.loadFavorites(); 
@@ -38,6 +44,9 @@ export class Favourite implements OnInit {
       },
       complete: () => {}
     });
+  }
+  addToCart(product: dataProduct) {
+    this.cartService.updateToCart(product, +1);
   }
 
   loadFavorites(): void {
