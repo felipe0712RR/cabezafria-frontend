@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class GetProductsAdmin {
   products: any = [];
+  filterProducts: any[] = [];
 
   constructor(
     private productService: ProductService
@@ -42,23 +43,34 @@ export class GetProductsAdmin {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-       console.log(id)
-    this.productService.deleteProducts(id).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.ngOnInit()
-      },
-      error: (error) => {
-        console.error(error);
-      },
-      complete: () => { }
-    });
+        console.log(id)
+        this.productService.deleteProducts(id).subscribe({
+          next: (data) => {
+            console.log(data);
+            this.ngOnInit()
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => { }
+        });
       }
-    }); 
+    });
 
-    
+
   }
 
-  
+  // buscarProductos(filtro: string) {
+  //   this.productService.filterProducts().subscribe({
+  //     next: (res: any[]) => {
+  //       this.filterProducts = res; 
+  //       console.log("Resultado filtrado:", res);
+  //     },
+  //     error: (err) => {
+  //       console.error("Error al filtrar:", err);
+  //     }
+  //   });
+  // }
+
 }
 

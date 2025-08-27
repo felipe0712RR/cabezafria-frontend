@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrl: './get-categories.css'
 })
 export class GetCategories {
-  
+
   categories: any = [];
 
   constructor(private categoryService: CategoryService) { }
@@ -27,9 +27,9 @@ export class GetCategories {
       complete: () => { }
     });
   }
-  onDelete(id: string) {
 
-Swal.fire({
+  onDelete(id: string) {
+    Swal.fire({
       title: '¿Estás seguro?',
       text: "La categoria será eliminada.",
       icon: 'warning',
@@ -40,22 +40,19 @@ Swal.fire({
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-       console.log(id)
-    this.categoryService.deleteCategories(id).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.ngOnInit()
-      },
-      error: (error) => {
-        console.error(error);
-      },
-      complete: () => { }
-    });
-
+        console.log(id)
+        this.categoryService.deleteCategories(id).subscribe({
+          next: (data) => {
+            console.log(data);
+            this.ngOnInit()
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => { }
+        });
       }
-    }); 
-
-    
+    });
   }
 }
 

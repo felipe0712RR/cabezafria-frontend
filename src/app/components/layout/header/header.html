@@ -21,7 +21,7 @@
             <!-- Burger menu -->
             <div class="header__container__section-1__right__burger">
                 <nav>
-                    <ul class="pushNav js-topPushNav" #topNav>
+                    <ul class="pushNav pushNav__mod js-topPushNav" #topNav>
                         <li class="closeLevel js-closeLevelTop hdg" #closeLevelTop>
                             <i class="fa fa-close"></i> Close
                         </li>
@@ -49,10 +49,10 @@
                                         <li class="closeLevel js-closeLevel hdg" #closeLevel>
                                             <i class="fa fa-chevron-left"></i> Atrás
                                         </li>
-                                        <li><a routerLink="products">59FIFTY (Fitted)</a></li>
-                                        <li><a routerLink="products">9FIFTY (Snapback)</a></li>
-                                        <li><a routerLink="products">39THIRTY (Stretch Fit)</a></li>
-                                        <li><a routerLink="products">9FORTY (Adjustable)</a></li>
+                                        <li><a routerLink="filter/products">59FIFTY (Fitted)</a></li>
+                                        <li><a routerLink="filter/products">9FIFTY (Snapback)</a></li>
+                                        <li><a routerLink="filter/products">39THIRTY (Stretch Fit)</a></li>
+                                        <li><a routerLink="filter/products">9FORTY (Adjustable)</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -62,15 +62,15 @@
                                     </div>
                                     <ul class="pushNav pushNav_level js-pushNavLevel" #navLevel>
                                         <li class="closeLevel js-closeLevel hdg" #closeLevel>
-                                            <i class="fa fa-chevron-left"></i> Go Back
+                                            <i class="fa fa-chevron-left"></i> Atrás
                                         </li>
-                                        <li><a href="#">Gorras Amiri</a></li>
-                                        <li><a href="#">Gorras Burberry</a></li>
-                                        <li><a href="#">Gorras Monastery</a></li>
-                                        <li><a href="#">Gorras Coach</a></li>
-                                        <li><a href="#">Gorras Louis Vuitton</a></li>
-                                        <li><a href="#">Gorras Gucci</a></li>
-                                        <li><a href="#">Gorras Gooring Bros</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gorra Burberry')">Gorras Burberry</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gorra Amiri')">Gorras Amiri</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gorra Monastery')">Gorras Monastery</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gorra Coach')">Gorras Coach</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gorra Louis Vuitton')">Gorras Louis Vuitton</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gorra Gucci')">Gorras Gucci</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gorra Gooring Bros')">Gorras Gooring Bros</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -93,6 +93,22 @@
                         <hr />
                         <li><a href="#">Productos nuevos</a></li>
                         <li><a routerLink="shoppingcart">Ir al carrito de compras</a></li>
+                        @if ( isLoggedIn ){<li class="logout-level">
+                            <div class="logout-level__user-container">
+                                <img class="logout-level__user-container__img" src="assets/imgs/cabezafria/user.png"
+                                    alt="user">
+                                <div class="logout-level__user-container__info-user">
+                                    <h3 class="logout-level__user-container__info-user__user-name">{{userData.userName}}
+                                    </h3>
+                                    <h4 class="logout-level__user-container__info-user__user-role">{{userData.userRole}}
+                                    </h4>
+                                </div>
+                            </div>
+                            <div (click)="onLogout()" class="logout-level__btn">
+                                <img class="logout-level__btn__img" src="assets/imgs/logout.png" alt="logout">
+                            </div>
+                        </li>
+                        }
                     </ul>
                 </nav>
 

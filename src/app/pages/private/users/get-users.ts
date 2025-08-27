@@ -11,29 +11,29 @@ import Swal from 'sweetalert2';
   styleUrl: './get-users.css'
 })
 export class GetUsers {
-  constructor ( private userService: UserService, private authService: AuthService) {}
+  constructor(private userService: UserService, private authService: AuthService) { }
 
   users: any = [];
-  userData!: any 
+  userData!: any
 
   ngOnInit() {
-    this.authService.userData$.subscribe((userData)=>{      
+    this.authService.userData$.subscribe((userData) => {
       this.userData = userData
     })
     this.userService.getUsers().subscribe({
-      next: ( data ) => {
+      next: (data) => {
         this.users = (data as Array<any>).filter((user) => user._id !== this.userData._id);
       },
-      error: ( error) => {
-        console.error( error );
+      error: (error) => {
+        console.error(error);
       },
-      complete: () => {}
+      complete: () => { }
     });
   }
-  
-    onDelete(id: string) {
-       Swal.fire({
-        title: '¿Estás seguro?',
+
+  onDelete(id: string) {
+    Swal.fire({
+      title: '¿Estás seguro?',
       text: "El usuario será eliminado.",
       icon: 'warning',
       showCancelButton: true,
@@ -41,29 +41,30 @@ export class GetUsers {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, ¡eliminalo!',
       cancelButtonText: 'Cancelar'
-      }).then((result)=>{
-        if(result.isConfirmed){
-          
-      console.log(id)
-      this.userService.deleteUsers(id).subscribe({
-        
-        next: (data) => {
-          console.log(data);
-          this.ngOnInit()
-        },
-        error: (error) => {
-          console.error(error);
-        },
-        complete: () => { }
-      });
-        }
-      })
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        console.log(id)
+        this.userService.deleteUsers(id).subscribe({
+
+          next: (data) => {
+            console.log(data);
+            this.ngOnInit()
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => { }
+        });
+      }
+    })
 
 
-    }
+  }
 
 
 
 
 }
+
 
