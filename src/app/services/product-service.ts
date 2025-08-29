@@ -20,6 +20,10 @@ export class ProductService {
     return this.http.get<any>(this.BASE_URL + '/products')
   }
 
+  getProductsByBrands() {
+    return this.http.get<any>(this.BASE_URL + '/products/brand')
+  }
+
   getProductsId(id: string) {
     return this.http.get(this.BASE_URL + '/products/'.concat(id))
   }

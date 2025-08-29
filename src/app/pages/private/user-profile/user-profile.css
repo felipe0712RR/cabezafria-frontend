@@ -1,9 +1,55 @@
-h2,
-h3 {
-    color: #163e56;
-    margin-bottom: 1rem;
+.user-profile-container__title{
+    /* width: 30%; */
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
+.user-profile-container__title__text{
+    font-family: "Anton";
+}
+
+.user-profile-container{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+}
+
+.user-profile-container__card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0f1724;
+    width: 70%;
+    justify-content: space-around;
+    border-radius: 3rem;
+}
+
+.user-profile-container__card__photo__img{
+    width: 60%;
+}
+
+.user-profile-container__card-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.user-profile-container__card__data{
+    background-color: #ede8dc;
+    width: 90%;
+    border-radius: 2rem;
+}
+
+.user-profile-container__card__data__texts{
+    font-weight: 500;
+}
+
+.user-profile-container__card__data__username{
+    font-weight: bold;
+    font-size: 1.8rem;
+}
 
 .container__card {
     display: grid;

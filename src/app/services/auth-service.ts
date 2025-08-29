@@ -14,7 +14,8 @@ export class AuthService {
   private _userData = new BehaviorSubject<object>({});
   public isLoggedIn$: Observable<boolean> = this._isLoggedIn.asObservable();
   public userData$: Observable<object> = this._userData.asObservable();
-  user!: any;
+
+  user: any | null = null;
 
   constructor(private http: HttpClient) {
     const token = localStorage.getItem('token');
@@ -42,7 +43,7 @@ export class AuthService {
   }
 
   loginUser(credentials: any) {
-    return this.http.post( this.BASE_URL + '/auth/login', credentials);
+    return this.http.post(this.BASE_URL + '/auth/login', credentials);
   }
 
   saveLocalStorage(key: string, value: any) {
@@ -55,7 +56,7 @@ export class AuthService {
 
   verifyAuthenticateUser() {
     return this.http
-      .get( this.BASE_URL + '/auth/re-new-token', {
+      .get(this.BASE_URL + '/auth/re-new-token', {
         headers: this.getHeaders(),
       })
 
@@ -87,6 +88,12 @@ export class AuthService {
 
   hasRole(expectedRoles: string[]): boolean {
     return expectedRoles.includes(this.user.userRole);
+  }
+
+  updateUser(user: any) {
+    this.user = user;
+    this._userData.next(user);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   getHeaders() {

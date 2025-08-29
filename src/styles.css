@@ -4,8 +4,9 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-weight: 100;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
     font-style: normal;
     background: url(https://static.pexels.com/photos/379600/pexels-photo-379600.jpeg);
     background-size: 100% auto;

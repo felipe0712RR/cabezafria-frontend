@@ -1,17 +1,19 @@
 .form__container-user{
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 2.5rem 0;
+    align-items: center;    
 }
 .form__login {
     background-color: #ede8dc;
     padding: 2rem;
-    border-radius: 1rem;
-    width: 100%;
-    max-width: 500px;
+    margin: 2rem;
+    border-radius: 1rem;    
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.8s ease-in-out;
+    width: 65%;
+    @media (min-width:768px) {
+        width: 40%;
+    }
 }
 
 .main__conainer h1 {

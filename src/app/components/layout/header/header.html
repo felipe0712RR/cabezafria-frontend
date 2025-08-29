@@ -20,7 +20,7 @@
             </div>
             <!-- Burger menu -->
             <div class="header__container__section-1__right__burger">
-                <nav>
+                <nav class="header__container__section-1__right__burger__nav">
                     <ul class="pushNav pushNav__mod js-topPushNav" #topNav>
                         <li class="closeLevel js-closeLevelTop hdg" #closeLevelTop>
                             <i class="fa fa-close"></i> Close
@@ -64,13 +64,13 @@
                                         <li class="closeLevel js-closeLevel hdg" #closeLevel>
                                             <i class="fa fa-chevron-left"></i> Atrás
                                         </li>
-                                        <li><a (click)="filtrarPorMarca('Gorra Burberry')">Gorras Burberry</a></li>
-                                        <li><a (click)="filtrarPorMarca('Gorra Amiri')">Gorras Amiri</a></li>
-                                        <li><a (click)="filtrarPorMarca('Gorra Monastery')">Gorras Monastery</a></li>
-                                        <li><a (click)="filtrarPorMarca('Gorra Coach')">Gorras Coach</a></li>
-                                        <li><a (click)="filtrarPorMarca('Gorra Louis Vuitton')">Gorras Louis Vuitton</a></li>
-                                        <li><a (click)="filtrarPorMarca('Gorra Gucci')">Gorras Gucci</a></li>
-                                        <li><a (click)="filtrarPorMarca('Gorra Gooring Bros')">Gorras Gooring Bros</a></li>
+                                        <li><a (click)="filtrarPorMarca('Burberry')">Gorras Burberry</a></li>
+                                        <li><a (click)="filtrarPorMarca('Amiri')">Gorras Amiri</a></li>
+                                        <li><a (click)="filtrarPorMarca('Monastery')">Gorras Monastery</a></li>
+                                        <li><a (click)="filtrarPorMarca('Coach')">Gorras Coach</a></li>
+                                        <li><a (click)="filtrarPorMarca('Louis Vuitton')">Gorras Louis Vuitton</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gucci')">Gorras Gucci</a></li>
+                                        <li><a (click)="filtrarPorMarca('Gooring Bros')">Gorras Gooring Bros</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -109,6 +109,27 @@
                             </div>
                         </li>
                         }
+                        @if ( !isLoggedIn ){<li class="logout-level">
+                            <div class="logout-level__user-container">
+                                <img class="logout-level__user-container__img" src="assets/imgs/cabezafria/user.png"
+                                    alt="user">
+                                <div class="logout-level__user-container__info-user">
+                                    <h3 class="logout-level__user-container__info-user__user-name">Anónimo
+                                    </h3>
+                                    <h4 class="logout-level__user-container__info-user__user-role">Cliente
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="login-register__level">
+                                <div class="login-register__level__login">
+                                    <img routerLink="login" class="login-register__level__login__img login-register__level__login-register__imgs" src="assets/imgs/cabezafria/icon-login.png" alt="login-user">
+                                </div>
+                                <div class="login-register__level__register">
+                                    <img routerLink="register" class="login-register__level__register__img login-register__level__login-register__imgs" src="assets/imgs/cabezafria/icon-register.png" alt="register-user">
+                                </div>
+                            </div>
+                        </li>
+                        }
                     </ul>
                 </nav>
 
@@ -118,7 +139,7 @@
             </div>
             <div class="header__container__section-1__right">
                 <div
-                    class=" header__container__section-1__right__shopping-bag header__container__section-1__right__items">
+                    class="header__container__section-1__right__shopping-bag header__container__section-1__right__items">
                     <a routerLink="shoppingcart"
                         class="header__container__section-1__right__shopping-bag__btn header__container__section-1__right__shopping-bag__user__btns">
                         <img class="header__container__section-1__right__shopping-bag__btn__img header__container__section-1__right__shopping-bag__user__btns__imgs"

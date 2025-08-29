@@ -1,15 +1,23 @@
 form.form.form-login {
     display: flex;
     justify-content: center;
-
+    width: 90%;
+    @media (min-width:768px) {
+        width: 50%;
+    }
 } 
+
+.form__container{
+    display: flex;
+    justify-content: center;
+}
 
 .form__container-login {
     background-color: #ede8dc;
     margin: 2rem;
     padding: 2rem;
-    border-radius: 8px;
-    width: 30%;
+    border-radius: 1rem;
+    width: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     animation: _ngcontent-ng-c3896554144_fadeIn 0.8s ease-in-out;
     display: flex;

@@ -1,17 +1,41 @@
 <main class="main">
     <div class="main__container">
         <div class="main__container__section-1">
-            <div class="main__container__section-1__img-container">
+            <div class="main__container__section-1__carousel">
+                <div class="main__container__section-1__carousel__slide"
+                    [ngStyle]="{'background-image': 'url(' + images[currentIndex] + ')'}">
+                    <button class="main__container__section-1__carousel__slide__btn prev" (click)="prev()">❮</button>
+                    <button class="main__container__section-1__carousel__slide__btn next" (click)="next()">❯</button>
+                </div>
+                <div class="main__container__section-1__carousel__dots">
+                    @for (image of images; track i; let i = $index) {
+                    <span class="dot" [class.active]="i === currentIndex" (click)="currentIndex = i"></span>
+                    }
+                </div>
+                <div class="main__container__section-1__carousel__btns">
+                    @if(buttonDasboard()){<button routerLink="/dashboard"
+                        class="main__container__section-1__carousel__btns__btn-dashboard-and-products">
+                        ADMIN, VAMOS AL DASHBOARD!
+                    </button>
+                    }
+                    <button routerLink="/products"
+                        class="main__container__section-1__carousel__btns__btn-dashboard-and-products">
+                        VAMOS A LOS PRODUCTOS!
+                    </button>
+                </div>
             </div>
         </div>
         <div class="main__container__section-2">
             <div class="main__container__section-2__video-container">
-                <video class="main__container__section-2__video-container__video" loop autoplay preload="auto" [muted]=true>
-                    <source src="assets/imgs/video-main/videonewera.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                <video class="main__container__section-2__video-container__video" loop autoplay preload="auto"
+                    [muted]=true>
+                    <source src="assets/imgs/video-main/videonewera.mp4"
+                        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
                 </video>
 
-                <button routerLink="/products" class="main__container__section-2__video-container__btn">
-                    <a >VER TODO EL CATÁLOGO</a></button>
+                <button routerLink="/products"
+                    class="main__container__section-2__video-container__btn main__container__section-1__carousel__btns__btn-dashboard-and-products">
+                    <a>VER TODO EL CATÁLOGO!</a></button>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ import { roleGuard } from './guards/role-guard';
 import { CardsProducts } from './pages/public/cardsProducts/cardsProducts';
 import { Checkout } from './pages/public/checkout/checkout';
 import { NewReviews } from './pages/private/reviews/new-reviews/new-reviews';
-import { Favourite } from './pages/private/favourite/favourite';
+import { UserProfile } from './pages/private/user-profile/user-profile';
 
 
 
@@ -25,7 +25,7 @@ export const routes: Routes = [
     { path: 'dashboard/categories', component: GetCategories },
     { path: 'dashboard/categories/new', component: CreateNewCategory, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
     { path: 'dashboard/reviews/new', component: NewReviews },
-    { path: 'dashboard/favourite', component: Favourite },
+    { path: 'user/profile', component: UserProfile, canActivate: [authGuard] },
     { path: 'dashboard/products', component: GetProductsAdmin, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
     { path: 'dashboard/products/new', component: CreateNewProduct, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
     { path: 'dashboard/users', component: GetUsers, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
