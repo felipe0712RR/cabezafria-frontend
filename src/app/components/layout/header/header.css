@@ -79,7 +79,7 @@
     @media (min-width:768px) {
         display: flex;
         padding-top: 1rem;
-        gap: 1.8rem;
+        gap: .8rem;
     }
 }
 
@@ -95,6 +95,10 @@
     border-style: none;
 }
 
+.header__container__section-1__right__user{
+    margin-left: 1rem;
+}
+
 .header__container__section-1__right__user__btn {
     display: flex;
     justify-content: flex-start;
@@ -102,6 +106,11 @@
 
 .header__container__section-1__right__user__btn__img {
     margin: 0;
+}
+
+
+.header__container__section-1__right__user__name-user{
+    margin-right: 1rem;
 }
 
 .header__container__section-1__right__user__name-user__name {

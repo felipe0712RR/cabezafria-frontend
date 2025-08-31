@@ -144,5 +144,6 @@ export class Header implements OnInit, AfterViewInit {
   filtrarPorMarca(productBrand: string){    
     this.productService.setProductFilter(productBrand);
     this.closePushNav()
+    this.router.navigateByUrl('products')
   }
 }

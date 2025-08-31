@@ -70,20 +70,6 @@ export class AuthService {
           return of(false);
         })
       );
-
-    //   .pipe(
-    //     tap( ( data ) => {
-    //       console.log( data );
-
-    //       return data;
-    //   } ),
-    //   map( ( newdata: any ) => {
-    //     return newdata.token.length;
-    //   } ),
-    //   catchError( () => {
-    //     return of( false );
-    //   } ),
-    // );
   }
 
   hasRole(expectedRoles: string[]): boolean {
