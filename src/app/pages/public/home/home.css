@@ -14,8 +14,8 @@
   align-items: end;
   gap: .8rem;
   @media (min-width: 768px) {
-    width: 75%;
-    height: 25rem;
+    width: 70%;
+    height: 26rem;
     gap: 3rem;
   }
 }

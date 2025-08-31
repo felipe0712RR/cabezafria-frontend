@@ -1,28 +1,32 @@
 <section class="products-main-container">
-  <div class="products-main-container__card">
+  <div class="products-main-container__cardproduct">
     @for (product of products; track product._id) {
-    <div class="products-main-container_card_product">
-      <img [src]="product?.productUrlImage" class="products-main-container_cardproduct_img"
+    <div class="products-main-container__cardproduct__product">
+      <img [src]="product?.productUrlImage" class="products-main-container__cardproduct__img"
         [alt]="product?.productName" />
-      <h3 class="products-main-container_cardproduct_name">
+      <h3 class="products-main-container__cardproduct__name">
         {{ product?.productName }}
       </h3>
-      <p class="products-main-container_cardproductprice">
+      <p class="products-main-container__cardproduct__price">
         Precio: {{ product.productPrice | currency}}
       </p>
-      <div class="products-main-container_cardproduct_buy">
-        <p class="products-main-container_cardproductdescription">
+      <div class="products-main-container__cardproduct__buy">
+        <p class="products-main-container__cardproduct__description">
           {{ product.productDescription }}
         </p>
-        <div class="products-main-container_cardproductbuy_container">
-          <button class="products-main-container_cardproductbuycontainer_btn" (click)="addToCart( product )">
+        <div class="products-main-container__cardproduct__buy-container">
+          <button class="products-main-container__cardproduct__buy-container__buy-btn" (click)="addToCart( product )">
             Agregar al carrito
           </button>
+          <div class="products-main-container__cardproduct__buy-container__fav">
+              <img class="products-main-container__cardproduct__buy-container__fav-img" src="assets/imgs/fav.png" alt="fav">
+              <p class="products-main-container__cardproduct__buy-container__fav-counter">{{ product.productFavoriteCounter || 0 }}</p>
+          </div>
         </div>
       </div>
     </div>
     } @empty {
-    <p class="products-main-container_card_empty">
+    <p class="products-main-container__card__empty">
       No hay productos disponibles en este momento.
     </p>
     }

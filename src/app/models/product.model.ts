@@ -19,4 +19,5 @@ export interface dataProduct {
     productReviews?: string[];
     productOwner?: string;
     image: string;
+    productFavoriteCounter: number; 
 }

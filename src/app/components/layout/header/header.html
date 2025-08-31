@@ -49,10 +49,7 @@
                                         <li class="closeLevel js-closeLevel hdg" #closeLevel>
                                             <i class="fa fa-chevron-left"></i> Atrás
                                         </li>
-                                        <li><a routerLink="filter/products">59FIFTY (Fitted)</a></li>
-                                        <li><a routerLink="filter/products">9FIFTY (Snapback)</a></li>
-                                        <li><a routerLink="filter/products">39THIRTY (Stretch Fit)</a></li>
-                                        <li><a routerLink="filter/products">9FORTY (Adjustable)</a></li>
+                                        <li><a (click)="filtrarPorMarca('NewEra')">NewEra</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -94,7 +91,7 @@
                         <li><a href="#">Productos nuevos</a></li>
                         <li><a routerLink="shoppingcart">Ir al carrito de compras</a></li>
                         @if ( isLoggedIn ){<li class="logout-level">
-                            <div class="logout-level__user-container">
+                            <div routerLink="user/profile" class="logout-level__user-container">
                                 <img class="logout-level__user-container__img" src="assets/imgs/cabezafria/user.png"
                                     alt="user">
                                 <div class="logout-level__user-container__info-user">

@@ -1,0 +1,31 @@
+.product-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    position: relative;
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+    }
+
+    .fav-button {
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .favourited {
+        color: red;
+        font-weight: bold;
+    }
+
+    .not-favourited {
+        color: gray;
+    }
+}

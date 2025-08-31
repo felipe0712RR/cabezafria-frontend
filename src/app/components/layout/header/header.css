@@ -419,6 +419,7 @@ closelevel>i {
     align-items: center;
     margin-left: .5rem;
     filter: drop-shadow(-12px 8px 3px #000);
+    cursor: pointer;
 }
 
 .logout-level__user-container__img{

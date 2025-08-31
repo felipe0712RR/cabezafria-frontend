@@ -18,22 +18,24 @@
 
 .user-profile-container__card{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     background-color: #0f1724;
     width: 70%;
     justify-content: space-around;
     border-radius: 3rem;
+    filter: drop-shadow(-12px 10px 12px #000);
 }
 
 .user-profile-container__card__photo__img{
     width: 60%;
+    filter: drop-shadow(-12px 8px 3px #000);
 }
 
 .user-profile-container__card-container{
     display: flex;
     justify-content: center;
     margin-bottom: 1.5rem;
+    filter: drop-shadow(-10px 8px 3px #000);
 }
 
 .user-profile-container__card__data{

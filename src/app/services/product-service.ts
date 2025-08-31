@@ -1,12 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
+  private _brandFilter = new BehaviorSubject<string>('');
+
+  public brandFilter$: Observable<string> = this._brandFilter.asObservable();
 
   BASE_URL: string = environment.apiURL;
 
@@ -20,10 +24,6 @@ export class ProductService {
     return this.http.get<any>(this.BASE_URL + '/products')
   }
 
-  getProductsByBrands() {
-    return this.http.get<any>(this.BASE_URL + '/products/brand')
-  }
-
   getProductsId(id: string) {
     return this.http.get(this.BASE_URL + '/products/'.concat(id))
   }
@@ -32,7 +32,17 @@ export class ProductService {
     return this.http.delete(this.BASE_URL + '/products/'.concat(id))
   }
 
-  filterProductsByName(filter:any) {
-    return this.http.post<any>(this.BASE_URL + '/filter/products', filter)
+  filterProductsByBrand(filter: string) {    
+    return this.http.post<any>(this.BASE_URL + '/products/brand', {
+      productBrand: filter
+    })
+  }
+
+  setProductFilter(value: string) {
+    this._brandFilter.next(value);
+  }
+
+  getCurrentProductFilter(): string {
+    return this._brandFilter.getValue();
   }
 };

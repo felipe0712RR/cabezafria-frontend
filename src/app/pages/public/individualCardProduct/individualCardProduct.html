@@ -1,0 +1,19 @@
+<div class="product-card">
+    <!-- Imagen del producto -->
+    <img [src]="product.productUrlImage" [alt]="product.productName" class="product-image">
+
+    <!-- Información del producto -->
+    <h3>{{ product.productName }}</h3>
+    <p>{{ product.productPrice | currency:'COP':'symbol' }}</p>
+
+    <!-- Contador de favoritos -->
+    <p>❤️ {{ product.favouritesCount || 0 }}</p>
+
+    <!-- Botón para agregar/quitar favorito -->
+    <button (click)="toggleFavourite()" class="fav-button">
+        <span [ngClass]="{ 'favourited': isFavourite(), 'not-favourited': !isFavourite() }">
+            {{ isFavourite() ? '♥' : '♡' }}
+            {{ isFavourite() ? 'Quitar de favoritos' : 'Agregar a favoritos' }}
+        </span>
+    </button>
+</div>

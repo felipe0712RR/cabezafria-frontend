@@ -23,13 +23,15 @@ export class UserService {
     return this.http.delete( this.BASE_URL + '/users/'.concat( id ))
   }
 
-  // hideAdmins() {
-  //   return this.http.get( this.BASE_URL + '/users' )
-  // }
+  addFavourite(userId: string, productId: string) {
+    return this.http.post( this.BASE_URL + 'users/' + userId + '/favorites/' + productId, {});
+  }
 
-  // getRole() {
-  //   const role = this.getUsers.('admin') ?? '';
-  //   console.log(token);
-  //   return new HttpHeaders().set('X-Token', token);
-  // }
+  removeFavourite(userId: string, productId: string) {
+    return this.http.delete( this.BASE_URL + 'users/' + userId + '/favorites/' + productId);
+  }
+
+  getFavourites(userId: string) {
+    return this.http.get( this.BASE_URL + 'users/' + userId + '/favorites/' );
+  }
 };

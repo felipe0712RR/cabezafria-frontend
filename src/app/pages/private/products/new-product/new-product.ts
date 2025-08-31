@@ -30,6 +30,7 @@ export class CreateNewProduct {
     this.formData = new FormGroup({
       productName: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
       productDescription: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(2000)]),
+      productBrand: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       productPrice: new FormControl(0, [Validators.required, Validators.min(1)]),
       productType: new FormControl('ajustable', [Validators.required]),
       productSize: new FormControl('N/a', [Validators.required]),

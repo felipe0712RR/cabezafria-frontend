@@ -57,7 +57,6 @@ export class Header implements OnInit, AfterViewInit {
       .subscribe(() => {
       this.closePushNav();
     });
-
   }
 
   ngAfterViewInit(): void {
@@ -142,17 +141,8 @@ export class Header implements OnInit, AfterViewInit {
     
   }
 
-  filtrarPorMarca(productBrand: any){
-    this.productService.filterProductsByName({productBrand}).subscribe({
-      next:(data)=>{
-        console.log(data);
-        
-      },error:(error)=>{
-        console.error(error);
-        
-      }
-    })
+  filtrarPorMarca(productBrand: string){    
+    this.productService.setProductFilter(productBrand);
+    this.closePushNav()
   }
-
-  
 }

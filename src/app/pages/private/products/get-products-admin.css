@@ -39,7 +39,8 @@
 
 .products-main-container__card__product__texts{
     color: #b5b4aa;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .products-main-container__card__product__delete-btn{
