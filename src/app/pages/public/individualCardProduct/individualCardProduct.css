@@ -1,31 +1,72 @@
 .product-card {
+<<<<<<< HEAD
     border: 1px solid black;
+=======
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+>>>>>>> 48455f4d514f7051df52a2fadefa80dcb33b11c9
     padding: 1rem;
-    border-radius: 0.5rem;
-    text-align: center;
-    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
 
-    .product-image {
-        width: 100%;
-        height: auto;
-        border-radius: 0.5rem;
-    }
+.product-card__img img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
 
-    .fav-button {
-        margin-top: 0.5rem;
-        padding: 0.5rem 1rem;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        font-size: 1rem;
-    }
+.product-card__info {
+    margin-top: 1rem;
+}
 
-    .favourited {
-        color: red;
-        font-weight: bold;
-    }
+.price {
+    font-weight: bold;
+    color: #2c7a7b;
+}
 
-    .not-favourited {
-        color: gray;
-    }
+.fav-btn {
+    background: none;
+    border: 1px solid #ccc;
+    padding: .5rem 1rem;
+    margin-top: .5rem;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.fav-btn:hover {
+    background: #fce7f3;
+}
+
+.product-card__reviews {
+    margin-top: 2rem;
+}
+
+.review {
+    border-top: 1px solid #eee;
+    padding: .5rem 0;
+}
+
+.new-review {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-review textarea {
+    width: 100%;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.new-review select,
+.new-review button {
+    margin-top: .5rem;
+    padding: .5rem;
+    border-radius: 8px;
 }

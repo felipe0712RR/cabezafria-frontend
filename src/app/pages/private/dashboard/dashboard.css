@@ -10,12 +10,15 @@
   margin: 2rem;
   padding: 2rem;
   border-radius: 8px;
-  width: 30%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 70%;
+  box-shadow: -5px 8px 20px rgba(0, 0, 0);
   animation: _ngcontent-ng-c3896554144_fadeIn 0.8s ease-in-out;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  @media (min-width: 768px) {
+    width: 45%;
+  }
 }
 
 .dashboard-title {

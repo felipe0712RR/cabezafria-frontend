@@ -15,7 +15,6 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 }
 
 .products-main-container__cardproduct__product:hover {
@@ -30,6 +29,7 @@
   border-radius: 12px;
   margin-bottom: 1.5rem;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .products-main-container__cardproduct__name {

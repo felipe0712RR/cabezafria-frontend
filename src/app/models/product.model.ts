@@ -16,7 +16,15 @@ export interface dataProduct {
     };
     productUrlImage?: string;
     productState?: boolean;
-    productReviews?: string[];
+    productReviews?: Review[];
     productOwner?: string;
     productFavoriteCounter?: number; 
+}
+
+export interface Review { 
+    _id?: string;
+    reviewUserId?: string;
+    reviewProductId?: string;
+    reviewQualification?: number;
+    reviewContent?: string;
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @for (product of products; track product._id) {
 
 <div class="product-card">
@@ -20,3 +21,70 @@
     </button>
 </div>
 }
+=======
+<section class="product-card-container" *ngIf="product as p">
+    <div class="product-card">
+        <img [src]="p.productUrlImage" [alt]="p.productName" class="product-card__img" />
+
+        <div class="product-card__info">
+            <h2 class="product-card__name">{{ p.productName }}</h2>
+            <p class="product-card__price">Precio: {{ p.productPrice | currency }}</p>
+            <p class="product-card__description">{{ p.productDescription }}</p>
+
+            <!-- Botón favoritos -->
+            <button class="product-card__favorite-btn" (click)="toggleFavorite()">
+                @if (isFavorite) {
+                ❤️ Quitar de favoritos
+                } @else {
+                🤍 Agregar a favoritos
+                }
+            </button>
+        </div>
+    </div>
+
+    <!-- Reseñas -->
+    <div class="product-reviews">
+        <h3>Reseñas</h3>
+
+        @if (p.productReviews?.length) {
+        @for (review of p.productReviews; track review._id) {
+        <div class="review">
+            <p class="review__user">
+                <strong>{{ review.reviewUserId }}</strong> ⭐ {{ review.reviewQualification }}/5
+            </p>
+            <p class="review__comment">{{ review.reviewContent }}</p>
+        </div>
+        }
+        } @else {
+        <p>Aún no hay reseñas para este producto.</p>
+        }
+    </div>
+
+    <!-- Formulario reseña -->
+    @if (user) {
+    <div class="review-form">
+        <h3>Escribir una reseña</h3>
+        <form (ngSubmit)="submitReview()">
+            <label>Comentario</label>
+            <textarea [(ngModel)]="newReview.comment" name="comment" required></textarea>
+
+            <label>Calificación</label>
+            <select [(ngModel)]="newReview.rating" name="rating" required>
+                <option [ngValue]="0">Seleccionar</option>
+                <option [ngValue]="1">1 ⭐</option>
+                <option [ngValue]="2">2 ⭐⭐</option>
+                <option [ngValue]="3">3 ⭐⭐⭐</option>
+                <option [ngValue]="4">4 ⭐⭐⭐⭐</option>
+                <option [ngValue]="5">5 ⭐⭐⭐⭐⭐</option>
+            </select>
+
+            <button type="submit">Enviar reseña</button>
+        </form>
+    </div>
+    } @else {
+    <div class="review-login-warning">
+        <p>Debes iniciar sesión para dejar una reseña.</p>
+    </div>
+    }
+</section>
+>>>>>>> 48455f4d514f7051df52a2fadefa80dcb33b11c9

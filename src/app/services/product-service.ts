@@ -33,10 +33,14 @@ export class ProductService {
     return this.http.delete(this.BASE_URL + '/products/'.concat(id))
   }
 
-  filterProductsByBrand(filter: string) {    
+  filterProductsByBrand(filter: string) {
     return this.http.post<any>(this.BASE_URL + '/products/brand', {
       productBrand: filter
     })
+  }
+
+  addReview(productId: string, review: { comment: string; rating: number; user: string }): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/products/${productId}/reviews`, review);
   }
 
   setProductFilter(value: string) {

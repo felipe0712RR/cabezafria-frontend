@@ -73,7 +73,7 @@
                         </button>
 
                         <div class="favourites-container__favourites-cards__buy-fav__fav-btn__container">
-                            <div class="favourites-container__favourites-cards__buy-fav__fav-btn">
+                            <div (click)="product._id && removeFromFavorites(product._id)" class="favourites-container__favourites-cards__buy-fav__fav-btn">
                                 <img class="favourites-container__favourites-cards__buy-fav__fav-btn__img"
                                     src="assets/imgs/fav+.png" alt="fav">
                             </div>
