@@ -7,7 +7,7 @@
 
     <!-- Free Shipping Message -->
     <div class="free-shipping-message">
-      <span class="free-shipping-text">FREE SHIPPING FOR MEMBERS.</span>
+      <span class="free-shipping-text">ENVIO GRATIS PARA MIEMBROS.</span>
     </div>
 
     <!-- Cart Items -->
@@ -32,7 +32,7 @@
             {{ cartItem.product.productDescription }}
           </p>
           <div class="product-unit-price">
-            <p class="product-unit-price__text">Unit price</p>
+            <p class="product-unit-price__text">Precio unitario</p>
             <p class="product-unit-price__value">
               {{ cartItem.product.productPrice | currency }}
             </p>
@@ -45,6 +45,7 @@
             >
               Remover
             </button>
+
           </div>
         </div>
 
@@ -52,7 +53,7 @@
         <div class="product-options">
           <div class="price-and-quantity">
             <div class="product-price">
-              <p class="product-price__text">Total price</p>
+              <p class="product-price__text">Total</p>
               <p class="product-price__value">
                 {{ ( cartItem.product.productPrice ?? 0 ) *
                 cartItem.cartQuantity | currency }}
@@ -80,7 +81,6 @@
           </div>
         </div>
       </div>
-
       }
     </div>
   </div>
@@ -88,7 +88,7 @@
   <!-- Summary Section -->
   <aside class="aside">
     <div class="summary-section">
-      <h2 class="cart-common-title summary-title">Summary</h2>
+      <h2 class="cart-common-title summary-title">Resumen</h2>
 
       <!-- Summary Details -->
       <div class="summary-details">
@@ -97,11 +97,7 @@
           <span class="summary-value">{{ onTotal() | currency }}</span>
         </div>
         <div class="summary-row">
-          <span class="summary-label">Estimated Shipping & Handling</span>
-          <span class="summary-value">$0.00</span>
-        </div>
-        <div class="summary-row">
-          <span class="summary-label">Estimated Tax</span>
+          <span class="summary-label">Envío y manipulación estimados</span>
           <span class="summary-value">$0.00</span>
         </div>
         <hr />
@@ -115,7 +111,7 @@
     <div class="contact-section">
       <form class="contact-form">
         <!-- Sección de información de contacto -->
-        <h2 class="cart-common-title contact-title">Contact information</h2>
+        <h2 class="cart-common-title contact-title">Información de contacto</h2>
 
         <hr />
 
@@ -129,16 +125,16 @@
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter a valid email"
+                placeholder="Ingrese un email valido"
               />
               <div class="error-message" style="display: none">
-                Please enter a valid email address
+                Por favor ingrese un email valido
               </div>
             </div>
 
             <div class="checkbox-group">
               <input type="checkbox" id="newsletter" name="newsletter" />
-              <label for="newsletter">Email me with news and offers</label>
+              <label for="newsletter">Enviarme novedades y ofertas</label>
             </div>
           </div>
         </section>
@@ -147,20 +143,26 @@
 
         <!-- Dirección de envío -->
         <section class="form-section">
-          <h3 class="cart-common-title section-title">Shipping address</h3>
+          <h3 class="cart-common-title section-title">Dirección de envio</h3>
 
           <!-- País/Región -->
           <div class="name-fields">
             <div class="form-group">
-              <label for="country">Country/region</label>
+              <label for="country">País</label>
             </div>
             <div class="form-group">
               <div class="select-wrapper">
                 <select id="country" name="country" class="form-select">
-                  <option value="" disabled selected>Select a country</option>
+                  <option value="" disabled selected>Selecciona un país</option>
                   <option value="US">United States</option>
                   <option value="CA">Canada</option>
                   <option value="MX">Mexico</option>
+                  <option value="CO">Colombia</option>
+                  <option value="VE">Venezuela</option>
+                  <option value="ES">España</option>
+                  <option value="AR">Argentina</option>
+                  <option value="BR">Brasil</option>
+                  <option value="UR">Urugay</option>
                   <!-- Más países pueden ser añadidos aquí -->
                 </select>
               </div>
@@ -174,10 +176,10 @@
                 type="text"
                 id="firstName"
                 name="firstName"
-                placeholder="Enter a first name"
+                placeholder="Nombres"
               />
               <div class="error-message" style="display: none">
-                Please enter your first name
+                Por favor ingreser primer nombre
               </div>
             </div>
 
@@ -186,10 +188,10 @@
                 type="text"
                 id="lastName"
                 name="lastName"
-                placeholder="Enter a last name"
+                placeholder="Apellidos"
               />
               <div class="error-message" style="display: none">
-                Please enter your last name
+                Por favor ingrese apellidos
               </div>
             </div>
           </div>
@@ -201,7 +203,7 @@
                 type="text"
                 id="company"
                 name="company"
-                placeholder="Company (required for business addresses)"
+                placeholder="Empresa"
               />
             </div>
 
@@ -211,10 +213,10 @@
                 type="text"
                 id="address"
                 name="address"
-                placeholder="Enter an address"
+                placeholder="Direccion"
               />
               <div class="error-message" style="display: none">
-                Please enter your shipping address
+                Por favor ingrese su direccion de envio
               </div>
             </div>
           </div>
@@ -223,7 +225,7 @@
         <div class="form-actions">
           <!-- Checkout Buttons -->
           <div class="checkout-buttons">
-            <button class="checkout-button">Continue to shipping</button>
+            <button class="checkout-button">Continuar con el pago</button>
           </div>
         </div>
       </form>
