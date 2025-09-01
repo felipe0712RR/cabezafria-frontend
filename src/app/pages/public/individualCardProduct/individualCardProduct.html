@@ -1,18 +1,23 @@
 <section class="product-card-container" *ngIf="product as p">
     <div class="product-card">
-        <img [src]="p.productUrlImage" [alt]="p.productName" class="product-card__img" />
+        <div class="product-card__img-container">
+            <img [src]="p.productUrlImage" [alt]="p.productName" class="product-card__img-img" />
+        </div>
 
         <div class="product-card__info">
-            <h2 class="product-card__name">{{ p.productName }}</h2>
-            <p class="product-card__price">Precio: {{ p.productPrice | currency }}</p>
-            <p class="product-card__description">{{ p.productDescription }}</p>
+            <h2 class="product-card__name product-card__texts">{{ p.productName }}</h2>
+            <p class="product-card__price product-card__texts">Precio: {{ p.productPrice | currency }}</p>
+            <p class="product-card__description product-card__texts">Descripción: {{ p.productDescription }}</p>
 
-            <!-- Botón favoritos -->
-            <button class="product-card__favorite-btn" (click)="toggleFavorite()">
-                <div class="product-card__favorite-btn__fav-container">
-                    <img class="product-card__favorite-btn__fav-container__img" src="assets/imgs/fav.png" alt="fav">
-                </div>
-            </button>
+            <div class="product-card__fav-buy">
+                    <div class="product-card__favorite-btn__fav-container">
+                        <img class="product-card__favorite-btn__fav-container__img" (click)="toggleFavorite()" src="assets/imgs/fav+.png" alt="fav">
+                    </div>
+                
+                <button class="product-card__buy-btn" (click)="addToCart(product)">
+                    Agregar al carrito
+                </button>
+            </div>
         </div>
     </div>
 </section>

@@ -8,6 +8,7 @@ import { dataProduct, Review } from '../../../models/product.model';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/users-service';
 import { Subscription } from 'rxjs';
+import { CartService } from '../../../services/cartsopphing-service';
 
 @Component({
     selector: 'app-product-card',
@@ -19,7 +20,7 @@ import { Subscription } from 'rxjs';
 export class ProductCard implements OnInit, OnDestroy {
     product?: dataProduct;
     user: User | null = null;
-    isFavorite: boolean = false;
+    favorites: dataProduct[] = [];
     private userSub?: Subscription;
 
     // Formulario reseña
@@ -29,7 +30,8 @@ export class ProductCard implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private productService: ProductService,
         private authService: AuthService,
-        private userService: UserService
+        private userService: UserService,
+        private cartService: CartService
     ) { }
 
     ngOnInit(): void {
@@ -40,7 +42,7 @@ export class ProductCard implements OnInit, OnDestroy {
 
         this.userSub = this.authService.userData$.subscribe(user => {
             this.user = user;
-            this.updateIsFavorite();
+            this.updateFavorites();
         });
     }
 
@@ -52,36 +54,54 @@ export class ProductCard implements OnInit, OnDestroy {
         this.productService.getProductsId(productId).subscribe({
             next: (product: dataProduct) => {
                 this.product = product;
-                this.updateIsFavorite();
+                this.updateFavorites();
             },
             error: (err) => console.error('Error cargando producto', err)
         });
     }
 
-    updateIsFavorite() {
-        this.isFavorite = !!(
-            this.user?.userFavorites &&
-            this.product?._id &&
-            this.user.userFavorites
-                .map((fav: dataProduct) => fav._id)
-                .includes(this.product._id)
-        );
+    // Actualizamos el array de favoritos local
+    updateFavorites() {
+        if (this.user?.userFavorites && this.product?._id) {
+            this.favorites = this.user.userFavorites.filter(
+                (fav: dataProduct) => fav._id !== undefined
+            );
+        }
+    }
+
+    isFavorite(): boolean {
+        return !!(this.favorites.some(p => p._id === this.product?._id));
     }
 
     toggleFavorite() {
-        if (!this.user?._id || !this.product?._id) return;
+        const userId = this.user?._id;
+        const productId = this.product?._id;
 
-        if (this.isFavorite) {
-            this.userService.removeFavourite(this.user._id, this.product._id).subscribe({
-                next: () => this.isFavorite = false,
-                error: (err) => console.error('Error removiendo favorito', err)
+        if (!userId || !productId || !this.product) return;
+
+        if (this.isFavorite()) {
+            // Quitar favorito
+            this.userService.removeFavourite(userId, productId).subscribe({
+                next: () => {
+                    this.favorites = this.favorites.filter(p => p._id !== productId);
+                    console.log("Producto removido de favoritos:", productId);
+                },
+                error: (err) => console.error("Error removiendo favorito", err)
             });
         } else {
-            this.userService.addFavourite(this.user._id, this.product._id).subscribe({
-                next: () => this.isFavorite = true,
-                error: (err) => console.error('Error agregando favorito', err)
+            // Agregar favorito
+            this.userService.addFavourite(userId, productId).subscribe({
+                next: () => {
+                    this.favorites.push(this.product!);
+                    console.log("Producto agregado a favoritos:", productId);
+                },
+                error: (err) => console.error("Error agregando favorito", err)
             });
         }
+    }
+
+    addToCart(product: dataProduct) {
+        this.cartService.updateToCart(product, +1);
     }
 
     // submitReview() {
@@ -104,4 +124,5 @@ export class ProductCard implements OnInit, OnDestroy {
     //         },
     //         error: (err) => console.error('Error agregando reseña', err)
     //     });
-    }
+    // }
+}

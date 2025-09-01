@@ -7,58 +7,90 @@
 
 .product-card {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1.5rem;
-    max-width: 60%;
-    margin: auto;
-    padding: 1rem;
-    border-radius: 12px;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border-radius: 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background: #163e56;
+    background: #0f1724;
     font-weight: 250;
 }
 
+.product-card__img-container {
+    display: flex;
+    justify-content: center;
+}
+
 .product-card img {
-    width: 60%;
+    width: 70%;
     border-radius: 12px;
     object-fit: cover;
+    margin-top: .5rem;
 }
 
 .product-card__info {
-    margin-top: 1rem;
+    padding: .5rem 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.price {
+.product-card__texts {
+    color: #ede8ed;
+    margin: 2rem 0 0 0;
+}
+
+.product-card__name {
     font-weight: bold;
-    color: #2c7a7b;
+    font-size: 2.2rem;
 }
 
-.product-card__favorite-btn {
+.product-card__price {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.product-card__description {
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.product-card__fav-buy{
     display: flex;
-    gap: .5rem;
-    border-radius:  100% ;
-    background: transparent;
-    border-color: transparent;
-}
-.product-card__favorite-btn:hover {
-    background: #ede8ed;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
-.product-card__favorite-btn__fav-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
+.product-card__favorite-btn__fav-container{
+    padding: 0;
+    margin: 0;
+    
 }
 
-.product-card__favorite-btn__fav-container__img {
-    width: 2rem;
+.product-card__favorite-btn__fav-container:hover{
+    background-color: transparent;
+}
+
+.product-card__favorite-btn__fav-container__img{
     height: 2rem;
-    cursor: pointer;
-
+    
 }
 
-.product-card__reviews {
-    margin-top: 2rem;
+.product-card__buy-btn {
+    background-color: #163e56;
+    color: #ede8dc;
+    border: none;
+    padding: 0.6rem 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-card__buy-btn:hover{
+    background-color: #8684cb62;
 }
