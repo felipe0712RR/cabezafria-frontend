@@ -126,9 +126,10 @@ export class Header implements OnInit, AfterViewInit {
       title: '¿Estás seguro?',
       text: "Tu sesión actual se cerrará.",
       icon: 'warning',
+      iconColor: '#0f1724',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#163e56',
+      cancelButtonColor: '#6a7377',
       confirmButtonText: 'Sí, ¡cerrar sesión!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {

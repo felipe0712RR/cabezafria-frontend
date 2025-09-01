@@ -1,5 +1,6 @@
 .container__product-register {
     padding: 1rem;
+    font-weight: 250;
 }
 
 .form-product {
@@ -7,7 +8,7 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #ede8dc;
     border: 1px solid #163e5614;
     border-radius: 0.5rem;
     color: #163e56;
@@ -49,7 +50,7 @@
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 2px;
-    width: 100%;
+    width: auto;
 }
 
 .field.field-submit {
@@ -62,9 +63,9 @@
 
 .field-state-radio {
     display: flex;
-    margin-bottom: 1rem;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
+    /* margin-bottom: 1rem; */
+    flex-direction: row;
+    justify-content: flex-start;
     label{
         width: 30%;
     }

@@ -33,9 +33,10 @@ export class GetCategories {
       title: '¿Estás seguro?',
       text: "La categoria será eliminada.",
       icon: 'warning',
+      iconColor: '#0f1724',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#163e56',
+      cancelButtonColor: '#6a7377',
       confirmButtonText: 'Sí, ¡eliminala!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {

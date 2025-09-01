@@ -4,29 +4,29 @@
             <div class="form-content">
 
                 <div class="form__container__product-title">
-                    <h1>Register Product</h1>
+                    <h1>Registrar producto</h1>
                 </div>
 
                 <div class="form__product">
 
                     <div class="field field-name">
-                        <label for="product-name">Name</label>
-                        <input type="text" formControlName="productName" placeholder="Ej: Manzana" id="product-name" />
+                        <label for="product-name">Nombre</label>
+                        <input type="text" formControlName="productName" id="product-name" />
                     </div>
                     <div class="field">
-                        <label for="product-description">Description</label>
+                        <label for="product-description">Descripcion</label>
                         <textarea formControlName="productDescription" id="product-description"></textarea>
                     </div>
                     <div class="field">
-                        <label for="product-brand">Brand</label>
+                        <label for="product-brand">Marca</label>
                         <textarea formControlName="productBrand" id="product-brand"></textarea>
                     </div>
                     <div class="field">
-                        <label for="product-price">Price</label>
+                        <label for="product-price">Precio</label>
                         <input type="number" formControlName="productPrice" placeholder="Ej: 20" id="product-price" />
                     </div>
                     <div class="field field-size-type">
-                        <label class="field-size-type__title" for="product-size">Size</label>
+                        <label class="field-size-type__title" for="product-size">Talla</label>
                         
                         <div class="field-size-type__options field-state-radio">
                             <input type="radio" formControlName="productType" value="ajustable-cap"
@@ -59,14 +59,14 @@
                         <input type="number" formControlName="productStock" placeholder="Ej: 20" id="product-stock" />
                     </div>
                     <div class="field">
-                        <label for="product-urlimage">Image</label>
+                        <label for="product-urlimage">Imagen</label>
                         <input type="text" formControlName="productUrlImage" placeholder="http://... "
                             id="product-urlimage" />
                     </div>
                     <div class="field">
-                        <label for="product-category">Category</label>
+                        <label for="product-category">Categoria</label>
                         <select formControlName="productCategory" id="product-category">
-                            <option value="">Selected..</option>
+                            <option value="">Seleccionada..</option>
 
                             @for (objCategory of categories; track $index) {
                             <option [value]="objCategory._id">{{objCategory.categoryName}}</option>
@@ -75,23 +75,23 @@
                     </div>
                     <div class="field field-state">
 
-                        <label class="field field-state__label__title">State</label>
+                        <label class="field field-state__label__title">Estado</label>
 
                         <div class="field-state-radio">
                             <input type="radio" formControlName="productState" [value]="true"
                                 id="product-state-available" />
-                            <label for="product-state-available">Available</label>
+                            <label for="product-state-available">Disponible</label>
                         </div>
 
                         <div class="field-state-radio">
                             <input type="radio" formControlName="productState" [value]="false"
                                 id="product-state-notavailable" />
-                            <label for="product-state-notavailable">Not Available</label>
+                            <label for="product-state-notavailable">No disponible</label>
                         </div>
 
                     </div>
                     <div class="field field-submit">
-                        <button type="submit">Register product</button>
+                        <button type="submit">Registrar producto</button>
                     </div>
 
                 </div>

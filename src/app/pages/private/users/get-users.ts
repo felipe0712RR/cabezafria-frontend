@@ -36,9 +36,10 @@ export class GetUsers {
       title: '¿Estás seguro?',
       text: "El usuario será eliminado.",
       icon: 'warning',
+      iconColor: '#0f1724',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#163e56',
+      cancelButtonColor: '#6a7377',
       confirmButtonText: 'Sí, ¡eliminalo!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
