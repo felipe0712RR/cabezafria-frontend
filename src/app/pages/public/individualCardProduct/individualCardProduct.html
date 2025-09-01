@@ -7,7 +7,7 @@
     <p>{{ product.productPrice | currency:'COP':'symbol' }}</p>
 
     <!-- Contador de favoritos -->
-    <p>❤️ {{ product.favouritesCount || 0 }}</p>
+    <p>❤️ {{ product?.productFavouriteCounter || 0 }}</p>
 
     <!-- Botón para agregar/quitar favorito -->
     <button (click)="toggleFavourite()" class="fav-button">

@@ -1,8 +1,8 @@
 <section class="products-main-container">
   <div class="products-main-container__cardproduct">
     @for (product of products; track product._id) {
-    <div class="products-main-container__cardproduct__product"  routerLink="products/productcard">
-      <img [src]="product?.productUrlImage" class="products-main-container__cardproduct__img"
+    <div class="products-main-container__cardproduct__product">
+      <img [src]="product?.productUrlImage" routerLink="products/productcard" class="products-main-container__cardproduct__img"
         [alt]="product?.productName" />
       <h3 class="products-main-container__cardproduct__name">
         {{ product?.productName }}
@@ -15,7 +15,7 @@
           {{ product.productDescription }}
         </p>
         <div class="products-main-container__cardproduct__buy-container">
-          <button class="products-main-container__cardproduct__buy-container__buy-btn" (click)="addToCart( product )">
+          <button type="button" class="products-main-container__cardproduct__buy-container__buy-btn" (click)="addToCart( product )">
             Agregar al carrito
           </button>
           <div class="products-main-container__cardproduct__buy-container__fav">
