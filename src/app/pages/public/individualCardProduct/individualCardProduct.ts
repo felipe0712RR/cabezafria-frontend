@@ -8,6 +8,7 @@ import { dataProduct, Review } from '../../../models/product.model';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/users-service';
 import { Subscription } from 'rxjs';
+import { CartService } from '../../../services/cartsopphing-service';
 
 @Component({
     selector: 'app-product-card',
@@ -21,6 +22,7 @@ export class ProductCard implements OnInit, OnDestroy {
     user: User | null = null;
     isFavorite: boolean = false;
     private userSub?: Subscription;
+    
 
     // Formulario reseña
     newReview: { comment: string; rating: number } = { comment: '', rating: 0 };
@@ -29,7 +31,8 @@ export class ProductCard implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private productService: ProductService,
         private authService: AuthService,
-        private userService: UserService
+        private userService: UserService,
+        private cartService: CartService
     ) { }
 
     ngOnInit(): void {
@@ -83,6 +86,9 @@ export class ProductCard implements OnInit, OnDestroy {
             });
         }
     }
+     addToCart(product: dataProduct) {
+    this.cartService.updateToCart(product, +1);
+  }
 
     // submitReview() {
     //     if (!this.user || !this.product?._id) return;
