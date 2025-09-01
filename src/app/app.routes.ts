@@ -14,7 +14,7 @@ import { CardsProducts } from './pages/public/cardsProducts/cardsProducts';
 import { Checkout } from './pages/public/checkout/checkout';
 import { NewReviews } from './pages/private/reviews/new-reviews/new-reviews';
 import { UserProfile } from './pages/private/user-profile/user-profile';
-import { ProductCardComponent } from './pages/public/individualCardProduct/individualCardProduct';
+//import { ProductCardComponent } from './pages/public/individualCardProduct/individualCardProduct';
 
 
 
@@ -31,7 +31,7 @@ export const routes: Routes = [
     { path: 'dashboard/products/new', component: CreateNewProduct, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
     { path: 'dashboard/users', component: GetUsers, canActivate: [authGuard, roleGuard], data: { expectedRoles: ['Administrador'] } },
     { path: 'products', component: CardsProducts },
-    { path: 'products/productcard', component: ProductCardComponent },
+//    { path: 'products/productcard', component: ProductCardComponent },
     { path: 'shoppingcart', component: Checkout },
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
     { path: '', redirectTo: 'home', pathMatch: 'full' }

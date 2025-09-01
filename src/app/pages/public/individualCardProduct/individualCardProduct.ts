@@ -1,69 +1,101 @@
-import { Component, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
-import { AuthService } from '../../../services/auth-service';
-import { CurrencyPipe, NgClass } from '@angular/common';
+// import { Component, OnInit } from '@angular/core';
+// import { ActivatedRoute } from '@angular/router';
+// import { CommonModule } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
+// import { ProductService } from '../../../services/product-service';
+// import { AuthService } from '../../../services/auth-service';
+// import { dataProduct, Review } from '../../../models/product.model';
+// import { User } from '../../../models/user.model';
+// import { UserService } from '../../../services/users-service';
 
+// @Component({
+//     selector: 'app-product-card',
+//     standalone: true,
+//     imports: [CommonModule, FormsModule],
+//     templateUrl: './individualCardProduct.html',
+//     styleUrls: ['./individualCardProduct.css']
+// })
+// export class ProductCard implements OnInit {
+//     product!: dataProduct;
+//     user: User | null = null;
+//     isFavorite: boolean = false;
 
-@Component({
-    selector: 'app-product-card',
-    templateUrl: './individualCardProduct.html',
-    styleUrls: ['././individualCardProduct.css'],
-    imports: [NgClass, CurrencyPipe]
-})
-export class ProductCardComponent {
-    @Input() product: any;
+//     // Formulario reseña
+//     newReview: { comment: string; rating: number } = { comment: '', rating: 0 };
 
-    BASE_URL: string = environment.apiURL;
-    user: any;
+//     constructor(
+//         private route: ActivatedRoute,
+//         private productService: ProductService,
+//         private authService: AuthService,
+//         private userService: UserService
+//     ) { }
 
-    constructor(
-        private http: HttpClient,
-        private authService: AuthService
-    ) {
-        this.authService.userData$.subscribe((user) => {
-            this.user = user;
-        });
-    }
+//     ngOnInit(): void {
+//         const productId = this.route.snapshot.paramMap.get('id');
+//         if (productId) {
+//             this.loadProduct(productId);
+//         }
 
-    isFavourite(): boolean {
-        if (!this.user || !this.user.favourites) return false;
-        return this.user.favourites.includes(this.product._id);
-    }
+//         this.authService.userData$.subscribe(user => {
+//             this.user = user;
+//             // Si el producto ya cargó, actualiza favoritos
+//             if (this.product && user?.userFavorites?.includes(this.product._id!)) {
+//                 this.isFavorite = true;
+//             }
+//         });
+//     }
 
-    toggleFavourite(): void {
-        if (!this.user || !this.user._id) {
-            console.warn('Debes iniciar sesión para agregar favoritos');
-            return;
-        }
+//     loadProduct(productId: string) {
+//         this.productService.getProductsId(productId).subscribe({
+//             next: (product: dataProduct) => {
+//                 this.product = product;
 
-        const userId = this.user._id;
-        const productId = this.product._id;
+//                 if (this.user?.userFavorites?.includes(this.product._id!)) {
+//                     this.isFavorite = true;
+//                 }
+//             },
+//             error: (err) => console.error('Error cargando producto', err)
+//         });
+//     }
 
-        if (this.isFavourite()) {
-            // Quitar de favoritos
-            this.http.delete(`${this.BASE_URL}/users/${userId}/favorites/${productId}`, {
-                headers: this.authService.getHeaders()
-            }).subscribe({
-                next: (res: any) => {
-                    console.log('Producto eliminado de favoritos', res);
-                    this.user.favourites = res.favourites;
-                    this.authService.updateUser(this.user); // refresca BehaviourSubject + localStorage
-                },
-                error: (err) => console.error('Error al eliminar de favoritos', err)
-            });
-        } else {
-            // Agregar a favoritos
-            this.http.post(`${this.BASE_URL}/users/${userId}/favorites/${productId}`, {}, {
-                headers: this.authService.getHeaders()
-            }).subscribe({
-                next: (res: any) => {
-                    console.log('Producto agregado a favoritos', res);
-                    this.user.favourites = res.favourites;
-                    this.authService.updateUser(this.user); // refresca BehaviourSubject + localStorage
-                },
-                error: (err) => console.error('Error al agregar a favoritos', err)
-            });
-        }
-    }
-}
+//     toggleFavorite() {
+//         if (!this.user?._id || !this.product?._id) return;
+
+//         if (this.isFavorite) {
+//             this.userService.removeFavourite(this.user._id, this.product._id!).subscribe({
+//                 next: () => this.isFavorite = false,
+//                 error: (err) => console.error('Error removiendo favorito', err)
+//             });
+//         } else {
+//             this.userService.addFavourite(this.user._id, this.product._id!).subscribe({
+//                 next: () => this.isFavorite = true,
+//                 error: (err) => console.error('Error agregando favorito', err)
+//             })
+//         }
+//     }
+
+//     submitReview() {
+//         if (!this.user || !this.product?._id) return;
+
+//         const review: Review = {
+//             reviewUserId: this.user._id,
+//             reviewProductId: this.product._id,  
+//             reviewQualification: this.newReview.rating, 
+//             reviewContent: this.newReview.comment       
+//         };
+
+//         this.productService.addReview(this.product._id, review).subscribe({
+//             next: (createdReview: Review) => {
+//                 // Agregar la reseña recién creada al array local
+//                 this.product!.productReviews = [
+//                     ...(this.product!.productReviews || []),
+//                     createdReview
+//                 ];
+
+//                 // Resetear el formulario
+//                 this.newReview = { comment: '', rating: 0 };
+//             },
+//             error: (err) => console.error('Error agregando reseña', err)
+//         });
+//     }
+// }
