@@ -66,7 +66,7 @@
                     <div class="field">
                         <label for="product-category">Categoria</label>
                         <select formControlName="productCategory" id="product-category">
-                            <option value="">Seleccionada..</option>
+                            <option value="">Seleccionada...</option>
 
                             @for (objCategory of categories; track $index) {
                             <option [value]="objCategory._id">{{objCategory.categoryName}}</option>

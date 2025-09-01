@@ -6,11 +6,11 @@
     >
         <div class="form__container-login">
             
-                <h1>Login</h1>
+                <h1>Iniciar sesión</h1>
             
             <div class="form-content">
                 <div class="field">
-                    <label for="userEmail">userEmail</label>
+                    <label for="userEmail">Correo Electrónico</label>
                     <input type="text" placeholder="Ej: correo@gmail.com" id="userEmail" formControlName="userEmail">
                     <div class="error">
                         @if ( formData.get( 'userEmail' )?.invalid && (( formData.get( 'userEmail' )?.dirty || formData.get( 'userEmail' )?.touched)) ) {
@@ -24,18 +24,18 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label for="userPassword">userPassword *</label>
-                    <input type="userPassword" placeholder="Ej: 123456789" id="userPassword" formControlName="userPassword">
+                    <label for="userPassword">Contraseña</label>
+                    <input type="password" placeholder="Ej: 123456789" id="userPassword" formControlName="userPassword">
                     <div class="error">
                         @if ( formData.get( 'userPassword' )?.invalid && ( formData.get( 'userPassword' )?.dirty || formData.get( 'userPassword' )?.touched) ) {
                             @if ( formData.get( 'userPassword' )?.errors?.[ 'required' ] ) {
-                                <span>El userPassword es obligatorio</span>
+                                <span>La contraseña es obligatoria</span>
                             }
                             @if ( formData.get( 'userPassword' )?.errors?.[ 'minlength' ] ) {
-                                <span>El userPassword debe tener minimo '8' caracteres</span>
+                                <span>La contraseña debe tener minimo '8' caracteres</span>
                             }
                             @if ( formData.get( 'userPassword' )?.errors?.[ 'maxlength' ] ) {
-                                <span>El userPassword debe tener maximo '20' caracteres</span>
+                                <span>La contraseña debe tener maximo '20' caracteres</span>
                             }
                         }
                     </div>
