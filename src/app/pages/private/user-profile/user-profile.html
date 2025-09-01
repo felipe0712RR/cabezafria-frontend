@@ -1,49 +1,91 @@
-<!-- <pre>{{ products | json }}</pre> -->
-
 <div class="main-container">
-    <div class="user-profile-container__title">
-        <h1 class="user-profile-container__title__text">Profile</h1>
-    </div>
-    <div class="user-profile-container">
-        <div class="user-profile-container__card">
-            <div class="user-profile-container__card__photo">
-                <img class="user-profile-container__card__photo__img" src="assets/imgs/cabezafria/user-profile.png"
-                    alt="">
+    <div class="user-profile-container__container">
+        <div class="user-profile-container">
+            <div class="user-profile-container__title">
+                <h1 class="user-profile-container__title__text">Your Profile</h1>
             </div>
-            <div class="user-profile-container__card-container">
-                @if(isLoggedIn){
-                <div class="user-profile-container__card__data">
-                    <h2 class="user-profile-container__card__data__username user-profile-container__card__data__texts">{{user.userName}}</h2>
-                    <p class="user-profile-container__card__data__useremail user-profile-container__card__data__texts">Email: {{user.userEmail}}</p>
-                    <p class="user-profile-container__card__data__userphone user-profile-container__card__data__texts">Phone: +57 {{user.userPhoneNumber}}</p>
-                    <p class="user-profile-container__card__data__userrole user-profile-container__card__data__texts">{{user.userRole}}</p>
 
+            <div class="user-profile-container__card-container">
+                <div class="user-profile-container__card">
+                    <div class="user-profile-container__card__photo">
+                        <img class="user-profile-container__card__photo__img"
+                            src="assets/imgs/cabezafria/user-profile.png" alt="profile">
+                    </div>
+
+                    <div class="user-profile-container__card-container">
+                        @if (isLoggedIn) {
+                        <div class="user-profile-container__card__data">
+                            <h2
+                                class="user-profile-container__card__data__username user-profile-container__card__data__texts">
+                                {{ user?.userName }}
+                            </h2>
+                            <p
+                                class="user-profile-container__card__data__useremail user-profile-container__card__data__texts">
+                                Email: {{ user?.userEmail }}
+                            </p>
+                            <p
+                                class="user-profile-container__card__data__userphone user-profile-container__card__data__texts">
+                                Phone: +57 {{ user?.userPhoneNumber }}
+                            </p>
+                            <p
+                                class="user-profile-container__card__data__userrole user-profile-container__card__data__texts">
+                                {{ user?.userRole }}
+                            </p>
+                        </div>
+                        }
+                    </div>
                 </div>
-                }
             </div>
         </div>
-    </div>
-    <div class="favourites-container">
-        <div class="container__card ">
-            @for (product of products; track product._id) {
-            <div class="product-card">
-                <img [src]="product?.productUrlImage" [alt]="product?.productName">
-                <h3>{{ product?.productName }}</h3>
-                <p>Precio: ${{ product.productPrice }}</p>
-                <p>{{ product.productDescription }}</p>
-                <div class="button__product">
-                    <button class="products-main-container_cardproductbuycontainer_btn" (click)="addToCart( product )">
-                        Agregar al carrito
-                    </button>
-                    <button (click)="toggleFavorite(product)">
-                        {{ favIds.has(product._id) ? '❌' : '✅' }}
-                    </button>
-                </div>
 
+        <div class="favourites-container">
+            <div class="favourites-container__title">
+                <h1 class="favourites-container__title__text user-profile-container__title__text">
+                    Your Favorites List
+                </h1>
             </div>
-            } @empty {
-            <p class="no-products">No hay productos en favoritos en este momento.</p>
-            }
+
+            <div class="favourites-container__favourites">
+                @for (product of favorites; track product._id) {
+                <div class="favourites-container__favourites-cards">
+                    <img class="favourites-container__favourites-cards__img" [src]="product?.productUrlImage"
+                        [alt]="product?.productName">
+
+                    <h3
+                        class="favourites-container__favourites-cards__name favourites-container__favourites-cards__texts">
+                        {{ product?.productName }}
+                    </h3>
+
+                    <p
+                        class="favourites-container__favourites-cards__price favourites-container__favourites-cards__texts">
+                        Price: {{ product?.productPrice | currency }} COP
+                    </p>
+
+                    <p
+                        class="favourites-container__favourites-cards__category favourites-container__favourites-cards__texts">
+                        Type: {{ product?.productType}}
+                    </p>
+
+                    <div class="favourites-container__favourites-cards__buy-fav">
+                        <button class="favourites-container__favourites-cards__buy-fav__buy-btn"
+                            (click)="addToCart(product)">
+                            Agregar al carrito
+                        </button>
+
+                        <div class="favourites-container__favourites-cards__buy-fav__fav-btn__container">
+                            <div class="favourites-container__favourites-cards__buy-fav__fav-btn">
+                                <img class="favourites-container__favourites-cards__buy-fav__fav-btn__img"
+                                    src="assets/imgs/fav+.png" alt="fav">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                } @empty {
+                <p class="no-products">
+                    No hay productos en favoritos en este momento.
+                </p>
+                }
+            </div>
         </div>
     </div>
 </div>

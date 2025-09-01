@@ -4,9 +4,10 @@ import { dataProduct } from '../../../models/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { CartService } from '../../../services/cartsopphing-service';
 import { switchMap } from 'rxjs';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-cartshopping',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, RouterLink],
   templateUrl: './cardsProducts.html',
   styleUrl: './cardsProducts.css'
 })

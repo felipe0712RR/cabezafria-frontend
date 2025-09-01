@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { dataProduct } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +46,5 @@ export class ProductService {
   getCurrentProductFilter(): string {
     return this._brandFilter.getValue();
   }
+
 };

@@ -39,13 +39,13 @@
 }
 
 .products-main-container__cardproduct__price{
-  color: #b5b4aa;
+  color: #ede8dc;
   font-size: 0.95rem;
   font-weight: 800;
 }
 
 .products-main-container__cardproduct__description {
-  color: #b5b4aa;
+  color: #ede8dc;
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -80,7 +80,7 @@
 }
 
 .products-main-container__cardproduct__buy-container__fav-counter{
-  color: #b5b4aa;
+  color: #ede8dc;
   font-weight: 600;
 }
 
