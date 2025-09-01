@@ -6,6 +6,7 @@ import { dataProduct } from '../../../models/product.model';
 import { AuthService } from '../../../services/auth-service';
 import { UserService } from '../../../services/users-service';
 import { User } from '../../../models/user.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-profile',
@@ -58,14 +59,27 @@ export class UserProfile implements OnInit {
     const userId = this.user?._id;  // puede ser string | undefined
     if (!userId) return;            // cortamos si no hay userId
 
-    this.userService.removeFavourite(userId, productId).subscribe({
-      next: () => {
-        // actualizamos el array local sin recargar la página
-        this.favorites = this.favorites.filter(p => p._id !== productId);
-        console.log("Producto removido de favoritos:", productId);
-      },
-      error: (err) => console.error("Error removiendo favorito", err)
-    });
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Tu elemento se irá de favoritos.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, ¡Eliminar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.removeFavourite(userId, productId).subscribe({
+          next: () => {
+            // actualizamos el array local sin recargar la página
+            this.favorites = this.favorites.filter(p => p._id !== productId);
+            console.log("Producto removido de favoritos:", productId);
+          },
+          error: (err) => console.error("Error removiendo favorito", err)
+        });
+      }
+    })
   }
 }
 
