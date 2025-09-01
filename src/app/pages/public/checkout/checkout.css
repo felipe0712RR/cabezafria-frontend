@@ -6,11 +6,13 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  color: #000;
+  font-weight: 200;
 }
 
 /* Cart Section */
 .cart-section {
-  background-color: #fff;
+  background-color: #ede8dc;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -35,7 +37,7 @@
 }
 
 .free-shipping-text {
-  color: #ff6347;
+  color: #6a7377;
   font-weight: bold;
 }
 
@@ -50,7 +52,7 @@
 }
 
 .cart-item {
-  border: 1px solid var(--AliceBlue);
+  border: 1px solid black;
   border-radius: 0.7rem;
   padding: 2rem;
   background: var(--AliceBlue);
@@ -59,6 +61,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+
 }
 
 .product-image {
@@ -71,12 +74,12 @@
 .product-details {
   display: flex;
   flex-direction: column;
+  max-width: 40%;
 }
 
 .product-name {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 5px;
-  font-size: 2rem;
   font-weight: 600;
   height: 2rem;
   inline-size: 100%;
@@ -89,15 +92,22 @@
 .product-category,
 .product-color,
 .product-size {
-  color: var(--paolo-veronese-green);
+  color: black;
   font-size: 1.4rem;
-  font-style: italic;
+  font-style: oblique;
+  font-weight: 400;
+}
+
+.product-price{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .product-price__value {
   color: var(--bleu-de-france);
   margin: 0 0 1.4rem 0;
-  font-size: 2.8rem;
+  font-size: 1.8rem;
 }
 
 .product-unit-price__value {
@@ -114,7 +124,7 @@
   border-radius: 0.5rem;
   margin: 1rem 0;
   padding: 0.6rem;
-  background: white;
+  background: #B5b4aa;
 }
 
 .quantity-control {
@@ -133,6 +143,26 @@
 .action-buttons {
   display: flex;
   gap: 10px;
+  justify-content: center;
+}
+
+.btn-primary{
+  padding: 0.5rem 1rem;
+  background-color: #163e56;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: "Inter";
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+.btn-primary:hover{
+  background-color: #0f1724;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .move-to-favorites,
@@ -170,11 +200,13 @@
 }
 
 .summary-section {
-  background-color: var(--bleu-de-france);
-  color: var(--AliceBlue);
+  background-color: #ede8dc;
+  color: black;
   padding: 20px;
-  border-radius: 0.7rem 0.7rem 0 0;
+  border: 1px solid black;
+    border-radius: 0.7rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: .5rem;
 }
 
 .section-title {
@@ -184,10 +216,12 @@
 }
 
 .contact-section {
-  border: 2px solid var(--bleu-de-france);
-  border-radius: 0 0 0.7rem 0.7rem;
+  margin-top: .5rem;
+  border: 1px solid black;
+  border-radius: 0.7rem;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ede8dc;
 }
 
 .summary-title {
@@ -237,7 +271,7 @@
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   transition: background-color 0.3s ease, transform 0.2s ease,
     box-shadow 0.3s ease;
 }
@@ -285,7 +319,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: .7rem;
 }
 
 input[type="checkbox"] {
