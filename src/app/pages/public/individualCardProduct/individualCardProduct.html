@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-@for (product of products; track product._id) {
-
-<div class="product-card">
-    <!-- Imagen del producto -->
-    <img [src]="product?.productUrlImage" [alt]="product.productName" class="product-image">
-
-    <!-- Información del producto -->
-    <h3>{{ product?.productName }}</h3>
-    <p>{{ product?.productPrice | currency:'COP':'symbol' }}</p>
-
-    <!-- Contador de favoritos -->
-    <p>❤️ {{ product?.productFavoriteCounter || 0 }}</p>
-
-    <!-- Botón para agregar/quitar favorito -->
-    <button (click)="toggleFavourite()" class="fav-button">
-        <span [ngClass]="{ 'favourited': isFavourite(), 'not-favourited': !isFavourite() }">
-            {{ isFavourite() ? '♥' : '♡' }}
-            {{ isFavourite() ? 'Quitar de favoritos' : 'Agregar a favoritos' }}
-        </span>
-    </button>
-</div>
-}
-=======
 <section class="product-card-container" *ngIf="product as p">
     <div class="product-card">
         <img [src]="p.productUrlImage" [alt]="p.productName" class="product-card__img" />
@@ -33,58 +9,12 @@
 
             <!-- Botón favoritos -->
             <button class="product-card__favorite-btn" (click)="toggleFavorite()">
-                @if (isFavorite) {
-                ❤️ Quitar de favoritos
-                } @else {
-                🤍 Agregar a favoritos
-                }
+                <div class="product-card__favorite-btn__fav-container">
+                    <img class="product-card__favorite-btn__fav-container__img" src="assets/imgs/fav.png" alt="fav">
+                </div>
             </button>
         </div>
     </div>
 
-    <!-- Reseñas -->
-    <div class="product-reviews">
-        <h3>Reseñas</h3>
-
-        @if (p.productReviews?.length) {
-        @for (review of p.productReviews; track review._id) {
-        <div class="review">
-            <p class="review__user">
-                <strong>{{ review.reviewUserId }}</strong> ⭐ {{ review.reviewQualification }}/5
-            </p>
-            <p class="review__comment">{{ review.reviewContent }}</p>
-        </div>
-        }
-        } @else {
-        <p>Aún no hay reseñas para este producto.</p>
-        }
-    </div>
-
-    <!-- Formulario reseña -->
-    @if (user) {
-    <div class="review-form">
-        <h3>Escribir una reseña</h3>
-        <form (ngSubmit)="submitReview()">
-            <label>Comentario</label>
-            <textarea [(ngModel)]="newReview.comment" name="comment" required></textarea>
-
-            <label>Calificación</label>
-            <select [(ngModel)]="newReview.rating" name="rating" required>
-                <option [ngValue]="0">Seleccionar</option>
-                <option [ngValue]="1">1 ⭐</option>
-                <option [ngValue]="2">2 ⭐⭐</option>
-                <option [ngValue]="3">3 ⭐⭐⭐</option>
-                <option [ngValue]="4">4 ⭐⭐⭐⭐</option>
-                <option [ngValue]="5">5 ⭐⭐⭐⭐⭐</option>
-            </select>
-
-            <button type="submit">Enviar reseña</button>
-        </form>
-    </div>
-    } @else {
-    <div class="review-login-warning">
-        <p>Debes iniciar sesión para dejar una reseña.</p>
-    </div>
-    }
+   
 </section>
->>>>>>> 48455f4d514f7051df52a2fadefa80dcb33b11c9
