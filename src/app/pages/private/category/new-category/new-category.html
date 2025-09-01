@@ -2,28 +2,28 @@
     <form [formGroup]="formData" (submit)="onSubmit()" class="form form-login">
         
         <div class="form-header">
-            <h1>Register Category</h1>
+            <h1>Registrar Categoria</h1>
         </div>
 
         <div class="form-content">
             <div class="field field-name">
-                <label for="category-name">Name</label>
+                <label for="category-name">Nombre</label>
                 <input type="text" formControlName="categoryName" id="category-name" />
             </div>
             <div class="field">
-                <label for="category-description">Description</label>
+                <label for="category-description">Descripción</label>
                 <textarea formControlName="categoryDescription" id="category-description"></textarea>
             </div>
 
             <div class="field field-state">
-                <label>State</label>
+                <label>Estado</label>
                 <input type="radio" formControlName="categoryState" [value]="true" id="category-state-available" />
-                <label for="category-state-available">Available</label>
+                <label for="category-state-available">Disponible</label>
                 <input type="radio" formControlName="categoryState" [value]="false" id="category-state-notavailable" />
-                <label for="category-state-notavailable">Not Available</label>
+                <label for="category-state-notavailable">No Disponible</label>
             </div>
             <div class="field field-submit">
-                <button type="submit">Register category</button>
+                <button type="submit">Registrar categoria</button>
             </div>
         </div>
     </form>

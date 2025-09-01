@@ -23,6 +23,7 @@ export class ProductCard implements OnInit, OnDestroy {
     favorites: dataProduct[] = [];
     private userSub?: Subscription;
 
+
     // Formulario reseña
     newReview: { comment: string; rating: number } = { comment: '', rating: 0 };
 
@@ -99,10 +100,10 @@ export class ProductCard implements OnInit, OnDestroy {
             });
         }
     }
-
     addToCart(product: dataProduct) {
         this.cartService.updateToCart(product, +1);
     }
+
 
     // submitReview() {
     //     if (!this.user || !this.product?._id) return;

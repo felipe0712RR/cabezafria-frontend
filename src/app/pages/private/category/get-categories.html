@@ -1,15 +1,15 @@
 <div class="page-categories-list">
-    <h1>Categories List</h1>
+    <h1>Categorías</h1>
 
     <!-- <pre>{{ products | json }}</pre> -->
 
     <div class="categories-list">
         <table class="table" border="1">
             <thead>
-                <th>Name Category</th>
-                <th>Description</th>
-                <th>State</th>
-                <th>Actions</th>
+                <th>Nombre Categoria</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Acciones</th>
             </thead>
         
             <tbody>
@@ -19,7 +19,7 @@
                     <td>{{ category.categoryDescription }}</td>
                     <td>{{ category.categoryState }}</td>
                     <td>
-                        <a class="btn btn-secondy" (click)="onDelete(category._id)">Delete</a>
+                        <a class="btn btn-secondy" (click)="onDelete(category._id)">Eliminar</a>
                     </td>
                 </tr>
                 }
