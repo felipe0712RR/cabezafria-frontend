@@ -63,9 +63,10 @@ export class UserProfile implements OnInit {
       title: '¿Estás seguro?',
       text: "Tu elemento se irá de favoritos.",
       icon: 'warning',
+      iconColor: '#0f1724',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#163e56',
+      cancelButtonColor: '#6a7377',
       confirmButtonText: 'Sí, ¡Eliminar!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
